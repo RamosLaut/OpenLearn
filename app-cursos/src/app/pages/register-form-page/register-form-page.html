@@ -1,0 +1,51 @@
+<form [formGroup]="registerForm" (ngSubmit)="ngSubmit()">
+    <fieldset>
+        <label for="userName">Username: </label>
+        <input type="text" id="userName" formControlName="userName">
+        @if (userName.hasError("required") && userName.touched) {
+            <p class="msj-error">Username is required!</p>
+        }@else if (userName.hasError("maxlength") && userName.touched) {
+            <p class="msj-error">The username cannot exceed 30 characters</p>
+        }
+    </fieldset>
+     <fieldset>
+        <label for="email">Email: </label>
+        <input type="text" id="email" formControlName="email">
+        @if (email.hasError("required") && email.touched) {
+            <p class="msj-error">Email is required!</p>
+        }@else if (email.hasError("email") && email.touched) {
+            <p class="msj-error">The email must be in a valid format</p>
+        }
+    </fieldset>
+     <fieldset>
+        <label for="fullName">Full Name: </label>
+        <input type="text" id="fullName" formControlName="fullName">
+        @if (fullName.hasError("required") && fullName.touched) {
+            <p class="msj-error">FullName is required!</p>
+        }@else if (fullName.hasError("minlength") && fullName.touched) {
+            <p class="msj-error">The fullname must have at least 3 characters</p>
+        }@else if (fullName.hasError("maxlength") && fullName.touched) {
+            <p class="msj-error">The fullname must not exceed 50 characters</p>
+        }
+    </fieldset>
+     <fieldset>
+        <label for="password">Password: </label>
+        <input type="password" id="password" formControlName="password">
+        @if (password.hasError("required") && password.touched) {
+            <p class="msj-error">Password is required!</p>
+        }@else if (password.hasError("pattern") && password.touched) {
+            <p class="msj-error">The password must be at least 8 digits long, contain at least one capital letter and at least one number.</p>
+        }
+    </fieldset>
+     <fieldset>
+        <label for="confirmPassword">Confirm password: </label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+        @if (confirmPassword.hasError("required") && confirmPassword.touched) {
+            <p class="msj-error">Password confirmation is required!</p>
+        } 
+        @else if (confirmPassword.hasError("passwordsMismatch") && confirmPassword.touched) {
+            <p class="msj-error">Passwords do not match!</p>
+        }
+    </fieldset>
+    <button [disabled]="registerForm.invalid">send</button>
+</form>

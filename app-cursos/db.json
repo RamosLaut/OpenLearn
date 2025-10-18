@@ -1,0 +1,63 @@
+{
+  "members": [
+    {
+      "id": "1",
+      "userName": "janeDoe",
+      "email": "jane@example.com",
+      "fullName": "Jane Doe",
+      "registrationDate": "2024-11-15T14:20:10Z",
+      "profilePhotoUrl": "https://i.pravatar.cc/150?img=1",
+      "biography": "Senior frontend developer with 8 years of experience in Angular and React. Passionate about creating accessible web applications.",
+      "professionalTitle": "Senior Frontend Developer",
+      "links": {
+        "webpage": "https://jane-doe.com",
+        "linkedin": "https://linkedin.com/in/janedoe",
+        "github": "https://github.com/janedoe"
+      },
+      "accountStatus": "active",
+      "createdCourses": [
+        101,
+        102
+      ],
+      "enrolledCourses": [
+        205
+      ]
+    },
+    {
+      "id": "2",
+      "userName": "alexSmith",
+      "email": "alex@example.com",
+      "fullName": "Alex Smith",
+      "registrationDate": "2025-01-05T09:00:00Z",
+      "professionalTitle": "Student",
+      "links": {
+        "github": "https://github.com/alexsmith",
+        "twitter": "https://twitter.com/alexsmith"
+      },
+      "accountStatus": "pendingVerification",
+      "createdCourses": [],
+      "enrolledCourses": [
+        101,
+        301,
+        302
+      ]
+    },
+    {
+      "id": "3",
+      "userName": "samWilson",
+      "email": "sam@example.com",
+      "fullName": "Sam Wilson",
+      "registrationDate": "2023-05-10T18:45:00Z",
+      "accountStatus": "suspended",
+      "createdCourses": [],
+      "enrolledCourses": []
+    },
+    {
+      "id": "ba55",
+      "userName": "Testing",
+      "email": "testing@gmail.com",
+      "fullName": "Testing Uno",
+      "password": "Clave123"
+    }
+  ]
+}
