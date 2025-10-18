@@ -5,5 +5,6 @@
 }
 
 body {
-    background: #e7ecef;
+    background: linear-gradient(to right, rgb(255, 193, 255), rgb(192, 221, 255));
+    
 }
