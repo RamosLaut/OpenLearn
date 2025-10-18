@@ -1,0 +1,13 @@
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    list-style-type: none;
+}
+
+a{
+    color: white;
+    font-size: large;
+    text-decoration: none;
+}
