@@ -1,3 +1,4 @@
+<div class="form-container">
 <form [formGroup]="registerForm" (ngSubmit)="ngSubmit()">
     <fieldset>
         <label for="userName">Username: </label>
@@ -47,5 +48,6 @@
             <p class="msj-error">Passwords do not match!</p>
         }
     </fieldset>
-    <button [disabled]="registerForm.invalid">send</button>
+    <button [disabled]="registerForm.invalid" class="btn-register">Register</button>
 </form>
+</div>
