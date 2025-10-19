@@ -1,0 +1,61 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.msj-error{
+    background: white;
+    color: red;
+    width: fit-content;
+    box-sizing: border-box;
+    padding: 2px;
+    border-radius: 3px;
+    margin: 5px;
+    line-height: 1.2;
+    max-width: 250px;
+}
+
+input {
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.5);
+    padding: 0 5px;
+}
+
+fieldset {
+    box-sizing: border-box;
+    padding: 10px 30px;
+
+}
+
+.btn-register{
+    box-sizing: border-box;
+    background-color: rgb(122, 147, 194);
+    color: white;
+    align-self: center;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.5)
+}
+
+button:disabled {
+  background-color: #ccc;      
+  color: #666;                 
+              
+}
+
