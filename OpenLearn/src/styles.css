@@ -4,7 +4,14 @@
     padding: 0;
 }
 
-body {
+app-root {
     background: linear-gradient(to right, rgb(255, 193, 255), rgb(192, 221, 255));
-    
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    'header'
+    'main'
+    'footer';
 }
+
