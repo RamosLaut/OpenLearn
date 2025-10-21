@@ -17,11 +17,11 @@ a{
 }
 
 a:hover{
-    background: hsl(0, 0%, 20%, 0.3);
+    background: hsl(0, 0%, 20%, 0.7);
 
 }
 
 a:active {
-    background: hsl(0, 0%, 20%, 0.7);
-    color: rgb(69, 69, 255);
+    background: hsla(0, 0%, 100%, 0.7);
+    color:#000;
 }
