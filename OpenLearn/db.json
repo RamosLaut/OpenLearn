@@ -2,9 +2,10 @@
   "members": [
     {
       "id": "1",
-      "userName": "janeDoe",
+      "username": "janeDoe",
       "email": "jane@example.com",
       "fullName": "Jane Doe",
+      "password": "JanePassword123",
       "registrationDate": "2024-11-15T14:20:10Z",
       "profilePhotoUrl": "https://i.pravatar.cc/150?img=1",
       "biography": "Senior frontend developer with 8 years of experience in Angular and React. Passionate about creating accessible web applications.",
@@ -25,9 +26,10 @@
     },
     {
       "id": "2",
-      "userName": "alexSmith",
+      "username": "alexSmith",
       "email": "alex@example.com",
       "fullName": "Alex Smith",
+      "password": "AlexPassword123",
       "registrationDate": "2025-01-05T09:00:00Z",
       "professionalTitle": "Student",
       "links": {
@@ -44,9 +46,10 @@
     },
     {
       "id": "3",
-      "userName": "samWilson",
+      "username": "samWilson",
       "email": "sam@example.com",
       "fullName": "Sam Wilson",
+      "password": "SamPassword123",
       "registrationDate": "2023-05-10T18:45:00Z",
       "accountStatus": "suspended",
       "createdCourses": [],
@@ -54,10 +57,17 @@
     },
     {
       "id": "ba55",
-      "userName": "Testing",
+      "username": "Testing",
       "email": "testing@gmail.com",
       "fullName": "Testing Uno",
       "password": "Clave123"
+    },
+    {
+      "id": "c541",
+      "username": "lautiDev",
+      "email": "lautiramos6@gmail.com",
+      "fullName": "Lautaro Ezequiel Ramos",
+      "password": "123456789R"
     }
   ]
 }
