@@ -1,0 +1,122 @@
+.my-courses-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.global-search-bar {
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.global-search-bar input[type="text"] {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px 15px;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.lists-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .lists-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+.course-list {
+    list-style: none;
+    padding: 2rem;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.course-list li {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.action-card-wrapper {
+    padding: 0;
+}
+
+.action-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 0;
+    font-size: 2.5em;
+    font-weight: 300;
+    color: #888;
+    transition: all 0.2s;
+    min-height: 120px;
+    cursor: pointer;
+}
+
+.action-link:hover {
+    background-color: #e9e9e9;
+    color: #007bff;
+    border-color: #007bff;
+}
+
+#enrolled-courses,
+#dictated-courses {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    
+}
+
+section h2 {
+    font-size: 1.8rem;
+    color: #003B6F;
+    margin-bottom: 15px;
+}
+
+.sorting-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.sorting-options select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
