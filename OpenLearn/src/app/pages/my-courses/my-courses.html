@@ -1,1 +1,40 @@
-<p>my-courses works!</p>
+<h1>My Courses</h1>
+<div class="global-search-bar">
+    <input type="text" placeholder="Search courses by name or keyword...">
+</div>
+<div class="lists-wrapper">
+    <section id="enrolled-courses">
+        <h2>My Learning</h2>
+        <div class="sorting-options">
+            <label for="sort-enrolled">Sort By:</label>
+            <select id="sort-enrolled">
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="name-desc">Name (Z-A)</option>
+                <option value="date-new">Latest Activity</option>
+            </select>
+        </div>
+        <ul class="course-list">
+            <li></li>
+            <li class="action-card-wrapper">
+                <a routerLink="/courses" class="action-link">+</a>
+            </li>
+        </ul>
+    </section>
+    <section id="dictated-courses">
+        <h2>My Teaching</h2>
+        <div class="sorting-options">
+            <label for="sort-dictated">Sort By:</label>
+            <select id="sort-dictated">
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="name-desc">Name (Z-A)</option>
+                <option value="date-created">Date Created</option>
+            </select>
+        </div>
+        <ul class="course-list">
+            <li></li>
+            <li class="action-card-wrapper">
+                <a routerLink="/course/new" class="action-link">+</a>
+            </li>
+        </ul>
+    </section>
+</div>

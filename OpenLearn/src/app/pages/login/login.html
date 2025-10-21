@@ -12,3 +12,6 @@
     <a routerLink="/registration">Register</a>
     <a routerLink="">Forgot password</a>
 </form>
+@if (errorMsg) {
+  <p class="error">{{ errorMsg }}</p>
+}
