@@ -1,0 +1,16 @@
+<header>
+    <h1>Open Learn</h1>
+    
+    <div class="user-menu-wrapper">
+        
+        <span class="material-symbols-outlined user-icon" (click)="toggleMenu()">
+            account_circle
+        </span>
+
+        <div class="dropdown-menu" *ngIf="isMenuOpen">
+            <a routerLink="/profile">My Profile</a>
+            <a routerLink="/mycourses">My Courses</a>
+            <a (click)="logout()">Log Out</a>
+        </div>
+    </div>
+</header>
