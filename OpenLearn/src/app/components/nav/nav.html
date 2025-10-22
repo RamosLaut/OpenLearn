@@ -1,15 +1,15 @@
 <nav>
     @if (!authService.isLoggedIn()) {
         <ul>
-            <li><a routerLink="/">🏠 Home</a></li>
-            <li><a routerLink="/registration">Register</a></li>
-            <li><a routerLink="/login">Login</a></li>
+            <li><a routerLink="/"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a routerLink="/registration"><i class="fa-solid fa-user-plus"></i>Register</a></li>
+            <li><a routerLink="/login"><i class="fa-solid fa-user"></i>Login</a></li>
         </ul>
     }
     @if (authService.isLoggedIn()) {
         <ul>
-            <li><a routerLink="/profile">👤 Profile</a></li>
-            <li><button (click)="logout()" class="btn-logout">🚪Log out</button></li>
+            <li><a routerLink="/profile"> <i class="fa-solid fa-user"></i>Profile</a></li>
+            <li><button (click)="logout()" class="btn-logout"><i class="fa-solid fa-right-to-bracket"></i>Log out</button></li>
             
         </ul>
     }

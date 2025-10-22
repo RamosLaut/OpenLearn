@@ -34,3 +34,7 @@ a:active {
     background: transparent;
     border: none;
 }
+
+nav i {
+    margin-right: 0.5rem;
+}
