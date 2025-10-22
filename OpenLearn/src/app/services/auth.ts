@@ -50,4 +50,9 @@ export class Auth {
     const token = localStorage.getItem('token');
     return token ? JSON.parse(atob(token)) : null;
   }
+
+  updateCurrentUser(member: Member): void {
+    localStorage.setItem('token', btoa(JSON.stringify(member)));
+    this.currentUserSubject.next(member);
+  }
 }

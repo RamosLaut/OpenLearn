@@ -5,6 +5,7 @@ import { Login } from './pages/login/login';
 import { MyCourses } from './pages/my-courses/my-courses';
 import { Courses } from './pages/courses/courses';
 import { Profile } from './pages/profile/profile';
+import { EditProfile } from './pages/edit-profile/edit-profile';
 
 export const routes: Routes = [
     {path: 'registration', component:RegisterFormPage},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path: 'mycourses', component: MyCourses},
     {path: 'courses', component: Courses},
     {path: 'profile', component: Profile},
+    {path: 'profile/edit/:id', component: EditProfile},
     {path: '', component: Home}
 ];

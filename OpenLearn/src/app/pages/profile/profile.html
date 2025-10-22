@@ -1,1 +1,47 @@
-<p>profile works!</p>
+<div class="profile-container">
+    <header class="profile-header">
+        <h1>{{ member?.fullName }}'s Profile</h1>
+        <button routerLink="/profile/edit/{{member?.id}}" class="edit-button">Edit Profile</button> 
+    </header>
+    <div class="profile-layout-grid">
+        <aside class="identity-card">
+            <img [src]="member?.profilePhotoUrl || 'default.png'" 
+                 alt="Profile Photo" 
+                 class="profile-photo">
+            
+            <h2 class="username">@{{ member?.username }}</h2>
+            <p class="title">{{ member?.professionalTitle || 'Platform Member' }}</p>
+            
+            @if (member?.accountStatus !== 'active') {
+                <span class="status-tag status-{{ member?.accountStatus }}">
+                    {{ member?.accountStatus | titlecase }}
+                </span>
+            }
+            <p class="member-since">Member since: {{ member?.registrationDate | date }}</p>
+        </aside>
+        <main class="profile-content">
+            <section class="biography-section">
+                <h2>About Me</h2>
+                <p>{{ member?.biography || 'The user has not added a biography yet.' }}</p>
+            </section>
+            @if (member?.createdCourses?.length) {
+                <section class="teaching-stats">
+                    <h2>Instructor Overview</h2>
+                    <p>Courses Created: <span>{{ member?.createdCourses?.length }}</span></p>
+                    <a routerLink="/mycourses" class="courses-link">View My Courses</a>
+                </section>
+            }
+            @if (member?.links) {
+                <section class="social-links">
+                    <h3>Connect</h3>
+                    <ul>
+                        @if (member?.links?.linkedin) { <li>LinkedIn</li> }
+                        @if (member?.links?.github) { <li>GitHub</li> }
+                        @if (member?.links?.webpage) { <li>Website</li> }
+                        @if (member?.links?.twitter) { <li>Twitter</li> }
+                    </ul>
+                </section>
+            }
+        </main>
+        </div>
+</div>
