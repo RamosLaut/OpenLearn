@@ -67,7 +67,21 @@
       "username": "lautiDev",
       "email": "lautiramos6@gmail.com",
       "fullName": "Lautaro Ezequiel Ramos",
-      "password": "123456789R"
+      "profilePhotoUrl": "https://okdiario.com/img/2019/06/11/mono.jpg",
+      "registrationDate": "2025-01-05T09:00:00Z",
+      "password": "123456789R",
+      "createdCourses": [
+        101,
+        102
+      ],
+      "professionalTitle": "Junior developer",
+      "biography": "",
+      "links": {
+        "webpage": "",
+        "linkedin": "",
+        "github": "",
+        "twitter": ""
+      }
     }
   ]
 }

@@ -1,9 +1,29 @@
-header{
+header {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    align-items: center;
+    padding: 1rem 1.5rem; 
+    background-color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+    z-index: 10; 
+}
+header h1 {
+    font-size: 1.8rem; 
+    color: #6F42C1; 
+    margin: 0; 
+}
+.material-symbols-outlined {
+    font-size: 28px;
+    color: #495057; 
+    transition: color 0.2s;
+    user-select: none; 
 }
 
+.material-symbols-outlined:hover {
+    color: #007bff;
+    cursor: pointer;
+}
 .user-menu-wrapper {
     position: relative; 
     margin-left: auto; 
@@ -35,6 +55,6 @@ header{
 .dropdown-menu a:hover {
     background-color: #f0f0f0;
 }
-span:hover{
-    cursor: pointer;
+#aH1{
+    text-decoration: none;
 }
