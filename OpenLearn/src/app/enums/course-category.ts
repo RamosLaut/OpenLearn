@@ -1,0 +1,17 @@
+export enum CourseCategory {
+  TECHNOLOGY = 'Technology',
+  BUSINESS = 'Business',
+  ARTS = 'Arts',
+  MUSIC = 'Music',
+  SCIENCE = 'Science',
+  HEALTH = 'Health',
+  PERSONAL_DEVELOPMENT = 'Personal Development',
+  LANGUAGE_LEARNING = 'Language Learning',
+  MARKETING = 'Marketing',
+  FINANCE = 'Finance',
+  EDUCATION = 'Education',
+  CRAFTS = 'Crafts',
+  COOKING = 'Cooking',
+  PHOTOGRAPHY = 'Photography',
+  WRITING = 'Writing', 
+}
