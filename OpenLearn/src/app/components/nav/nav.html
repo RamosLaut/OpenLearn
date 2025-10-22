@@ -8,6 +8,7 @@
     }
     @if (authService.isLoggedIn()) {
         <ul>
+            <li><a routerLink="/"><i class="fa-solid fa-house"></i>Home</a></li>
             <li><a routerLink="/profile"> <i class="fa-solid fa-user"></i>Profile</a></li>
             <li><button (click)="logout()" class="btn-logout"><i class="fa-solid fa-right-to-bracket"></i>Log out</button></li>
             
