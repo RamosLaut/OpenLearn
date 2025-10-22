@@ -1,1 +1,26 @@
-<p>courses works!</p>
+<div id="all-courses-container">
+<h1>Explore courses</h1>
+<div id="searchContainer">
+<input type="text" placeholder="What do you want to learn?">
+<select id="exploreCategories">
+    <option value="" disabled selected>Explore</option>
+    <option value="">Data science</option>
+    <option value="">Business</option>
+    <option value="">Mathematics</option>
+    <option value="">Personal development</option>
+    <option value="">Computer science</option>
+    <option value="">Information Technology</option>
+    <option value="">Health</option>
+</select>
+</div>
+<div id="listContainer">
+<ul>
+    @if(category){
+        <h2>{{category}}</h2>
+    }@else if (searched) {
+        <h2>Results for "{{searched}}"</h2>
+    }
+    <li></li>
+</ul>
+</div>
+</div>

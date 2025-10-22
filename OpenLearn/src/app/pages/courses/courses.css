@@ -1,0 +1,65 @@
+.all-courses-container {
+    max-width: 1200px;
+    margin: 2rem auto; 
+    padding: 0 1.5rem; 
+}
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+#searchContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 15px;
+    margin-bottom: 2rem;
+    padding: 1rem; 
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+#searchContainer input[type="text"] {
+    flex-grow: 1; 
+    min-width: 200px; 
+    padding: 10px 15px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+}
+#exploreCategories {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+#listContainer h2 {
+    font-size: 1.8rem;
+    color: #6F42C1;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+#listContainer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; 
+}
+#listContainer ul li {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-height: 150px;
+    padding: 20px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
