@@ -1,10 +1,17 @@
 <nav>
-    <!-- If (isLoggenIn) -->
-    
-    <!-- @Else  -->
-     <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/registration">Register</a></li>
-        <li><a routerLink="/login">Login</a></li>
-    </ul>
+    @if (!authService.isLoggedIn()) {
+        <ul>
+            <li><a routerLink="/">🏠 Home</a></li>
+            <li><a routerLink="/registration">Register</a></li>
+            <li><a routerLink="/login">Login</a></li>
+        </ul>
+    }
+    @if (authService.isLoggedIn()) {
+        <ul>
+            <li><a routerLink="/profile">👤 Profile</a></li>
+            <li><button (click)="logout()" class="btn-logout">🚪Log out</button></li>
+            
+        </ul>
+    }
+
 </nav>
