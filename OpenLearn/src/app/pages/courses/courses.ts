@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './courses.css'
 })
 export class Courses {
+  category!: string
+  searched!: string
+  selectedCategory!:string
 
+
+  searchTerm(){}
+  sortBy(){}
 }
