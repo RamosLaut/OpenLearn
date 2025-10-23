@@ -8,9 +8,11 @@
         </span>
 
         <div class="dropdown-menu" *ngIf="isMenuOpen">
-            <a routerLink="/profile">Profile</a>
-            <a routerLink="/mycourses">My Courses</a>
-            <a (click)="logout()">Log Out</a>
+            <a routerLink="/profile" class="menu-item">Profile<span class="material-symbols-outlined">account_circle</span></a>
+            <a routerLink="/mycourses" class="menu-item">My Courses<span class="material-symbols-outlined">school</span></a>
+            <a (click)="logout()" class="menu-item">Log Out<span class="material-symbols-outlined">
+logout
+</span></a>
         </div>
     </div>
 </header>
