@@ -55,4 +55,8 @@ export class Auth {
     localStorage.setItem('token', btoa(JSON.stringify(member)));
     this.currentUserSubject.next(member);
   }
+
+  public get CurrentUserValue(): Member | null {
+    return this.currentUserSubject.value;
+  }
 }

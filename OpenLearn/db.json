@@ -86,7 +86,7 @@
   ],
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Introducción a Angular",
       "description": "Aprende los fundamentos de Angular desde cero.",
       "instructorId": "1",
@@ -112,6 +112,34 @@
       ],
       "totalDurationInHours": 2.5,
       "coverImageUrl": "https://example.com/images/angular.png"
+    },
+    {
+      "id": "e98b",
+      "title": "Prueba",
+      "description": "Curso de prueba",
+      "category": "Programming",
+      "difficultyLevel": "beginner",
+      "sections": [
+        {
+          "title": "Sección 1",
+          "lessons": [
+            {
+              "title": "Lección 1",
+              "lessonType": "text",
+              "videoUrl": "",
+              "content": "",
+              "durationInMinutes": 5
+            }
+          ]
+        }
+      ],
+      "instructorId": "c541",
+      "instructorName": "Lautaro Ezequiel Ramos",
+      "publishedDate": "2025-10-23T23:34:59.939Z",
+      "status": "draft",
+      "totalDurationInHours": 0.08,
+      "averageRating": 0,
+      "numberOfReviews": 0
     }
   ]
 }
