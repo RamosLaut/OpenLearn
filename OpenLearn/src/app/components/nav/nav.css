@@ -34,3 +34,13 @@ a:active {
     background: transparent;
     border: none;
 }
+
+.nav-link-item {
+    display: flex;
+    align-items: center;
+    
+}
+
+.nav-link-item .material-symbols-outlined {
+    margin-right: 6px; 
+}
