@@ -69,3 +69,12 @@
 .edit-button:hover {
     background-color: #0056b3;
 }
+
+.profile-icon{
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon .material-symbols-outlined {
+    margin-left: 6px; 
+}

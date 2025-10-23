@@ -58,3 +58,13 @@ header h1 {
 #aH1{
     text-decoration: none;
 }
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    
+}
+
+.menu-item .material-symbols-outlined {
+    margin-left: 6px; 
+}

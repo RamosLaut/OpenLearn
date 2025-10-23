@@ -98,3 +98,13 @@ form button[disabled] {
 .cancel-button:hover {
     background-color: #e0e0e0;
 }
+
+.save-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.save-icon .material-symbols-outlined{
+    margin-left: 6px;
+}

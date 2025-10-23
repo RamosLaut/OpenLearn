@@ -45,7 +45,7 @@
             <input type="url" id="twitter" formControlName="links.twitter">
         </fieldset>
 
-        <button type="submit" [disabled]="editForm.invalid">Save Changes</button>
+        <button type="submit" [disabled]="editForm.invalid" class="save-icon">Save Changes<span class="material-symbols-outlined">save</span></button>
         <button type="button" routerLink="/profile" class="cancel-button">Cancel</button>
 
     </form>
