@@ -1,0 +1,96 @@
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+
+    <h2>Create new course</h2>
+
+    <fieldset>
+        <label for="title">Title of course: </label>
+        <input type="text" id="title" formControlName="title" placeholder="Course Title">
+    </fieldset>
+
+    <fieldset>
+        <label for="description">Description: </label>
+        <textarea type="text" id="description" formControlName="description" placeholder="Course Description"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <label for="category">Category: </label>
+        <select id="category" formControlName="category">
+            @for (category of courseCategories; track category){
+                <option [value]="category">{{ category }}</option>
+            }
+        </select>
+    </fieldset>
+
+    <fieldset>
+        <label for="difficultyLevel">Level: </label>
+        <select name="difficultyLevel" formControlName="difficultyLevel">
+            @for (level of difficultyLevels; track level ){
+                <option [value]="level">{{ level }}</option>
+            }
+        </select>
+    </fieldset>
+
+    <div formArrayName="sections" class="sections-container">
+        <h3>Sections of course</h3>
+
+        @for (section of sections.controls; track $index; let sectionIndex = $index){
+            <div [formGroupName]="sectionIndex" class="section-box">
+
+                <div class="section-header">
+                    <h4>Section {{ sectionIndex + 1 }}</h4>
+                    <button type="button" (click)="removeSection(sectionIndex)">Delete section</button>
+
+                </div>
+
+                <fieldset>
+                    <label for="section-title-{{sectionIndex}}">Title of section: </label>
+                    <input type="text" id="section-title-{{sectionIndex}}" formControlName="title">
+                </fieldset>
+
+                <div formArrayName="lessons" class="lessons-container">
+                    <h5>Lessons of this section</h5>
+
+                    @for (lesson of getLessons(sectionIndex).controls; track $index; let lessonIndex = $index){
+                        <div [formGroupName]="lessonIndex" class="lesson-box">
+                            <div class="lesson-header">
+                                <h6>Lesson {{ lessonIndex + 1 }}</h6>
+                                <button type="button" (click)="removeLesson(sectionIndex, lessonIndex)">Delete lesson</button>
+                            </div>
+
+                            <fieldset>
+                                <label for="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}">Lesson title</label>
+                                <input type="text" id="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}" formControlName="title">
+                            </fieldset>
+
+                            <fieldset>
+                                <label for="lesson-type-{{ sectionIndex }}-{{ lessonIndex }}">Type: </label>
+                                <select id="lesson-type-{{ sectionIndex}}-{{ lessonIndex }}" formControlName="lessonType">
+                                @for (type of lessonTypes; track type){
+                                    <option [value]="type"> {{ type }}</option>
+                                }
+                            </select>
+                            </fieldset>
+
+                            <fieldset>
+                                <label for="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}">Duration (min)</label>
+                                <input type="number" id="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}" formControlName="durationInMinutes">
+                            </fieldset>
+                        </div>
+                    }
+                    @empty {
+                        <p> This section don't have lessons yet.</p>
+                    }
+
+                </div> <button type="button" (click)="addLesson(sectionIndex)">+ Add lesson to this section</button>
+            </div>
+        } @empty {
+            <p>This course don't have lessons yet.</p>
+        }
+
+    </div> <button type="button" (click)="addSection()">+ Add new section</button>
+
+    <hr>
+
+    <button type="submit" [disabled]="courseForm.invalid"> Save course</button>
+
+</form>

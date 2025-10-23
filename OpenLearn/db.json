@@ -83,5 +83,35 @@
         "twitter": ""
       }
     }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Introducción a Angular",
+      "description": "Aprende los fundamentos de Angular desde cero.",
+      "instructorId": "1",
+      "instructorName": "Jane Doe",
+      "category": "Programming",
+      "difficultyLevel": "beginner",
+      "publishedDate": "2025-01-10T10:00:00Z",
+      "status": "published",
+      "sections": [
+        {
+          "id": 1,
+          "title": "Módulo 1: Introducción",
+          "lessons": [
+            {
+              "id": 1,
+              "title": "¿Qué es Angular?",
+              "lessonType": "video",
+              "videoUrl": "https://example.com/video1.mp4",
+              "durationInMinutes": 10
+            }
+          ]
+        }
+      ],
+      "totalDurationInHours": 2.5,
+      "coverImageUrl": "https://example.com/images/angular.png"
+    }
   ]
 }
