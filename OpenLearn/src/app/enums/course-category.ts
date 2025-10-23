@@ -1,5 +1,8 @@
 export enum CourseCategory {
   TECHNOLOGY = 'Technology',
+  PROGRAMMING = 'Programming',
+  DATA_SCIENCE = 'Data Science',
+  INFORMATION_TECHNOLOGY = 'Information Technology',
   BUSINESS = 'Business',
   ARTS = 'Arts',
   MUSIC = 'Music',
