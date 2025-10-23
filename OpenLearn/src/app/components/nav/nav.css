@@ -6,7 +6,8 @@ ul{
     list-style-type: none;
 }
 
-a{
+a,
+.btn-logout {
     color: white;
     font-size: large;
     text-decoration: none;
@@ -16,12 +17,30 @@ a{
     border-radius: 15px;
 }
 
-a:hover{
+a:hover,
+.btn-logout:hover{
     background: hsl(0, 0%, 20%, 0.7);
+    cursor: pointer;
 
 }
 
 a:active {
     background: hsla(0, 0%, 100%, 0.7);
     color:#000;
+}
+
+.btn-logout {
+    color: white;
+    background: transparent;
+    border: none;
+}
+
+.nav-link-item {
+    display: flex;
+    align-items: center;
+    
+}
+
+.nav-link-item .material-symbols-outlined {
+    margin-right: 6px; 
 }

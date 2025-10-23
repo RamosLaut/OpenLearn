@@ -1,4 +1,8 @@
-<app-header></app-header>
+@if (member$ | async; as member) {
+    <app-member-header></app-member-header>
+} @else {
+    <app-header></app-header>
+}
 <main>
 <router-outlet></router-outlet>
 </main>

@@ -1,0 +1,18 @@
+<header>
+    <a routerLink="" id="aH1"><h1>Open Learn</h1></a>
+    
+    <div class="user-menu-wrapper">
+        
+        <span class="material-symbols-outlined user-icon" (click)="toggleMenu()">
+            account_circle
+        </span>
+
+        <div class="dropdown-menu" *ngIf="isMenuOpen">
+            <a routerLink="/profile" class="menu-item">Profile<span class="material-symbols-outlined">account_circle</span></a>
+            <a routerLink="/mycourses" class="menu-item">My Courses<span class="material-symbols-outlined">school</span></a>
+            <a (click)="logout()" class="menu-item">Log Out<span class="material-symbols-outlined">
+logout
+</span></a>
+        </div>
+    </div>
+</header>

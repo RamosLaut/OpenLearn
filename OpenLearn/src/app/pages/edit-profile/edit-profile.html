@@ -1,0 +1,52 @@
+<div class="edit-profile-container">
+
+    <h1>Edit Profile</h1>
+
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+        <fieldset class="identity-group">
+            <legend>Basic Information</legend>
+
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" formControlName="fullName">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email">
+
+            <label for="profilePhotoUrl">Profile Photo URL</label>
+            <input type="url" id="profilePhotoUrl" formControlName="profilePhotoUrl">
+        </fieldset>
+
+        <fieldset class="professional-group">
+            <legend>Professional Details</legend>
+
+            <label for="professionalTitle">Professional Title</label>
+            <input type="text" id="professionalTitle" formControlName="professionalTitle"
+                placeholder="e.g., Senior Developer, Data Analyst">
+
+            <label for="biography">Biography</label>
+            <textarea id="biography" formControlName="biography" rows="5"
+                placeholder="Write a brief bio about your expertise..."></textarea>
+        </fieldset>
+
+        <fieldset class="social-group">
+            <legend>Social Links</legend>
+
+            <label for="webpage">Website</label>
+            <input type="url" id="webpage" formControlName="links.webpage">
+
+            <label for="linkedin">LinkedIn</label>
+            <input type="url" id="linkedin" formControlName="links.linkedin">
+
+            <label for="github">GitHub</label>
+            <input type="url" id="github" formControlName="links.github">
+
+            <label for="twitter">Twitter</label>
+            <input type="url" id="twitter" formControlName="links.twitter">
+        </fieldset>
+
+        <button type="submit" [disabled]="editForm.invalid" class="save-icon">Save Changes<span class="material-symbols-outlined">save</span></button>
+        <button type="button" routerLink="/profile" class="cancel-button">Cancel</button>
+
+    </form>
+</div>
