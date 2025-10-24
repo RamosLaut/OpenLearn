@@ -32,7 +32,9 @@ export class MemberService {
     return this.http.put<Member>(this.API_URL + "/" + id, m)
   }
 
-  delete(id: string){
-    return this.http.delete<Member>(this.API_URL + "/" + id)
+  deleteAccount(id: string){
+    const body = {accountStatus: 'deleted'};
+    return this.http.patch<Member>(`${this.API_URL}/${id}`, body);
   }
+
 }

@@ -28,6 +28,11 @@ export class Auth {
       map(members => {
         if (members.length > 0) {
           const member = members[0];
+
+          if(member.accountStatus === 'deleted') {
+            throw new Error('Account has been deleted');
+          }
+
           localStorage.setItem('token', btoa(JSON.stringify(member)));
           this.currentUserSubject.next(member);
           return member;

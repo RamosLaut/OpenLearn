@@ -12,13 +12,5 @@
                 <span class="material-symbols-outlined">login</span>
                 Login</a></li>
         </ul>
-    }
-    @if (authService.isLoggedIn()) {
-        <ul>
-            <li><a routerLink="/profile">👤 Profile</a></li>
-            <li><button (click)="logout()" class="btn-logout">🚪Log out</button></li>
-            
-        </ul>
-    }
-
+    }   
 </nav>

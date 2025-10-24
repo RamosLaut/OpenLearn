@@ -1,11 +1,12 @@
 <div class="profile-container">
     <header class="profile-header">
         <h1>{{ member?.fullName }}'s Profile</h1>
-        <button routerLink="/profile/edit/{{member?.id}}" class="edit-button profile-icon">Edit Profile<span class="material-symbols-outlined">person_edit</span></button> 
+        <button routerLink="/profile/edit/{{member?.id}}" class="edit-button profile-icon">Edit Profile<span class="material-symbols-outlined">person_edit</span></button>
+        <button class="btn-delete" (click)="deleteAccount(member!.id)" >Delete account<span class="material-symbols-outlined">account_circle_off</span></button> 
     </header>
     <div class="profile-layout-grid">
         <aside class="identity-card">
-            <img [src]="member?.profilePhotoUrl || 'default.png'" 
+            <img [src]="member?.profilePhotoUrl || 'defaulst.png'" 
                  alt="Profile Photo" 
                  class="profile-photo">
             

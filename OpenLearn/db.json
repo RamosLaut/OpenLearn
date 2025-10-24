@@ -82,11 +82,35 @@
         "github": "",
         "twitter": ""
       }
+    },
+    {
+      "id": "52d2",
+      "userName": "GOLDEN123",
+      "email": "HUNTRIX@gmail.com",
+      "fullName": "Audrey",
+      "password": "asdASD123",
+      "accountStatus": "deleted"
+    },
+    {
+      "id": "968d",
+      "userName": "Lali",
+      "email": "lali123@asdasd",
+      "fullName": "mariana",
+      "password": "LASaksda123",
+      "accountStatus": "deleted"
+    },
+    {
+      "id": "b99f",
+      "userName": "WOS",
+      "email": "asdasd@asd",
+      "fullName": "wos",
+      "password": "WOSS123asdasd",
+      "accountStatus": "deleted"
     }
   ],
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Introducción a Angular",
       "description": "Aprende los fundamentos de Angular desde cero.",
       "instructorId": "1",
