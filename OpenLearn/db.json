@@ -164,6 +164,34 @@
       "totalDurationInHours": 0.08,
       "averageRating": 0,
       "numberOfReviews": 0
+    },
+    {
+      "id": "ceb7",
+      "title": "Programación 4",
+      "description": "HTML, CSS, Angular",
+      "category": "Programming",
+      "difficultyLevel": "beginner",
+      "sections": [
+        {
+          "title": "Unidad 1",
+          "lessons": [
+            {
+              "title": "HTML",
+              "lessonType": "video",
+              "videoUrl": "",
+              "content": "",
+              "durationInMinutes": 5
+            }
+          ]
+        }
+      ],
+      "instructorId": "c541",
+      "instructorName": "Lautaro Ezequiel Ramos",
+      "publishedDate": "2025-10-24T23:22:21.914Z",
+      "status": "draft",
+      "totalDurationInHours": 0.08,
+      "averageRating": 0,
+      "numberOfReviews": 0
     }
   ]
 }
