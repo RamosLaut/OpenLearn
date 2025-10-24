@@ -29,7 +29,15 @@ export class Login{
       const { username, password } = this.form.value;
       this.auth.login(username!, password!).subscribe({
         next: () => this.router.navigate(['/mycourses']),
-        error: () => this.errorMsg = 'Username or password invalid'
+        error: (err) => {
+          const error = err.error?.message;
+
+          if(error === 'Account has been deleted') {
+            this.errorMsg = 'Your account has been deleted.';
+          } else {
+            this.errorMsg = 'Username or password invalid'
+          }
+        }
       });
     }
   }

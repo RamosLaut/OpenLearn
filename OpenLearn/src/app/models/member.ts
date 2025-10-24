@@ -11,7 +11,7 @@ export default interface Member{
     professionalTitle?: string;
     links?: SocialLinks;
 
-    accountStatus: 'active' | 'pendingVerification' | 'suspended';
+    accountStatus: 'active' | 'pendingVerification' | 'suspended' | 'deleted';
     createdCourses: number[];
     enrolledCourses: number[];
 }
