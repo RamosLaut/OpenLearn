@@ -106,6 +106,23 @@
       "fullName": "wos",
       "password": "WOSS123asdasd",
       "accountStatus": "deleted"
+    },
+    {
+      "id": "e7f7",
+      "userName": "wednesdayASD1",
+      "email": "wednesdayASD1@zxc",
+      "fullName": "wednesdayASD1",
+      "password": "wednesdayASD1",
+      "profilePhotoUrl": "",
+      "professionalTitle": "Junior Developer frontend",
+      "biography": "I have nothing to say about this",
+      "links": {
+        "webpage": "",
+        "linkedin": "",
+        "github": "",
+        "twitter": ""
+      },
+      "accountStatus": "deleted"
     }
   ],
   "courses": [
@@ -190,6 +207,41 @@
       "publishedDate": "2025-10-24T23:22:21.914Z",
       "status": "draft",
       "totalDurationInHours": 0.08,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "6707",
+      "title": "Learn the basics of writing",
+      "description": "Learn the basics of writing and how to start ur own book all by ur self",
+      "category": "Writing",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Section 1: reading",
+          "lessons": []
+        }
+      ],
+      "instructorId": "e7f7",
+      "instructorName": "wednesdayASD1",
+      "publishedDate": "2025-10-25T16:09:51.267Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "6939",
+      "title": "Learn de basic",
+      "description": "asdasd",
+      "category": "Technology",
+      "difficultyLevel": "Beginner",
+      "sections": [],
+      "instructorId": "e7f7",
+      "instructorName": "wednesdayASD1",
+      "publishedDate": "2025-10-25T16:10:26.953Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
       "averageRating": 0,
       "numberOfReviews": 0
     }

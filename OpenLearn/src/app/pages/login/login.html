@@ -8,10 +8,10 @@
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Enter your password" formControlName="password">
     </fieldset>
+    @if (errorMsg) {
+        <p class="error-message">{{ errorMsg }}</p>
+    }
     <button type="submit">Log in</button>
     <a routerLink="/registration">Register</a>
     <a routerLink="">Forgot password</a>
 </form>
-@if (errorMsg) {
-  <p class="error error-message">{{ errorMsg }}</p>
-}
