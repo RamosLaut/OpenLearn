@@ -71,6 +71,24 @@
                             </select>
                             </fieldset>
 
+                            @if (lesson.get('lessonType')?.value === 'video') {
+                            <fieldset>
+                                <label for="lesson-video-{{ sectionIndex }}-{{ lessonIndex }}">Video URL:</label>
+                                <input type="text" id="lesson-video-{{ sectionIndex }}-{{ lessonIndex }}" 
+                                    formControlName="videoUrl" 
+                                    placeholder="Ej: https://www.youtube.com/watch?v=...">
+                            </fieldset>
+                            }
+
+                            @if (lesson.get('lessonType')?.value === 'text') {
+                            <fieldset>
+                                <label for="lesson-content-{{ sectionIndex }}-{{ lessonIndex }}">Contenido del Texto:</label>
+                                <textarea id="lesson-content-{{ sectionIndex }}-{{ lessonIndex }}" 
+                                        formControlName="content"
+                                        placeholder="Escribe el contenido de la lección aquí..."></textarea>
+                            </fieldset>
+                            }
+
                             <fieldset>
                                 <label for="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}">Duration (min)</label>
                                 <input type="number" id="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}" formControlName="durationInMinutes">
