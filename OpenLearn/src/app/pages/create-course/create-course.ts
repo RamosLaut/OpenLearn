@@ -11,32 +11,32 @@ import { Router } from '@angular/router';
   templateUrl: './create-course.html',
   styleUrl: './create-course.css'
 })
-export class CreateCourse implements OnInit{
+export class CreateCourse implements OnInit {
 
   courseForm!: FormGroup;
 
-  courseCategories= Object.values(CourseCategory);
-  difficultyLevels= ['beginner', 'intermediate', 'advanced'];
-  lessonTypes= ['video', 'text', 'quiz'];
+  courseCategories = Object.values(CourseCategory);
+  difficultyLevels = ['Beginner', 'Intermediate', 'Advanced'];
+  lessonTypes = ['Video', 'Text', 'Quiz'];
 
   constructor(
 
     private fb: FormBuilder,
     private router: Router,
     private courseService: CourseService
-  ){
-    
+  ) {
+
   }
 
   ngOnInit(): void {
     this.courseForm = this.fb.group({
-      
+
       title: ['', Validators.required],
       description: ['', Validators.required],
-      category: [CourseCategory.PROGRAMMING, Validators.required], 
-      difficultyLevel: ['beginner', Validators.required], 
+      category: ['', Validators.required],
+      difficultyLevel: ['', Validators.required],
 
-      sections: this.fb.array([]) 
+      sections: this.fb.array([])
     });
   }
   /////////////////////////////////////////////////////////////
@@ -44,50 +44,49 @@ export class CreateCourse implements OnInit{
     return this.courseForm.get('sections') as FormArray;
   }
 
-  newSection(): FormGroup{
+  newSection(): FormGroup {
     return this.fb.group({
-      title: ['', Validators.required],
+      sectionTitle: ['', Validators.required],
       lessons: this.fb.array([])
     });
   }
 
-  addSection(){
+  addSection() {
     this.sections.push(this.newSection());
   }
 
-  removeSection(sectionIndex: number){
+  removeSection(sectionIndex: number) {
     this.sections.removeAt(sectionIndex);
   }
 
   ////////////////////////////////////////////////////////////
 
-  getLessons(sectionIndex: number): FormArray{
-
+  getLessons(sectionIndex: number): FormArray {
     return this.sections.at(sectionIndex).get('lessons') as FormArray;
   }
 
-  newLesson(): FormGroup{
+  newLesson(): FormGroup {
     return this.fb.group({
-      title: ['', Validators.required],
-      lessonType: ['video', Validators.required],
+      lessonTitle: ['', Validators.required],
+      lessonType: ['', Validators.required],
       videoUrl: [''],
       content: [''],
       durationInMinutes: [5, [Validators.required, Validators.min(1)]]
     })
   }
-  
-  addLesson(sectionIndex: number){
+
+  addLesson(sectionIndex: number) {
     this.getLessons(sectionIndex).push(this.newLesson());
   }
 
-  removeLesson(sectionIndex: number, lessonIndex: number){
+  removeLesson(sectionIndex: number, lessonIndex: number) {
     this.getLessons(sectionIndex).removeAt(lessonIndex);
   }
 
   ///////////////////////////////////////////////////////////////
 
-  onSubmit(){
-    if (this.courseForm.invalid){
+  onSubmit() {
+    if (this.courseForm.invalid) {
       this.courseForm.markAllAsTouched();
       console.warn('Invalid form: ', this.courseForm.value);
       return;

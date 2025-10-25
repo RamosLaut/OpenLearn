@@ -5,86 +5,114 @@
     <fieldset>
         <label for="title">Title of course: </label>
         <input type="text" id="title" formControlName="title" placeholder="Course Title">
+        @if(courseForm.get('title')?.hasError('required')&&courseForm.get('title')?.touched){
+        <p class="validation-error">Course's title is required</p>
+        }
     </fieldset>
 
     <fieldset>
         <label for="description">Description: </label>
-        <textarea type="text" id="description" formControlName="description" placeholder="Course Description"></textarea>
+        <textarea type="text" id="description" formControlName="description"
+            placeholder="Course Description"></textarea>
+        @if(courseForm.get('description')?.hasError('required')&&courseForm.get('description')?.touched){
+        <p class="validation-error">Course's description is required</p>
+        }
     </fieldset>
 
     <fieldset>
         <label for="category">Category: </label>
         <select id="category" formControlName="category">
+            <option value="" disabled selected>Select a category</option>
             @for (category of courseCategories; track category){
-                <option [value]="category">{{ category }}</option>
+            <option [value]="category">{{ category }}</option>
             }
         </select>
+        @if(courseForm.get('category')?.hasError('required')&&courseForm.get('category')?.touched){
+        <p class="validation-error">Course's category is required</p>
+        }
     </fieldset>
 
     <fieldset>
         <label for="difficultyLevel">Level: </label>
         <select name="difficultyLevel" formControlName="difficultyLevel">
+            <option value="" disabled selected>Select a level</option>
             @for (level of difficultyLevels; track level ){
-                <option [value]="level">{{ level }}</option>
+            <option [value]="level">{{ level }}</option>
             }
         </select>
+        @if(courseForm.get('difficultyLevel')?.hasError('required')&&courseForm.get('difficultyLevel')?.touched){
+        <p class="validation-error">Course's level is required</p>
+        }
     </fieldset>
 
     <div formArrayName="sections" class="sections-container">
         <h3>Sections of course</h3>
 
         @for (section of sections.controls; track $index; let sectionIndex = $index){
-            <div [formGroupName]="sectionIndex" class="section-box">
+        <div [formGroupName]="sectionIndex" class="section-box">
 
-                <div class="section-header">
-                    <h4>Section {{ sectionIndex + 1 }}</h4>
-                    <button type="button" (click)="removeSection(sectionIndex)">Delete section</button>
+            <div class="section-header">
+                <h4>Section {{ sectionIndex + 1 }}</h4>
+                <button type="button" (click)="removeSection(sectionIndex)">Delete section</button>
 
-                </div>
-
-                <fieldset>
-                    <label for="section-title-{{sectionIndex}}">Title of section: </label>
-                    <input type="text" id="section-title-{{sectionIndex}}" formControlName="title">
-                </fieldset>
-
-                <div formArrayName="lessons" class="lessons-container">
-                    <h5>Lessons of this section</h5>
-
-                    @for (lesson of getLessons(sectionIndex).controls; track $index; let lessonIndex = $index){
-                        <div [formGroupName]="lessonIndex" class="lesson-box">
-                            <div class="lesson-header">
-                                <h6>Lesson {{ lessonIndex + 1 }}</h6>
-                                <button type="button" (click)="removeLesson(sectionIndex, lessonIndex)">Delete lesson</button>
-                            </div>
-
-                            <fieldset>
-                                <label for="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}">Lesson title</label>
-                                <input type="text" id="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}" formControlName="title">
-                            </fieldset>
-
-                            <fieldset>
-                                <label for="lesson-type-{{ sectionIndex }}-{{ lessonIndex }}">Type: </label>
-                                <select id="lesson-type-{{ sectionIndex}}-{{ lessonIndex }}" formControlName="lessonType">
-                                @for (type of lessonTypes; track type){
-                                    <option [value]="type"> {{ type }}</option>
-                                }
-                            </select>
-                            </fieldset>
-
-                            <fieldset>
-                                <label for="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}">Duration (min)</label>
-                                <input type="number" id="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}" formControlName="durationInMinutes">
-                            </fieldset>
-                        </div>
-                    }
-                    @empty {
-                        <p> This section don't have lessons yet.</p>
-                    }
-
-                </div> <button type="button" (click)="addLesson(sectionIndex)">+ Add lesson to this section</button>
             </div>
+
+            <fieldset>
+                <label for="section-title-{{sectionIndex}}">Title of section: </label>
+                <input type="text" id="section-title-{{sectionIndex}}" formControlName="sectionTitle"
+                    placeholder="Section title">
+                @if(section.get('sectionTitle')?.invalid && section.get('sectionTitle')?.touched){
+                <p class="validation-error">Section's title is required</p>
+                }
+            </fieldset>
+
+            <div formArrayName="lessons" class="lessons-container">
+                <h5>Lessons of this section</h5>
+
+                @for (lesson of getLessons(sectionIndex).controls; track $index; let lessonIndex = $index){
+                <div [formGroupName]="lessonIndex" class="lesson-box">
+                    <div class="lesson-header">
+                        <h6>Lesson {{ lessonIndex + 1 }}</h6>
+                        <button type="button" (click)="removeLesson(sectionIndex, lessonIndex)">Delete lesson</button>
+                    </div>
+
+                    <fieldset>
+                        <label for="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}">Lesson title</label>
+                        <input type="text" id="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}"
+                            formControlName="lessonTitle" placeholder="Lesson title">
+                        @if(lesson.get('lessonTitle')?.invalid && lesson.get('lessonTitle')?.touched){
+                        <p class="validation-error">Lesson's title is required</p>
+                        }
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="lesson-type-{{ sectionIndex }}-{{ lessonIndex }}">Type: </label>
+                        <select id="lesson-type-{{ sectionIndex}}-{{ lessonIndex }}" formControlName="lessonType">
+                            <option value="" disabled selected>Select a lesson type</option>
+                            @for (type of lessonTypes; track type){
+                            <option [value]="type"> {{ type }}</option>
+                            }
+                        </select>
+                        @if(lesson.get('lessonType')?.invalid && lesson.get('lessonType')?.touched){
+                        <p class="validation-error">Lesson's type is required</p>
+                        }
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}">Duration (min)</label>
+                        <input type="number" id="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}"
+                            formControlName="durationInMinutes">
+                    </fieldset>
+                </div>
+                }
+                @empty {
+                <p> This section don't have lessons yet.</p>
+                }
+
+            </div> <button type="button" (click)="addLesson(sectionIndex)">+ Add lesson to this section</button>
+        </div>
         } @empty {
-            <p>This course don't have lessons yet.</p>
+        <p>This course don't have lessons yet.</p>
         }
 
     </div> <button type="button" (click)="addSection()">+ Add new section</button>
