@@ -1,8 +1,9 @@
+<div class="new-course-container">
 <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
 
     <h2>Create new course</h2>
 
-    <fieldset>
+    <fieldset class="form-card">
         <label for="title">Title of course: </label>
         <input type="text" id="title" formControlName="title" placeholder="Course Title">
         @if(courseForm.get('title')?.hasError('required')&&courseForm.get('title')?.touched){
@@ -10,7 +11,7 @@
         }
     </fieldset>
 
-    <fieldset>
+    <fieldset form-card>
         <label for="description">Description: </label>
         <textarea type="text" id="description" formControlName="description"
             placeholder="Course Description"></textarea>
@@ -19,6 +20,7 @@
         }
     </fieldset>
 
+    <div class="form-card">
     <fieldset>
         <label for="category">Category: </label>
         <select id="category" formControlName="category">
@@ -32,7 +34,7 @@
         }
     </fieldset>
 
-    <fieldset>
+    <fieldset style="margin-top: 1rem;">
         <label for="difficultyLevel">Level: </label>
         <select name="difficultyLevel" formControlName="difficultyLevel">
             <option value="" disabled selected>Select a level</option>
@@ -44,6 +46,7 @@
         <p class="validation-error">Course's level is required</p>
         }
     </fieldset>
+    </div>
 
     <div formArrayName="sections" class="sections-container">
         <h3>Sections of course</h3>
@@ -104,21 +107,75 @@
                             formControlName="durationInMinutes">
                     </fieldset>
                 </div>
-                }
-                @empty {
-                <p> This section don't have lessons yet.</p>
-                }
+                
+                <fieldset >
+                    <label for="section-title-{{sectionIndex}}">Title of section: </label>
+                    <input type="text" id="section-title-{{sectionIndex}}" formControlName="title">
+                </fieldset>
 
-            </div> <button type="button" (click)="addLesson(sectionIndex)">+ Add lesson to this section</button>
-        </div>
+                <div formArrayName="lessons" class="lessons-container">
+                    <h5>Lessons of this section</h5>
+
+                    @for (lesson of getLessons(sectionIndex).controls; track $index; let lessonIndex = $index){
+                        <div [formGroupName]="lessonIndex" class="lesson-box">
+                            <div class="lesson-header">
+                                <h6>Lesson {{ lessonIndex + 1 }}</h6>
+                                <button type="button" (click)="removeLesson(sectionIndex, lessonIndex)">Delete lesson</button>
+                            </div>
+
+                            <fieldset>
+                                <label for="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}">Lesson title</label>
+                                <input type="text" id="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}" formControlName="title">
+                            </fieldset>
+
+                            <fieldset>
+                                <label for="lesson-type-{{ sectionIndex }}-{{ lessonIndex }}">Type: </label>
+                                <select id="lesson-type-{{ sectionIndex}}-{{ lessonIndex }}" formControlName="lessonType">
+                                @for (type of lessonTypes; track type){
+                                    <option [value]="type"> {{ type }}</option>
+                                }
+                            </select>
+                            </fieldset>
+
+                            @if (lesson.get('lessonType')?.value === 'video') {
+                            <fieldset>
+                                <label for="lesson-video-{{ sectionIndex }}-{{ lessonIndex }}">Video URL:</label>
+                                <input type="text" id="lesson-video-{{ sectionIndex }}-{{ lessonIndex }}" 
+                                    formControlName="videoUrl" 
+                                    placeholder="Ej: https://www.youtube.com/watch?v=...">
+                            </fieldset>
+                            }
+
+                            @if (lesson.get('lessonType')?.value === 'text') {
+                            <fieldset>
+                                <label for="lesson-content-{{ sectionIndex }}-{{ lessonIndex }}">Contenido del Texto:</label>
+                                <textarea id="lesson-content-{{ sectionIndex }}-{{ lessonIndex }}" 
+                                        formControlName="content"
+                                        placeholder="Escribe el contenido de la lección aquí..."></textarea>
+                            </fieldset>
+                            }
+
+                            <fieldset>
+                                <label for="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}">Duration (min)</label>
+                                <input type="number" id="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}" formControlName="durationInMinutes">
+                            </fieldset>
+                        </div>
+                    }
+                    @empty {
+                        <p> This section don't have lessons yet.</p>
+                    }
+
+                </div> <button type="button" class="btn-add" (click)="addLesson(sectionIndex)">+ Add lesson to this section</button>
+            </div>
         } @empty {
         <p>This course don't have lessons yet.</p>
         }
 
-    </div> <button type="button" (click)="addSection()">+ Add new section</button>
+    </div> <button type="button" class="btn-add" (click)="addSection()">+ Add new section</button>
 
     <hr>
 
     <button type="submit" [disabled]="courseForm.invalid"> Save course</button>
 
 </form>
+</div>

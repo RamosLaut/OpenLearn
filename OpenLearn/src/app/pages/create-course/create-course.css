@@ -1,178 +1,174 @@
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 900px;
-    width: 95%;
+
+.new-course-container {
+    max-width: 900px; 
     margin: 2rem auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 2rem 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 0 1rem;
 }
+
 
 h2 {
-    text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #333;
     margin-bottom: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
 }
 
-fieldset {
-    display: flex;
-    flex-direction: column;
-    border: none;
-    padding: 0;
+h3 {
+    font-size: 1.8rem;
+    color: #003B6F;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+h4 {
+    font-size: 1.4rem;
+    color: #333;
+}
+
+h5 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+
+.form-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.5rem 2rem; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     margin-bottom: 1.5rem;
 }
 
-label {
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #495057;
-}
 
 input[type="text"],
 input[type="number"],
 textarea,
 select {
     width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box;
+    padding: 10px 15px;
     font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 8px; 
 }
 
 textarea {
-    resize: vertical;
     min-height: 100px;
+    font-family: inherit; 
 }
 
-.sections-container h3 {
-    font-size: 1.6rem;
-    color: #6F42C1;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #6F42C1;
+label {
+    font-weight: 600;
+    color: #444;
 }
+
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
 
 .section-box {
-    background-color: #fafafa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 25px;
+    background-color: #f9f9f9; 
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
 }
 
 .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-}
-
-.section-header h4 {
-    margin: 0;
-    font-size: 1.3rem;
-    color: #333;
-}
-
-.lessons-container h5 {
-    font-size: 1.1rem;
-    color: #007bff;
-    margin-top: 1.5rem;
     margin-bottom: 1rem;
-    padding-left: 10px;
-    border-left: 4px solid #007bff;
 }
+
 
 .lesson-box {
-    background-color: #ffffff;
-    border: 1px dashed #ccc;
-    border-radius: 6px;
-    padding: 15px;
-    margin-bottom: 15px;
+    border: 1px dashed #ccc; 
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: #fff;
 }
 
 .lesson-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
 }
 
 .lesson-header h6 {
+    font-size: 1.1rem;
     margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
 }
 
-.section-header button,
-.lesson-header button {
-    background: none;
-    border: none;
-    color: #dc3545;
-    /* Rojo peligro */
-    font-size: 0.9em;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 5px 8px;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
-
-.section-header button:hover,
-.lesson-header button:hover {
-    background-color: #f8d7da;
-}
-
-form>button[type="button"],
-.section-box>button[type="button"] {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 6px;
-    border: none;
-    margin-top: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    align-self: flex-start;
-}
-
-form>button[type="button"]:hover,
-.section-box>button[type="button"]:hover {
-    background-color: #218838;
-}
-
-hr {
-    border: 0;
-    height: 1px;
-    background-color: #ccc;
-    margin: 30px 0;
-}
-
-form button[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.2em;
-    font-weight: bold;
-    background-color: #007bff;
-    color: white;
+button {
+    padding: 10px 18px;
+    font-size: 1em;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    font-weight: 600;
 }
 
-form button[type="submit"]:disabled {
-    background-color: #a0c3e8;
+
+button[type="submit"] {
+    background-color: #007bff; 
+    color: white;
+    width: 100%;
+    font-size: 1.1em;
+}
+
+button[type="submit"]:disabled {
+    background-color: #ccc;
     cursor: not-allowed;
 }
 
-.validation-error {
-    color: #dc3545;
-    font-size: 0.85em;
-    margin-top: 5px;
+button[type="submit"]:not(:disabled):hover {
+    background-color: #0056b3;
+}
+
+
+button.btn-add {
+    background-color: #28a745; 
+    color: white;
+    margin-top: 1rem;
+}
+button.btn-add:hover {
+    background-color: #218838;
+}
+
+
+button.btn-delete {
+    background-color: transparent;
+    color: #dc3545; 
+    border: 1px solid #dc3545;
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+button.btn-delete:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 2rem 0;
+}
+
+
+.lesson-box fieldset {
+    margin-bottom: 0.5rem;
 }

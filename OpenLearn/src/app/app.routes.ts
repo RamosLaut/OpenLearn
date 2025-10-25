@@ -13,6 +13,7 @@ export const routes: Routes = [
     {path: 'login', component: Login},
     {path: 'mycourses', component: MyCourses},
     {path: 'courses', component: Courses},
+    {path: 'courses/new', component: CreateCourse},
     {path: 'profile', component: Profile},
     {path: 'profile/edit/:id', component: EditProfile},
     {path: 'course/new', component: CreateCourse},

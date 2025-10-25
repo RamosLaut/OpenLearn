@@ -96,7 +96,7 @@ export class CreateCourse implements OnInit {
 
     console.log('Sending course:', newCourseData);
 
-    /*
+    
     this.courseService.create(newCourseData).subscribe({
       next: (createdCourse) => {
         console.log('Course created:', createdCourse);
@@ -107,7 +107,7 @@ export class CreateCourse implements OnInit {
         console.error('Error creating course:', err);
       }
     });
-    */
+    
   }
 
 }
