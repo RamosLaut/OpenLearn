@@ -16,8 +16,8 @@ export class CreateCourse implements OnInit{
   courseForm!: FormGroup;
 
   courseCategories= Object.values(CourseCategory);
-  difficultyLevels= ['beginner', 'intermediate', 'advanced'];
-  lessonTypes= ['video', 'text', 'quiz'];
+  difficultyLevels= ['Beginner', 'Intermediate', 'Advanced'];
+  lessonTypes= ['Video', 'Text', 'Quiz'];
 
   constructor(
 
@@ -33,8 +33,8 @@ export class CreateCourse implements OnInit{
       
       title: ['', Validators.required],
       description: ['', Validators.required],
-      category: [CourseCategory.PROGRAMMING, Validators.required], 
-      difficultyLevel: ['beginner', Validators.required], 
+      category: ['', Validators.required], 
+      difficultyLevel: ['', Validators.required], 
 
       sections: this.fb.array([]) 
     });
@@ -69,10 +69,10 @@ export class CreateCourse implements OnInit{
   newLesson(): FormGroup{
     return this.fb.group({
       title: ['', Validators.required],
-      lessonType: ['video', Validators.required],
+      lessonType: ['', Validators.required],
       videoUrl: [''],
       content: [''],
-      durationInMinutes: [5, [Validators.required, Validators.min(1)]]
+      durationInMinutes: ['', [Validators.required, Validators.min(1)]]
     })
   }
   
