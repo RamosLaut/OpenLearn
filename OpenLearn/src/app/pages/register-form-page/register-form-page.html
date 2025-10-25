@@ -1,5 +1,6 @@
 <div class="form-container">
 <form [formGroup]="registerForm" (ngSubmit)="ngSubmit()">
+    <h2>Sign Up</h2>
     <fieldset>
         <label for="userName">Username: </label>
         <input type="text" id="userName" formControlName="userName">
@@ -48,6 +49,6 @@
             <p class="msj-error">Passwords do not match!</p>
         }
     </fieldset>
-    <button [disabled]="registerForm.invalid" class="btn-register">Register</button>
+    <button [disabled]="registerForm.invalid" class="btn-register">Sign up</button>
 </form>
 </div>
