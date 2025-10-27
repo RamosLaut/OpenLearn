@@ -1,0 +1,11 @@
+footer {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+    font-weight: 600;
+    color: rgb(53, 53, 53);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    
+}

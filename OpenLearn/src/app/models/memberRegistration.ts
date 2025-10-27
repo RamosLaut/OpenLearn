@@ -4,4 +4,8 @@ export interface MemberRegistration{
     fullName: string;
     password: string;
     confirmPassword: string;
+
+    registrationDate: Date;
+    accountStatus: 'active' | 'pendingVerification' | 'suspended' | 'deleted';
+
 }

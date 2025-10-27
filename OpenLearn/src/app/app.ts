@@ -7,10 +7,11 @@ import { Auth } from './services/auth';
 import Member from './models/member';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { MemberFooter } from './components/member-footer/member-footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, MemberHeader, CommonModule],
+  imports: [RouterOutlet, Header, Footer, MemberHeader, CommonModule, MemberFooter],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

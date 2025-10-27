@@ -123,6 +123,22 @@
         "twitter": ""
       },
       "accountStatus": "deleted"
+    },
+    {
+      "id": "5f8e",
+      "userName": "taytay123",
+      "email": "tay@gmail.com",
+      "fullName": "taylor swift",
+      "password": "taytay123TT"
+    },
+    {
+      "id": "d08b",
+      "userName": "saladix",
+      "email": "salado@asd",
+      "fullName": "saladito",
+      "password": "saladito123ASD",
+      "registrationDate": "2025-10-27T17:03:06.788Z",
+      "accountStatus": "active"
     }
   ],
   "courses": [

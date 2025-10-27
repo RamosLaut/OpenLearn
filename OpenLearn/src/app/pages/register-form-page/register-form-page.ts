@@ -19,6 +19,8 @@ export class RegisterFormPage {
   fullName: FormControl
   password: FormControl
   confirmPassword: FormControl
+  registrationDate!: Date;
+  accountStatus: string  = ''
 
   constructor(private memberService: MemberService, private router: Router){
     this.userName= new FormControl('', [Validators.required, Validators.maxLength(30)])
@@ -26,6 +28,7 @@ export class RegisterFormPage {
     this.fullName= new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)])
     this.password= new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$')])
     this.confirmPassword= new FormControl('', [Validators.required])
+
 
     this.registerForm=new FormGroup({  
       userName: this.userName,
@@ -47,7 +50,11 @@ export class RegisterFormPage {
 
   const {confirmPassword, ...data} = this.registerForm.value;
 
-  const memberToSend: MemberRegistration = data;
+  const memberToSend: MemberRegistration = {
+    ...data,
+    registrationDate: new Date(),
+    accountStatus: 'active'
+  }
 
   this.memberService.post(memberToSend).subscribe({
     next: () => { console.log('user successfully registered');

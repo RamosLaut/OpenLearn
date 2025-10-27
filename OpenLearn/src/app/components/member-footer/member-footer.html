@@ -1,0 +1,11 @@
+<footer>
+    <div class="perfil">
+        @if (currentUser | async; as user) {
+        <div class="perfil">
+            <p>
+                Welcome back {{ user.userName }}!
+            </p>
+        </div>
+    }
+    </div>
+</footer>

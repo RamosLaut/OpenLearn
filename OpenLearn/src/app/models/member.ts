@@ -1,7 +1,7 @@
 
 export default interface Member{
     id: string;
-    username: string;
+    userName: string;
     email: string;
     fullName: string;
     registrationDate: Date;
