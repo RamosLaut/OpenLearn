@@ -18,7 +18,7 @@ export interface Section {
 }
 
 export interface Course {
-  id: number;
+  id: string;
   title: string;
   description: string;
 

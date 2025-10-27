@@ -10,19 +10,19 @@ import { Auth } from './auth';
 })
 export class CourseService {
 
-  readonly API_URL="http://localhost:3000/courses"
+  readonly API_URL = "http://localhost:3000/courses"
 
-  constructor(private http: HttpClient, private authService: Auth){
+  constructor(private http: HttpClient, private authService: Auth) {
   }
 
-  getAll(): Observable<Course[]>{
+  getAll(): Observable<Course[]> {
     return this.http.get<Course[]>(this.API_URL);
   }
 
-  getById(id: number): Observable<Course>{
+  getById(id: string): Observable<Course> {
     return this.http.get<Course>(this.API_URL + "/" + id);
   }
-  private calculateTotalDuration(sections: Section[]): number{
+  private calculateTotalDuration(sections: Section[]): number {
     let totalMinutes = 0;
 
     sections.forEach(section => {
@@ -31,16 +31,16 @@ export class CourseService {
       });
     });
 
-    return parseFloat((totalMinutes / 60 ).toFixed(2));
+    return parseFloat((totalMinutes / 60).toFixed(2));
   }
 
-  create(courseData: CourseCreationsData): Observable<Course>{
+  create(courseData: CourseCreationsData): Observable<Course> {
 
     const totalDuration = this.calculateTotalDuration(courseData.sections);
 
     const currentUser = this.authService.CurrentUserValue;
 
-    if(!currentUser){
+    if (!currentUser) {
       throw new Error('No user logged in to create a course.');
     }
 
@@ -56,15 +56,15 @@ export class CourseService {
     };
 
     return this.http.post<Course>(this.API_URL, newCourse);
-    
+
   }
 
-  update(id: number, course:Course): Observable<Course>{
+  update(id: number, course: Course): Observable<Course> {
     return this.http.put<Course>(this.API_URL + "/" + id, course);
   }
 
-  delete(id: number): Observable<void>{
+  delete(id: number): Observable<void> {
     return this.http.delete<void>(this.API_URL + "/" + id)
   }
-  
+
 }

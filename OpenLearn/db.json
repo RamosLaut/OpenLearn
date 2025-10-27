@@ -71,8 +71,8 @@
       "registrationDate": "2025-01-05T09:00:00Z",
       "password": "123456789R",
       "createdCourses": [
-        101,
-        102
+        "1964",
+        "2f63"
       ],
       "professionalTitle": "Junior developer",
       "biography": "",
@@ -240,6 +240,36 @@
       "instructorId": "e7f7",
       "instructorName": "wednesdayASD1",
       "publishedDate": "2025-10-25T16:10:26.953Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "1964",
+      "title": "Introducción al Desarrollo Web Moderno",
+      "description": "Aprende a construir aplicaciones web interactivas desde cero. Este curso cubre HTML, CSS y JavaScript, sentando las bases para frameworks avanzados.",
+      "category": "Programming",
+      "difficultyLevel": "Beginner",
+      "sections": [],
+      "instructorId": "c541",
+      "instructorName": "Lautaro Ezequiel Ramos",
+      "publishedDate": "2025-10-27T15:05:37.598Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "2f63",
+      "title": "Desarrollo Web Full Stack: De Cero a Experto",
+      "description": "Un curso completo que cubre frontend con React y backend con Node.js y Express. Aprenderás a construir aplicaciones web robustas y escalables.",
+      "category": "Programming",
+      "difficultyLevel": "Beginner",
+      "sections": [],
+      "instructorId": "c541",
+      "instructorName": "Lautaro Ezequiel Ramos",
+      "publishedDate": "2025-10-27T17:48:11.207Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,

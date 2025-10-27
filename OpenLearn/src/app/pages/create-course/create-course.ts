@@ -4,6 +4,9 @@ import { CourseService } from '../../services/course-service';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { MemberService } from '../../services/member-service';
+import Member from '../../models/member';
+import { Auth } from '../../services/auth';
 
 @Component({
   selector: 'app-create-course',
@@ -11,32 +14,34 @@ import { Router } from '@angular/router';
   templateUrl: './create-course.html',
   styleUrl: './create-course.css'
 })
-export class CreateCourse implements OnInit{
+export class CreateCourse implements OnInit {
 
   courseForm!: FormGroup;
 
-  courseCategories= Object.values(CourseCategory);
-  difficultyLevels= ['Beginner', 'Intermediate', 'Advanced'];
-  lessonTypes= ['Video', 'Text', 'Quiz'];
+  courseCategories = Object.values(CourseCategory);
+  difficultyLevels = ['Beginner', 'Intermediate', 'Advanced'];
+  lessonTypes = ['Video', 'Text', 'Quiz'];
 
   constructor(
 
     private fb: FormBuilder,
     private router: Router,
-    private courseService: CourseService
-  ){
-    
+    private courseService: CourseService,
+    private memberService: MemberService,
+    private auth: Auth
+  ) {
+
   }
 
   ngOnInit(): void {
     this.courseForm = this.fb.group({
-      
+
       title: ['', Validators.required],
       description: ['', Validators.required],
-      category: ['', Validators.required], 
-      difficultyLevel: ['', Validators.required], 
+      category: ['', Validators.required],
+      difficultyLevel: ['', Validators.required],
 
-      sections: this.fb.array([]) 
+      sections: this.fb.array([])
     });
   }
   /////////////////////////////////////////////////////////////
@@ -44,29 +49,29 @@ export class CreateCourse implements OnInit{
     return this.courseForm.get('sections') as FormArray;
   }
 
-  newSection(): FormGroup{
+  newSection(): FormGroup {
     return this.fb.group({
       title: ['', Validators.required],
       lessons: this.fb.array([])
     });
   }
 
-  addSection(){
+  addSection() {
     this.sections.push(this.newSection());
   }
 
-  removeSection(sectionIndex: number){
+  removeSection(sectionIndex: number) {
     this.sections.removeAt(sectionIndex);
   }
 
   ////////////////////////////////////////////////////////////
 
-  getLessons(sectionIndex: number): FormArray{
+  getLessons(sectionIndex: number): FormArray {
 
     return this.sections.at(sectionIndex).get('lessons') as FormArray;
   }
 
-  newLesson(): FormGroup{
+  newLesson(): FormGroup {
     return this.fb.group({
       title: ['', Validators.required],
       lessonType: ['', Validators.required],
@@ -75,40 +80,62 @@ export class CreateCourse implements OnInit{
       durationInMinutes: ['', [Validators.required, Validators.min(1)]]
     })
   }
-  
-  addLesson(sectionIndex: number){
+
+  addLesson(sectionIndex: number) {
     this.getLessons(sectionIndex).push(this.newLesson());
   }
 
-  removeLesson(sectionIndex: number, lessonIndex: number){
+  removeLesson(sectionIndex: number, lessonIndex: number) {
     this.getLessons(sectionIndex).removeAt(lessonIndex);
   }
 
   ///////////////////////////////////////////////////////////////
 
-  onSubmit(){
-    if (this.courseForm.invalid){
-      this.courseForm.markAllAsTouched();
-      console.warn('Invalid form: ', this.courseForm.value);
-      return;
-    }
-
-    const newCourseData = this.courseForm.value;
-
-    console.log('Sending course:', newCourseData);
-
-    
-    this.courseService.create(newCourseData).subscribe({
-      next: (createdCourse) => {
-        console.log('Course created:', createdCourse);
-        
-        this.router.navigate(['/mycourses']); 
-      },
-      error: (err) => {
-        console.error('Error creating course:', err);
-      }
-    });
-    
+onSubmit() {
+  if (this.courseForm.invalid) {
+    this.courseForm.markAllAsTouched();
+    console.warn('Invalid form: ', this.courseForm.value);
+    return;
   }
+
+  const newCourseData = this.courseForm.value;
+  console.log('Sending course:', newCourseData);
+
+  this.courseService.create(newCourseData).subscribe({
+    next: (createdCourse) => {
+      console.log('Course created:', createdCourse);
+
+      const currentUser = this.auth.CurrentUserValue; 
+
+      if (currentUser && createdCourse.id) {
+        const updatedMember: Member = {
+          ...currentUser,
+          createdCourses: [...(currentUser.createdCourses || []), createdCourse.id] 
+        };
+
+        this.memberService.put(updatedMember.id, updatedMember).subscribe({
+          next: (savedMember) => {
+            console.log("Member updated on server", savedMember);
+
+            this.auth.updateCurrentUser(savedMember); 
+
+            this.router.navigate(['/mycourses']);
+          },
+          error: (updateError) => {
+            console.error("Error updating member: ", updateError);
+             alert('Course created, but failed to update user course list.');
+             this.router.navigate(['/mycourses']);
+          }
+        });
+      } else {
+        console.warn('No current user found to update created courses list.');
+        this.router.navigate(['/mycourses']);
+      }
+    },
+    error: (err) => {
+      console.error('Error creating course:', err);
+    }
+  });
+}
 
 }

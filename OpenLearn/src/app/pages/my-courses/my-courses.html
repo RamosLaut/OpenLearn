@@ -16,7 +16,7 @@
         <ul class="course-list">
             <li></li>
             <li class="action-card-wrapper">
-                <a routerLink="/courses" class="action-link">+</a>
+                <a routerLink="/courses" class="action-link">+<span>Find Courses</span></a>
             </li>
         </ul>
     </section>
@@ -31,10 +31,24 @@
             </select>
         </div>
         <ul class="course-list">
-            <li></li>
-            <li class="action-card-wrapper">
-                <a routerLink="/courses/new" class="action-link">+</a>
+            @if (isLoadingTeaching) {
+            <p>Loading your courses...</p>
+            } @else {
+            @for (course of memberTeachingCourses; track course.id) {
+            <li class="course-card">
+                <h3>{{ course.title }}</h3>
+                <p>Category: {{ course.category }}</p>
+                <p>Level: {{ course.difficultyLevel }}</p>
+                <a routerLink="/edit-course/{{ course.id }}">Edit Course</a>
             </li>
+            }
+            }   
+            <li class="action-card-wrapper">
+                <a routerLink="/courses/new" class="action-link">+ <span>Create course</span></a>
+            </li>
+            @if (memberTeachingCourses.length === 0 && !isLoadingTeaching) {
+            <p>You haven't created any courses yet.</p>
+            }
         </ul>
     </section>
 </div>
