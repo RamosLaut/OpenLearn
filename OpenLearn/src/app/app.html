@@ -6,5 +6,10 @@
 <main>
 <router-outlet></router-outlet>
 </main>
-<app-footer></app-footer>
+@if(member$ | async; as member) {
+    <app-member-footer></app-member-footer>
+} @else {
+    <app-footer></app-footer>
+}
+
 
