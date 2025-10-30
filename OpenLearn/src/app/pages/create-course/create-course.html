@@ -67,65 +67,117 @@
                     }
                 </fieldset>
 
-                <div formArrayName="lessons" class="lessons-container">
-                    <h5>Lessons of this section</h5>
+                <div formArrayName="content" class="content-container">
+                    <h5>Content of this section</h5>
 
-                    @for (lesson of getLessons(sectionIndex).controls; track $index; let lessonIndex = $index){
-                    <div [formGroupName]="lessonIndex" class="lesson-box">
-                        <div class="lesson-header">
-                            <h6>Lesson {{ lessonIndex + 1 }}</h6>
-                            <button type="button" (click)="removeLesson(sectionIndex, lessonIndex)">Delete
-                                lesson</button>
+                    @for (content of getContent(sectionIndex).controls; track $index; let contentIndex = $index){
+                    <div [formGroupName]="contentIndex" class="content-box">
+                        <div class="content-header">
+                            <h6>Content {{ contentIndex + 1 }}</h6>
+                            <button type="button" (click)="removeContent(sectionIndex, contentIndex)">Delete
+                                content</button>
                         </div>
 
                         <fieldset>
-                            <label for="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}">Lesson title</label>
-                            <input type="text" id="lesson-title-{{ sectionIndex }}-{{ lessonIndex }}"
+                            <label for="content-title-{{ sectionIndex }}-{{ contentIndex }}">Content title</label>
+                            <input type="text" id="content-title-{{ sectionIndex }}-{{ contentIndex }}"
                                 formControlName="title">
-                            @if(lesson.get('title')?.hasError('required')&&lesson.get('title')?.touched){
-                            <p class="validation-error">Lesson's title is required</p>
+                            @if(content.get('title')?.hasError('required')&&content.get('title')?.touched){
+                            <p class="validation-error">Content's title is required</p>
+                            }@else if (content.get('title')?.hasError('minlength')) {
+                            <p class="validation-error">The length of the title cannot be less than 3</p>
                             }
                         </fieldset>
 
                         <fieldset>
-                            <label for="lesson-type-{{ sectionIndex }}-{{ lessonIndex }}">Type: </label>
-                            <select id="lesson-type-{{ sectionIndex}}-{{ lessonIndex }}" formControlName="lessonType">
+                            <label for="content-type-{{ sectionIndex }}-{{ contentIndex }}">Type: </label>
+                            <select id="content-type-{{ sectionIndex}}-{{ contentIndex }}"
+                                formControlName="contentType">
                                 <option value="" disabled selected>Select content type</option>
-                                @for (type of lessonTypes; track type){
+                                @for (type of contentTypes; track type){
                                 <option [value]="type"> {{ type }}</option>
                                 }
                             </select>
-                            @if(lesson.get('lessonType')?.hasError('required')&&lesson.get('lessonType')?.touched){
-                            <p class="validation-error">Lesson's content type is required</p>
+                            @if(content.get('contentType')?.hasError('required')&&content.get('contentType')?.touched){
+                            <p class="validation-error">Content type is required</p>
                             }
                         </fieldset>
 
-                        @if (lesson.get('lessonType')?.value === 'video') {
+                        @if (content.get('contentType')?.value === 'Video' || content.get('contentType')?.value ===
+                        'Pdf' || content.get('contentType')?.value === 'Word') {
                         <fieldset>
-                            <label for="lesson-video-{{ sectionIndex }}-{{ lessonIndex }}">Video URL:</label>
-                            <input type="text" id="lesson-video-{{ sectionIndex }}-{{ lessonIndex }}"
-                                formControlName="videoUrl" placeholder="Ej: https://www.youtube.com/watch?v=...">
-                        </fieldset>
-                        }
+                            <label for="content-file-{{ sectionIndex }}-{{ contentIndex }}">Upload File:</label>
 
-                        @if (lesson.get('lessonType')?.value === 'text') {
-                        <fieldset>
-                            <label for="lesson-content-{{ sectionIndex }}-{{ lessonIndex }}">Contenido del
-                                Texto:</label>
-                            <textarea id="lesson-content-{{ sectionIndex }}-{{ lessonIndex }}" formControlName="content"
-                                placeholder="Escribe el contenido de la lección aquí..."></textarea>
-                        </fieldset>
-                        }
+                            <div class="custom-file-input">
+                                <input type="file" id="content-file-{{ sectionIndex }}-{{ contentIndex }}"
+                                    formControlName="file" (change)="onFileSelected($event, sectionIndex, contentIndex)"
+                                    class="visually-hidden"> <label
+                                    for="content-file-{{ sectionIndex }}-{{ contentIndex }}" class="file-input-label">
+                                    Elegir archivo </label>
 
+                                @if(content.get('fileName')?.value && content.get('uploadProgress')?.value !== -1){
+                                <span class="file-info">Selected: {{ content.get('fileName')?.value }}</span>
+                                } @else {
+                                <span class="file-info no-file">No file selected</span>
+                                }
+                            </div>
+
+                            @if(content.get('uploadProgress')?.value > 0 && content.get('uploadProgress')?.value < 100){
+                                <progress [value]="content.get('uploadProgress')?.value" max="100"></progress>
+                                }
+                                @if(content.get('uploadProgress')?.value === -1){
+                                <span class="file-info upload-error">Upload Failed</span>
+                                }
+
+                                <p>Or</p>
+                        </fieldset>
+
+                        <label for="content-url-{{ sectionIndex }}-{{ contentIndex }}">Enter URL:</label>
+                        <input type="text" id="content-url-{{ sectionIndex }}-{{ contentIndex }}"
+                            formControlName="fileUrl" placeholder="Enter the URL"
+                            [readOnly]="content.get('uploadProgress')?.value === 100">
+                        @if(content.get('uploadProgress')?.value === 100){
+                        <button type="button" class="btn-change-file"
+                            (click)="resetFileState(sectionIndex, contentIndex)">Change
+                            File</button>
+                        }
                         <fieldset>
-                            <label for="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}">Duration (min)</label>
-                            <input type="number" id="lesson-duration-{{ sectionIndex }}-{{ lessonIndex }}"
-                                formControlName="durationInMinutes">
-                            @if(lesson.get('durationInMinutes')?.hasError('required')&&lesson.get('durationInMinutes')?.touched){
-                            <p class="validation-error">Lesson's content duration is required</p>
-                            }@else if (lesson.get('durationInMinutes')?.hasError('min')) {
-                                <p class="validation-error">Lesson's content duration can't be less than 1 minute</p>
+                            @if(content.get('fileUrl')?.hasError('pattern') &&
+                            !content.get('fileUrl')?.disabled){
+                            <p class="validation-error">Invalid url format.</p>
                             }
+                        </fieldset>
+                        <fieldset>
+                            @if (content.hasError('fileOrUrlRequired') && content.get('contentType')?.touched) {
+                            <p class="validation-error">You must upload a file or provide a URL for this content
+                                type.</p>
+                            }
+                        </fieldset>
+                        }
+
+                        @if (content.get('contentType')?.value === 'Text') {
+                        <fieldset>
+                            <label for="text-content-{{ sectionIndex }}-{{ contentIndex }}">Text content:</label>
+                            <textarea id="text-content-{{ sectionIndex }}-{{ contentIndex }}"
+                                formControlName="textContent" placeholder="Write the content here..."></textarea>
+                            <fieldset>
+                                @if (content.hasError('textContentRequired') && content.get('contentType')?.touched) {
+                                <p class="validation-error">Text content is required for this type.</p>
+                                }
+                            </fieldset>
+                        </fieldset>
+                        }
+                        <fieldset>
+                            <label for="content-description-{{ sectionIndex }}-{{ contentIndex }}">Content
+                                description:</label>
+                            <textarea id="content-description-{{ sectionIndex }}-{{ contentIndex }}"
+                                formControlName="contentDescription"
+                                placeholder="Write the content description here..."></textarea>
+                            <fieldset>
+                                @if (content.get('contentDescription')?.hasError('maxlength')) {
+                                <p class="validation-error">The length of the description cannot be greater than 500</p>
+                                }
+                            </fieldset>
                         </fieldset>
                     </div>
                     }
@@ -133,7 +185,7 @@
                     <p> This section don't have lessons yet.</p>
                     }
 
-                </div> <button type="button" class="btn-add" (click)="addLesson(sectionIndex)">+ Add lesson to this
+                </div> <button type="button" class="btn-add" (click)="addContent(sectionIndex)">+ Add content to this
                     section</button>
             </div>
             } @empty {

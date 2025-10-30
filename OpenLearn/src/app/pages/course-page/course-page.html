@@ -1,0 +1,51 @@
+<div class="course-view-container">
+
+    <header class="course-header">
+        <h1>{{ course.title }}</h1>
+        <p class="instructor">Taught by: {{ course.instructorName }}</p>
+        <p class="description">{{ course.description }}</p>
+        <div class="course-metadata">
+            <span>Category: {{ course.category }}</span> |
+            <span>Level: {{ course.difficultyLevel }}</span> |
+            <span>Duration: {{ course.totalDurationInHours }} hours</span>
+        </div>
+        @if (course.coverImageUrl) {
+            <img [src]="course.coverImageUrl" alt="Course Cover Image" class="cover-image">
+        }
+    </header>
+
+    <hr> <div id="sectionsContainer" class="course-content">
+        <h2>Course Content</h2>
+
+        @for (section of course.sections; track section.id; let sectionIndex = $index) {
+            <section class="course-section">
+                <header class="section-header">
+                    <h3>Section {{ sectionIndex + 1 }}: {{ section.title }}</h3>
+                    </header>
+
+                <ul class="lesson-list">
+                    @for (content of section.content; track content.id) {
+                        <li class="lesson-item">
+                            <span class="material-icons lesson-icon">
+                                @switch (content.contentType) {
+                                    @case ('Video') { movie }
+                                    @case ('Pdf') { description }
+                                    @case ('Word') { quiz }
+                                }
+                            </span>
+
+                            <div class="content-info">
+                                <span class="content-title">{{ content.title }}</span>
+                            </div>
+
+                        </li>
+                    } @empty {
+                        <p>No content in this section yet.</p>
+                    }
+                </ul>
+            </section>
+        } @empty {
+            <p>This course has no sections yet.</p>
+        }
+    </div>
+</div>

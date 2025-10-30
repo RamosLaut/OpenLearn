@@ -5,6 +5,6 @@ export interface CourseCreationsData {
     title: string
     description: string
     category: CourseCategory
-    difficultyLevel: 'beginner' | 'intermediate' | 'advanced';
+    difficultyLevel: 'Beginner' | 'Intermediate' | 'Advanced';
     sections: Section[];
 }
