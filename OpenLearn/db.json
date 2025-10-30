@@ -139,7 +139,23 @@
       "fullName": "saladito",
       "password": "saladito123ASD",
       "registrationDate": "2025-10-27T17:03:06.788Z",
-      "accountStatus": "active"
+      "accountStatus": "active",
+      "createdCourses": [
+        "05ac",
+        "3f2c",
+        "bf99",
+        "7b19",
+        "57c8"
+      ],
+      "profilePhotoUrl": "",
+      "professionalTitle": "Junior Developer frontend",
+      "biography": "Hi I'm a junior developer frontend, 24 years old.",
+      "links": {
+        "webpage": "",
+        "linkedin": "",
+        "github": "",
+        "twitter": ""
+      }
     }
   ],
   "courses": [
@@ -289,6 +305,103 @@
       "instructorId": "c541",
       "instructorName": "Lautaro Ezequiel Ramos",
       "publishedDate": "2025-10-27T15:05:37.598Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "05ac",
+      "title": "Java basics",
+      "description": "here you will learn the basics of Java, there's no need of previous knowledge so be ready for quite an experience!",
+      "category": "Programming",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Classes and Objetcs",
+          "content": []
+        },
+        {
+          "title": "Methods",
+          "content": []
+        },
+        {
+          "title": "Collections",
+          "content": []
+        }
+      ],
+      "instructorId": "d08b",
+      "instructorName": "saladito",
+      "publishedDate": "2025-10-30T00:58:52.923Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "3f2c",
+      "title": "Pop music at 2010",
+      "description": "How pop music transcends all barriers around the world and who its main leaders were.",
+      "category": "Music",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "history part 1",
+          "content": []
+        },
+        {
+          "title": "history part 2 ",
+          "content": []
+        }
+      ],
+      "instructorId": "d08b",
+      "instructorName": "saladito",
+      "publishedDate": "2025-10-30T01:02:44.702Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "bf99",
+      "title": "Learn Chinese",
+      "description": "Ni hao everybody",
+      "category": "Language Learning",
+      "difficultyLevel": "Beginner",
+      "sections": [],
+      "instructorId": "d08b",
+      "instructorName": "saladito",
+      "publishedDate": "2025-10-30T01:04:04.413Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "7b19",
+      "title": "Fine arts",
+      "description": "A theoretical knowledge and practical skills in visuals and performing arts",
+      "category": "Arts",
+      "difficultyLevel": "Intermediate",
+      "sections": [],
+      "instructorId": "d08b",
+      "instructorName": "saladito",
+      "publishedDate": "2025-10-30T01:06:19.954Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "57c8",
+      "title": "Análisis Musical",
+      "description": "marc anthony, michael jackson, taylor swift y mas",
+      "category": "Music",
+      "difficultyLevel": "Beginner",
+      "sections": [],
+      "instructorId": "d08b",
+      "instructorName": "saladito",
+      "publishedDate": "2025-10-30T02:03:09.922Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,

@@ -24,7 +24,8 @@
         <h2>My Teaching</h2>
         <div class="sorting-options">
             <label for="sort-dictated">Sort By:</label>
-            <select id="sort-dictated">
+            <select id="sort-dictated"
+            [(ngModel)]="currentSortTeaching" (ngModelChange)="applySorting()">
                 <option value="name-asc">Name (A-Z)</option>
                 <option value="name-desc">Name (Z-A)</option>
                 <option value="date-created">Date Created</option>

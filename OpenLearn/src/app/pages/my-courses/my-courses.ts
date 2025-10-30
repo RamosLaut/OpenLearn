@@ -5,16 +5,18 @@ import { CourseService } from '../../services/course-service';
 import { Auth } from '../../services/auth';
 import { forkJoin, Observable, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-my-courses',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './my-courses.html',
   styleUrls: ['./my-courses.css']
 })
 export class MyCourses implements OnInit {
   memberTeachingCourses: Course[] = [];
   isLoadingTeaching: boolean = true;
+  currentSortTeaching: string = 'date-created';
 
   constructor(
     private cService: CourseService,
@@ -31,6 +33,9 @@ export class MyCourses implements OnInit {
       forkJoin(courseObservables).subscribe({
         next: (courses) => {
           this.memberTeachingCourses = courses;
+
+
+
           this.isLoadingTeaching = false; 
           console.log('Teaching courses loaded:', this.memberTeachingCourses);
         },
@@ -45,4 +50,33 @@ export class MyCourses implements OnInit {
       this.memberTeachingCourses = [];
     }
   }
+
+
+  applySorting(): void {
+
+    switch(this.currentSortTeaching) {
+      case 'name-asc':
+        this.memberTeachingCourses.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+
+      case 'name-desc':
+        this.memberTeachingCourses.sort((a, b) => b.title.localeCompare(a.title));
+        break;
+
+      case 'date-created':
+        this.memberTeachingCourses.sort((a, b) => {
+          const dateA = new Date(a.publishedDate).getTime();
+          const dateB = new Date(b.publishedDate).getTime();
+
+          return dateB - dateA;
+        });
+        break;
+
+        default:
+          break;
+    }
+    this.memberTeachingCourses = [...this.memberTeachingCourses];
+  }
+
+
 }
