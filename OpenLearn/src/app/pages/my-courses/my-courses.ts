@@ -18,10 +18,19 @@ export class MyCourses implements OnInit {
   isLoadingTeaching: boolean = true;
   currentSortTeaching: string = 'date-created';
 
+  initialCourseLimit: number = 2;
+  courseIncrement: number = 2;
+  currentCourseLimit: number = this.initialCourseLimit;
+
   constructor(
     private cService: CourseService,
     private auth: Auth
   ) { }
+
+  
+  loadMoreCourses() {
+    this.currentCourseLimit += this.courseIncrement;
+  }
 
   ngOnInit(): void {
     const currentMember = this.auth.getUser();
@@ -33,8 +42,9 @@ export class MyCourses implements OnInit {
       forkJoin(courseObservables).subscribe({
         next: (courses) => {
           this.memberTeachingCourses = courses;
+          this.applySorting();
 
-
+          this.currentCourseLimit = this.initialCourseLimit;
 
           this.isLoadingTeaching = false; 
           console.log('Teaching courses loaded:', this.memberTeachingCourses);
