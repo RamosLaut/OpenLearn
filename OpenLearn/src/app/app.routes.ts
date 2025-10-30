@@ -7,6 +7,7 @@ import { Courses } from './pages/courses/courses';
 import { Profile } from './pages/profile/profile';
 import { EditProfile } from './pages/edit-profile/edit-profile';
 import { CreateCourse } from './pages/create-course/create-course';
+import { CourseDetails } from './pages/course-details/course-details';
 import { CoursePage } from './pages/course-page/course-page';
 
 export const routes: Routes = [
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path: 'mycourses', component: MyCourses},
     {path: 'courses', component: Courses},
     {path: 'courses/new', component: CreateCourse},
+    {path: 'course/details/:id', component: CourseDetails},
     {path: 'profile', component: Profile},
     {path: 'profile/edit/:id', component: EditProfile},
     {path: 'course/:id', component: CoursePage},

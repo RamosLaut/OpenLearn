@@ -12,7 +12,10 @@ export class CourseService {
 
   readonly API_URL = "http://localhost:3000/courses"
 
-  constructor(private http: HttpClient, private authService: Auth) {
+  courses: Course[];
+
+  constructor(private http: HttpClient, private authService: Auth){
+    this.courses= [];
   }
 
   getAll(): Observable<Course[]> {

@@ -63,3 +63,12 @@ h1 {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #555;
+}
