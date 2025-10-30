@@ -71,8 +71,9 @@
       "registrationDate": "2025-01-05T09:00:00Z",
       "password": "123456789R",
       "createdCourses": [
-        "1964",
-        "2f63"
+        "e98b",
+        "ceb7",
+        "1964"
       ],
       "professionalTitle": "Junior developer",
       "biography": "",
@@ -140,7 +141,7 @@
         {
           "id": 1,
           "title": "Módulo 1: Introducción",
-          "lessons": [
+          "content": [
             {
               "id": 1,
               "title": "¿Qué es Angular?",
@@ -163,7 +164,7 @@
       "sections": [
         {
           "title": "Sección 1",
-          "lessons": [
+          "content": [
             {
               "title": "Lección 1",
               "lessonType": "text",
@@ -191,7 +192,7 @@
       "sections": [
         {
           "title": "Unidad 1",
-          "lessons": [
+          "content": [
             {
               "title": "HTML",
               "lessonType": "video",
@@ -219,7 +220,7 @@
       "sections": [
         {
           "title": "Section 1: reading",
-          "lessons": []
+          "content": []
         }
       ],
       "instructorId": "e7f7",
@@ -251,25 +252,27 @@
       "description": "Aprende a construir aplicaciones web interactivas desde cero. Este curso cubre HTML, CSS y JavaScript, sentando las bases para frameworks avanzados.",
       "category": "Programming",
       "difficultyLevel": "Beginner",
-      "sections": [],
+      "sections": [
+        {
+          "title": "Backend",
+          "content": [
+            {
+              "title": "Lección 1",
+              "lessonType": "text",
+              "videoUrl": "",
+              "content": "",
+              "durationInMinutes": 5
+            }
+          ]
+        },
+        {
+          "title": "Frontend",
+          "content": []
+        }
+      ],
       "instructorId": "c541",
       "instructorName": "Lautaro Ezequiel Ramos",
       "publishedDate": "2025-10-27T15:05:37.598Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "2f63",
-      "title": "Desarrollo Web Full Stack: De Cero a Experto",
-      "description": "Un curso completo que cubre frontend con React y backend con Node.js y Express. Aprenderás a construir aplicaciones web robustas y escalables.",
-      "category": "Programming",
-      "difficultyLevel": "Beginner",
-      "sections": [],
-      "instructorId": "c541",
-      "instructorName": "Lautaro Ezequiel Ramos",
-      "publishedDate": "2025-10-27T17:48:11.207Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,

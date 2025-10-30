@@ -1,13 +1,10 @@
-/* Contenedor principal del formulario */
 form {
     display: flex;
     flex-direction: column;
-    max-width: 900px; /* Más ancho que el login/edit profile */
-    width: 95%; /* Responsive en móviles */
-    margin: 2rem auto; /* Centrado */
-    
-    /* Mantenemos tu estilo visual de fondo */
-    background-color: rgba(255, 255, 255, 0.9); /* Un poco más opaco para legibilidad */
+    max-width: 900px; 
+    width: 95%;
+    margin: 2rem auto; 
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 2rem 2.5rem;
     border-radius: 12px; 
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
@@ -24,13 +21,13 @@ fieldset {
     flex-direction: column;
     border: none;
     padding: 0;
-    margin-bottom: 1.5rem; /* Espacio entre campos */
+    margin-bottom: 1.5rem; 
 }
 
 label {
     font-weight: 600;
     margin-bottom: 5px;
-    color: #495057; /* Gris oscuro para el texto */
+    color: #495057; 
 }
 
 input[type="text"],
@@ -41,7 +38,7 @@ select {
     padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    box-sizing: border-box; /* Importante para el padding */
+    box-sizing: border-box; 
     font-size: 1em;
 }
 
@@ -51,7 +48,7 @@ textarea {
 }
 .sections-container h3 {
     font-size: 1.6rem;
-    color: #6F42C1; /* Color principal (Morado) */
+    color: #6F42C1; 
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding-bottom: 5px;
@@ -59,8 +56,7 @@ textarea {
 }
 
 .section-box {
-    /* Contenedor visual para una sección */
-    background-color: #fafafa; /* Fondo sólido claro (contrasta con el rgba) */
+    background-color: #fafafa;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -79,42 +75,41 @@ textarea {
     font-size: 1.3rem;
     color: #333;
 }
-.lessons-container h5 {
+.content-container h5 {
     font-size: 1.1rem;
-    color: #007bff; /* Color secundario (Azul) */
+    color: #007bff;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     padding-left: 10px;
-    border-left: 4px solid #007bff; /* Separador visual */
+    border-left: 4px solid #007bff; 
 }
 
-.lesson-box {
-    /* Contenedor visual para una lección */
-    background-color: #ffffff; /* Blanco sólido (contrasta con el gris de la sección) */
-    border: 1px dashed #ccc; /* Borde más sutil */
+.content-box {
+    background-color: #ffffff; 
+    border: 1px dashed #ccc; 
     border-radius: 6px;
     padding: 15px;
     margin-bottom: 15px;
 }
 
-.lesson-header {
+.content-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.lesson-header h6 {
+.content-header h6 {
     margin: 0;
     font-size: 1rem;
     font-weight: 600;
 }
-/* Botones de eliminación (Delete section/lesson) */
+
 .section-header button,
-.lesson-header button {
+.content-header button {
     background: none;
     border: none;
-    color: #dc3545; /* Rojo peligro */
+    color: #dc3545; 
     font-size: 0.9em;
     font-weight: 600;
     cursor: pointer;
@@ -124,24 +119,21 @@ textarea {
 }
 
 .section-header button:hover,
-.lesson-header button:hover {
-    background-color: #f8d7da; /* Fondo rojo claro */
+.content-header button:hover {
+    background-color: #f8d7da; 
 }
 
-/* Botones de adición (+ Add section/lesson) */
-/* Usamos el selector de hijo directo (>) para no afectar los botones de borrado */
 form > button[type="button"],
 .section-box > button[type="button"] {
-    background-color: #28a745; /* Verde agregar */
+    background-color: #28a745;
     color: white;
     padding: 10px 15px;
     border-radius: 6px;
     border: none;
-    margin-top: 10px; /* Espacio después del contenedor */
+    margin-top: 10px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
-    /* Alineación */
     align-self: flex-start; 
 }
 
@@ -150,7 +142,6 @@ form > button[type="button"]:hover,
     background-color: #218838;
 }
 
-/* Separador final */
 hr {
     border: 0;
     height: 1px;
@@ -158,7 +149,6 @@ hr {
     margin: 30px 0;
 }
 
-/* Botón de guardado final */
 form button[type="submit"] {
     width: 100%;
     padding: 15px;
@@ -177,8 +167,139 @@ form button[type="submit"]:disabled {
     cursor: not-allowed;
 }
 .validation-error {
-  color: #dc3545; /* A standard 'danger' red */
-  font-size: 0.85em; /* Slightly smaller than default text */
-  margin-top: 5px; /* Small space below the input */
-  /* Optional: font-weight: 500; */
+  color: #dc3545; 
+  font-size: 0.85em; 
+  margin-top: 5px; 
+}
+
+input[type="file"] {
+    font-size: 0.95em;
+    color: #555;
+    border: 1px solid #ccc;      
+    border-radius: 6px;     
+    padding: 8px 12px;       
+    background-color: #fff; 
+    width: 100%;            
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+    font-weight: 600;
+    color: #007bff;
+    background-color: #e9ecef;
+    border: none;
+    border-right: 1px solid #ccc;
+    padding: 8px 12px;
+    margin: -8px -12px; 
+    margin-right: 12px; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #dde2e7;
+}
+
+.content-box fieldset > p {
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #888; 
+    margin: 0.75rem 0; 
+}
+
+.file-info {
+  display: inline-block; 
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #555;
+  font-style: italic;
+}
+
+.upload-error {
+    color: #dc3545; 
+    font-weight: bold;
+}
+
+progress {
+    width: 100%;
+    margin-top: 5px;
+    height: 8px;
+}
+
+input[formControlName="fileUrl"][readonly] {
+    background-color: #e9ecef; 
+    cursor: not-allowed;
+}
+
+.btn-change-file {
+  background-color: #6c757d; 
+  color: white;
+  border: none;
+  padding: 6px 12px;      
+  font-size: 0.85em;    
+  font-weight: 600;
+  border-radius: 4px;
+  margin-top: 8px;        
+  cursor: pointer;
+  transition: background-color 0.2s;
+  align-self: flex-start;
+}
+
+.btn-change-file:hover {
+  background-color: #5a6268;
+}
+
+.content-box fieldset {
+    margin-bottom: 1.75rem;
+}   
+
+.content-box fieldset > p {
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #888;
+    margin: 0.75rem 0;
+}
+/* Añade esto a tu create-course.component.css */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* Evita que el texto se parta */
+  border: 0;
+}
+
+/* Estilo básico para el label que parece botón */
+.file-input-label {
+  display: inline-block; /* O block */
+  padding: 8px 15px;
+  background-color: #e9ecef;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #007bff;
+  transition: background-color 0.2s;
+}
+
+.file-input-label:hover {
+  background-color: #dde2e7;
+}
+
+.custom-file-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.no-file {
+    color: #888;
+    font-style: italic;
 }

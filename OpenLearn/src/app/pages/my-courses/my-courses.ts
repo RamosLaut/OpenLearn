@@ -3,8 +3,8 @@ import { RouterLink } from '@angular/router';
 import { Course } from '../../models/Course';
 import { CourseService } from '../../services/course-service';
 import { Auth } from '../../services/auth';
-import { forkJoin, Observable, of } from 'rxjs'; // Import forkJoin and of
-import { CommonModule } from '@angular/common'; // Import CommonModule for async pipe if needed later
+import { forkJoin, Observable, of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-my-courses',
@@ -23,7 +23,6 @@ export class MyCourses implements OnInit {
 
   ngOnInit(): void {
     const currentMember = this.auth.getUser();
-    console.log(currentMember?.fullName)
     if (currentMember && currentMember.createdCourses && currentMember.createdCourses.length > 0) {
       this.isLoadingTeaching = true;
       const courseObservables: Observable<Course>[] = currentMember.createdCourses.map(courseId =>

@@ -26,8 +26,7 @@ export class CourseService {
     let totalMinutes = 0;
 
     sections.forEach(section => {
-      section.lessons.forEach(lesson => {
-        totalMinutes += lesson.durationInMinutes;
+      section.content.forEach(c => {
       });
     });
 
