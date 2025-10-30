@@ -1,26 +1,59 @@
 <div id="all-courses-container">
 <h1>Explore courses</h1>
 <div id="searchContainer">
-<input type="text" placeholder="What do you want to learn?">
-<select id="exploreCategories">
+
+<input type="text" placeholder="What do you want to learn?" [(ngModel)]="searched" (input)="applyFilters()">
+<select id="exploreCategories" [(ngModel)]="selectedCategory" (change)="applyFilters()">
     <option value="" disabled selected>Explore</option>
-    <option value="">Data science</option>
-    <option value="">Business</option>
-    <option value="">Mathematics</option>
-    <option value="">Personal development</option>
-    <option value="">Computer science</option>
-    <option value="">Information Technology</option>
-    <option value="">Health</option>
+    <option value="all">All categories</option>
+    <option value="Arts">Arts</option>
+    <option value="Business">Business</option>
+    <option value="Crafts">Crafts</option>
+    <option value="Cooking">Cooking</option>
+    <option value="Computer Science">Computer Science</option>
+    <option value="Data Science">Data Science</option>
+    <option value="Education">Education</option>
+    <option value="Finance">Finance</option>
+    <option value="Health">Health</option>
+    <option value="Information Technology">Information Technology</option>
+    <option value="Language Learning">Language Learning</option>
+    <option value="Marketing">Marketing</option>
+    <option value="Mathematics">Mathematics</option>
+    <option value="Music">Music</option>
+    <option value="Personal Development">Personal Development</option>
+    <option value="Photography">Photography</option>
+    <option value="Programming">Programming</option>
+    <option value="Science">Science</option>
+    <option value="Technology">Technology</option>
+    <option value="Writing">Writing</option>
 </select>
 </div>
-<div id="listContainer">
-<ul>
-    @if(category){
-        <h2>{{category}}</h2>
-    }@else if (searched) {
-        <h2>Results for "{{searched}}"</h2>
+@if (isLoading) {
+    <div class="spinner-container">
+      <p>Loading courses...</p>
+      </div>
+    } @else {
+        <div id="listContainer">
+        <ul>
+            @if(selectedCategory && selectedCategory !== 'all'){
+                <h2>{{selectedCategory}}</h2>
+            }@else if (searched) {
+                <h2>Results for "{{searched}}"</h2>
+            }
+
+            @for (course of displayedCourses; track course.id) {
+            <li>
+                <a [routerLink]="['/course/details', course.id]">
+                <h4>{{course.title}}</h4> 
+                </a>
+                <p>Description: {{course.description}}</p>
+                <p>Category: {{course.category}}</p>
+                <p>Level: {{course.difficultyLevel}}</p>
+            </li> 
+            } @empty {
+                <li><p>No courses found matching your criteria.</p></li>
+            }
+        </ul>
+        </div>
     }
-    <li></li>
-</ul>
-</div>
 </div>
