@@ -1,24 +1,21 @@
 import { CourseCategory } from "../enums/course-category";
 
-export interface Lesson {
-  id: number;
+export interface Content {
+  id: string;
   title: string;
-  abstract?: string;
-  lessonType: 'video' | 'text' | 'quiz';
-  videoUrl?: string;
-  content?: string;
-  durationInMinutes: number; 
-  resources?: string[]; 
+  contentType: 'Video' | 'Pdf' | 'Word' | 'Text';
+  description: string;
+  fileUrl?: string;
 }
 
 export interface Section {
-  id: number;
+  id: string;
   title: string;
-  lessons: Lesson[];
+  content: Content[];
 }
 
 export interface Course {
-  id: number;
+  id: string;
   title: string;
   description: string;
 
@@ -26,7 +23,7 @@ export interface Course {
   instructorName: string;
 
   category: CourseCategory;
-  difficultyLevel: 'beginner' | 'intermediate' | 'advanced';
+  difficultyLevel: 'Beginner' | 'Intermediate' | 'Advanced';
   publishedDate: Date;
   status: 'draft' | 'published' | 'archived';
 

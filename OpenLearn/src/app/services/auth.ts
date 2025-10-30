@@ -13,7 +13,7 @@ export class Auth {
   public currentUser$: Observable<Member | null>;
 
   constructor(private http: HttpClient) {
-    const initialUser = this.getUserFromLocalStorage();
+    const initialUser = this.getUser();
     this.currentUserSubject = new BehaviorSubject<Member | null>(initialUser);
     this.currentUser$ = this.currentUserSubject.asObservable();
   }

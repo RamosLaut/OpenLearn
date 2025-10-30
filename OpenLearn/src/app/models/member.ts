@@ -12,8 +12,8 @@ export default interface Member{
     links?: SocialLinks;
 
     accountStatus: 'active' | 'pendingVerification' | 'suspended' | 'deleted';
-    createdCourses: number[];
-    enrolledCourses: number[];
+    createdCourses: string[];
+    enrolledCourses: string[];
 }
 
 export interface SocialLinks{
