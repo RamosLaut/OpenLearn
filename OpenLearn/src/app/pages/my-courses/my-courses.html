@@ -24,7 +24,8 @@
         <h2>My Teaching</h2>
         <div class="sorting-options">
             <label for="sort-dictated">Sort By:</label>
-            <select id="sort-dictated">
+            <select id="sort-dictated"
+            [(ngModel)]="currentSortTeaching" (ngModelChange)="applySorting()">
                 <option value="name-asc">Name (A-Z)</option>
                 <option value="name-desc">Name (Z-A)</option>
                 <option value="date-created">Date Created</option>
@@ -34,7 +35,7 @@
             @if (isLoadingTeaching) {
             <p>Loading your courses...</p>
             } @else {
-            @for (course of memberTeachingCourses; track course.id) {
+            @for (course of memberTeachingCourses | slice:0:currentCourseLimit ; track course.id) {
             <li class="course-card">
                 <a routerLink="/course/{{course.id}}">
                     <h3>{{ course.title }}</h3>
@@ -45,9 +46,18 @@
             </li>
             }
             }
+             @if (memberTeachingCourses.length > currentCourseLimit) {
+            <li class="action-card-wrapper load-more-button">
+                <button (click)="loadMoreCourses()" class="action-link">
+                     <span>Cargar más cursos ({{ memberTeachingCourses.length - currentCourseLimit }} restantes)</span>
+                </button>
+            </li>
+            }
+            
             <li class="action-card-wrapper">
                 <a routerLink="/courses/new" class="action-link">+ <span>Create course</span></a>
             </li>
+
             @if (memberTeachingCourses.length === 0 && !isLoadingTeaching) {
             <p>You haven't created any courses yet.</p>
             }
