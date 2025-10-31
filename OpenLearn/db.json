@@ -70,11 +70,7 @@
       "profilePhotoUrl": "https://okdiario.com/img/2019/06/11/mono.jpg",
       "registrationDate": "2025-01-05T09:00:00Z",
       "password": "123456789R",
-      "createdCourses": [
-        "e98b",
-        "ceb7",
-        "1964"
-      ],
+      "createdCourses": [],
       "professionalTitle": "Junior developer",
       "biography": "",
       "links": {
@@ -83,30 +79,6 @@
         "github": "",
         "twitter": ""
       }
-    },
-    {
-      "id": "52d2",
-      "userName": "GOLDEN123",
-      "email": "HUNTRIX@gmail.com",
-      "fullName": "Audrey",
-      "password": "asdASD123",
-      "accountStatus": "deleted"
-    },
-    {
-      "id": "968d",
-      "userName": "Lali",
-      "email": "lali123@asdasd",
-      "fullName": "mariana",
-      "password": "LASaksda123",
-      "accountStatus": "deleted"
-    },
-    {
-      "id": "b99f",
-      "userName": "WOS",
-      "email": "asdasd@asd",
-      "fullName": "wos",
-      "password": "WOSS123asdasd",
-      "accountStatus": "deleted"
     },
     {
       "id": "e7f7",
@@ -164,90 +136,6 @@
   ],
   "courses": [
     {
-      "id": "1",
-      "title": "Introducción a Angular",
-      "description": "Aprende los fundamentos de Angular desde cero.",
-      "instructorId": "1",
-      "instructorName": "Jane Doe",
-      "category": "Programming",
-      "difficultyLevel": "beginner",
-      "publishedDate": "2025-01-10T10:00:00Z",
-      "status": "published",
-      "sections": [
-        {
-          "id": 1,
-          "title": "Módulo 1: Introducción",
-          "content": [
-            {
-              "id": 1,
-              "title": "¿Qué es Angular?",
-              "lessonType": "video",
-              "videoUrl": "https://example.com/video1.mp4",
-              "durationInMinutes": 10
-            }
-          ]
-        }
-      ],
-      "totalDurationInHours": 2.5,
-      "coverImageUrl": "https://example.com/images/angular.png"
-    },
-    {
-      "id": "e98b",
-      "title": "Prueba",
-      "description": "Curso de prueba",
-      "category": "Programming",
-      "difficultyLevel": "beginner",
-      "sections": [
-        {
-          "title": "Sección 1",
-          "content": [
-            {
-              "title": "Lección 1",
-              "lessonType": "text",
-              "videoUrl": "",
-              "content": "",
-              "durationInMinutes": 5
-            }
-          ]
-        }
-      ],
-      "instructorId": "c541",
-      "instructorName": "Lautaro Ezequiel Ramos",
-      "publishedDate": "2025-10-23T23:34:59.939Z",
-      "status": "draft",
-      "totalDurationInHours": 0.08,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "ceb7",
-      "title": "Programación 4",
-      "description": "HTML, CSS, Angular",
-      "category": "Programming",
-      "difficultyLevel": "beginner",
-      "sections": [
-        {
-          "title": "Unidad 1",
-          "content": [
-            {
-              "title": "HTML",
-              "lessonType": "video",
-              "videoUrl": "",
-              "content": "",
-              "durationInMinutes": 5
-            }
-          ]
-        }
-      ],
-      "instructorId": "c541",
-      "instructorName": "Lautaro Ezequiel Ramos",
-      "publishedDate": "2025-10-24T23:22:21.914Z",
-      "status": "draft",
-      "totalDurationInHours": 0.08,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
       "id": "6707",
       "title": "Learn the basics of writing",
       "description": "Learn the basics of writing and how to start ur own book all by ur self",
@@ -262,53 +150,6 @@
       "instructorId": "e7f7",
       "instructorName": "wednesdayASD1",
       "publishedDate": "2025-10-25T16:09:51.267Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "6939",
-      "title": "Learn de basic",
-      "description": "asdasd",
-      "category": "Technology",
-      "difficultyLevel": "Beginner",
-      "sections": [],
-      "instructorId": "e7f7",
-      "instructorName": "wednesdayASD1",
-      "publishedDate": "2025-10-25T16:10:26.953Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "1964",
-      "title": "Introducción al Desarrollo Web Moderno",
-      "description": "Aprende a construir aplicaciones web interactivas desde cero. Este curso cubre HTML, CSS y JavaScript, sentando las bases para frameworks avanzados.",
-      "category": "Programming",
-      "difficultyLevel": "Beginner",
-      "sections": [
-        {
-          "title": "Backend",
-          "content": [
-            {
-              "title": "Lección 1",
-              "lessonType": "text",
-              "videoUrl": "",
-              "content": "",
-              "durationInMinutes": 5
-            }
-          ]
-        },
-        {
-          "title": "Frontend",
-          "content": []
-        }
-      ],
-      "instructorId": "c541",
-      "instructorName": "Lautaro Ezequiel Ramos",
-      "publishedDate": "2025-10-27T15:05:37.598Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,

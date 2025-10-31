@@ -6,6 +6,8 @@ export interface Content {
   contentType: 'Video' | 'Pdf' | 'Word' | 'Text';
   description: string;
   fileUrl?: string;
+  textContent?: string;
+  contentDescription: string;
 }
 
 export interface Section {

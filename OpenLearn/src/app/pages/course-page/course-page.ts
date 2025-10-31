@@ -10,6 +10,7 @@ import { CourseService } from '../../services/course-service';
   styleUrl: './course-page.css'
 })
 export class CoursePage {
+  backendBaseUrl = 'http://localhost:8080';
   course!: Course
 
   constructor(
