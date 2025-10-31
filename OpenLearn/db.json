@@ -132,6 +132,15 @@
         "github": "",
         "twitter": ""
       }
+    },
+    {
+      "id": "8daf",
+      "userName": "maluma",
+      "email": "malumababy@gmail.com",
+      "fullName": "maluma",
+      "password": "Maluma123",
+      "registrationDate": "2025-10-31T18:11:42.388Z",
+      "accountStatus": "deleted"
     }
   ],
   "courses": [

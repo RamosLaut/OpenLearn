@@ -13,6 +13,8 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class Profile implements OnInit {
   member!: Member | null
+  isConfirmModalOpen: boolean = false
+  memberIdToDelete: string | null = null
 
   constructor(private auth: Auth,
     public mService: MemberService,
@@ -26,13 +28,40 @@ export class Profile implements OnInit {
     }
   }
 
-  deleteAccount(id : string){
+  // deleteAccount(id : string){
+  //   return this.mService.deleteAccount(id).subscribe({
+  //     next: (data) => { alert('Your account was successfully deleted');
+  //       this.auth.logout();
+  //       this.router.navigate(['/']);
+  //      },
+  //      error: (e) => console.log(e)
+  //   });
+  // }
+  openConfirmModal(id: string) {
+    this.memberIdToDelete = id
+    this.isConfirmModalOpen = true;
+  }
+
+  confirmDelete() {
+    if(this.memberIdToDelete) {
+      this.executeDelete(this.memberIdToDelete);
+      this.closeConfirmModel()
+    }
+  }
+
+  closeConfirmModel(){
+    this.isConfirmModalOpen = false;
+    this.memberIdToDelete = null;
+  }
+  
+  executeDelete(id: string) {
     return this.mService.deleteAccount(id).subscribe({
-      next: (data) => { alert('Your account was successfully deleted');
+      next: (data) => {
+        alert('Your account has been successfully deleted.');
         this.auth.logout();
         this.router.navigate(['/']);
-       },
-       error: (e) => console.log(e)
+      },
+      error: (e) => console.log(e)
     });
   }
 }

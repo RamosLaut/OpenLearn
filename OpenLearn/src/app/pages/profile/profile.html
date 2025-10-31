@@ -2,7 +2,21 @@
     <header class="profile-header">
         <h1>{{ member?.fullName }}'s Profile</h1>
         <button routerLink="/profile/edit/{{member?.id}}" class="edit-button profile-icon">Edit Profile<span class="material-symbols-outlined">person_edit</span></button>
-        <button class="btn-delete" (click)="deleteAccount(member!.id)" >Delete account<span class="material-symbols-outlined">account_circle_off</span></button> 
+        <button class="btn-delete" (click)="openConfirmModal(member!.id)" >Delete account<span class="material-symbols-outlined">account_circle_off</span></button> 
+
+        @if (isConfirmModalOpen) {
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <h2>Confirm account deletion</h2>
+                        <p>Are you absolutely sure you want to delete your account?</p>
+                
+                    <div class="modal-actions">
+                        <button class="btn-cancel" (click)="closeConfirmModel()">Cancelar</button>
+                        <button class="btn-danger" (click)="confirmDelete()">Yes, delete account</button>
+                    </div>
+                </div>
+            </div>
+        }
     </header>
     <div class="profile-layout-grid">
         <aside class="identity-card">
