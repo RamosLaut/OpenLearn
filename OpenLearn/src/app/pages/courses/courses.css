@@ -1,74 +1,156 @@
 .all-courses-container {
-    max-width: 1200px;
-    margin: 2rem auto; 
-    padding: 0 1.5rem; 
+max-width: 1200px;
+margin: 2rem auto; 
+padding: 0 1.5rem; 
 }
 h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 2rem;
-    text-align: center;
-    margin-top: 1rem;
+font-size: 2.5rem;
+color: #333;
+margin-bottom: 2rem;
+text-align: center;
+margin-top: 1rem;
 }
 #searchContainer {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 15px;
-    margin-bottom: 2rem;
-    padding: 1rem; 
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: 1rem;
-    margin-right: 1rem;
+display: flex;
+flex-wrap: wrap; 
+gap: 15px;
+margin-bottom: 2rem;
+padding: 1rem; 
+background-color: rgba(255, 255, 255, 0.5);
+border-radius: 10px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 #searchContainer input[type="text"] {
-    flex-grow: 1; 
-    min-width: 200px; 
-    padding: 10px 15px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background-position: 10px center;
-    background-repeat: no-repeat;
-    background-size: 18px 18px;
+flex-grow: 1; 
+min-width: 200px; 
+padding: 10px 15px;
+font-size: 1em;
+border: 1px solid #ccc;
+border-radius: 20px;
 }
-#exploreCategories {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 1em;
-    cursor: pointer;
+
+#exploreCategories, #sortBy { 
+padding: 10px 15px;
+border: 1px solid #ccc;
+border-radius: 20px;
+font-size: 1em;
+cursor: pointer;
+    background-color: #fff;
 }
+
 #listContainer h2 {
-    font-size: 1.8rem;
-    color: #6F42C1;
-    margin-bottom: 1.5rem;
-    text-align: center;
+font-size: 1.8rem;
+color: #6F42C1;
+margin-bottom: 1.5rem;
+text-align: center;
 }
 #listContainer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px; 
+list-style: none;
+padding: 0;
+margin: 0;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 30px; 
 }
+
 #listContainer ul li {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    min-height: 150px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
     padding: 20px;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
 }
 
-.spinner-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-  font-size: 1.2rem;
+#listContainer ul li:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#listContainer ul li a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#listContainer ul li h4{
+    font-size: 1.25rem;
+    color: #6F42C1;
+    margin: 0 0 10px 0;
+    transition: color 0.3s ease;
+}
+
+#listContainer ul li a:hover h4{
+    color: #5a369b;
+}
+
+#listContainer ul li .course-description {
+  font-size: 0.9rem;
   color: #555;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
+#listContainer ul li .course-meta {
+  margin-top: auto; 
+  padding-top: 10px; 
+  border-top: 1px solid #f0f0f0; 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 8px; 
+  margin-bottom: 0;
+}
+
+.tag {
+  font-size: 0.8rem; 
+  font-weight: 600;
+  padding: 4px 12px; 
+  border-radius: 15px; 
+  background-color: #f0f0f0; 
+  color: #444; 
+}
+
+.tag-category {
+  background-color: #f3e9ff; 
+  color: #6F42C1; 
+}
+
+.tag-level {
+  background-color: #e6f7ff; 
+  color: #096dd9; 
+}
+
+.spinner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.load-more-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.load-more-container button{
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #6F42C1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.load-more-container button:hover{
+    background-color: #5a369b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }

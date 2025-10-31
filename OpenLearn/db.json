@@ -130,7 +130,11 @@
       "userName": "taytay123",
       "email": "tay@gmail.com",
       "fullName": "taylor swift",
-      "password": "taytay123TT"
+      "password": "taytay123TT",
+      "createdCourses": [
+        "a268",
+        "0395"
+      ]
     },
     {
       "id": "d08b",
@@ -402,6 +406,68 @@
       "instructorId": "d08b",
       "instructorName": "saladito",
       "publishedDate": "2025-10-30T02:03:09.922Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "a268",
+      "title": "Herbalism",
+      "description": "Discover herbal medicine careers & why now is a great time to work in a herbalism or holistic medicine profession.",
+      "category": "Health",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Introduction",
+          "content": [
+            {
+              "title": "Different ways you can be an Herbalist",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "First lesson",
+              "fileUrl": "https://www.youtube.com/watch?v=sFHZaDOGJJo",
+              "fileName": "",
+              "uploadProgress": 0
+            }
+          ]
+        }
+      ],
+      "instructorId": "5f8e",
+      "instructorName": "taylor swift",
+      "publishedDate": "2025-10-30T21:34:08.274Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "0395",
+      "title": "Singing and vocal technique",
+      "description": "Learn all the singing secrets and unlock the potential of your voice from the first week, in any style!",
+      "category": "Music",
+      "difficultyLevel": "Intermediate",
+      "sections": [
+        {
+          "title": "Presentation",
+          "content": [
+            {
+              "title": "Introduction",
+              "contentType": "Text",
+              "file": "",
+              "textContent": "I welcome you to this vocal technique training, a course that will help you achieve the greatest milestone for any singer, which is to have control over your own voice, no matter what you sing. You will know what you want to do when you sing and how to do it. And we are going to achieve this effectively.  \nYou are probably familiar with concepts such as chest voice, head voice, falsetto, resonators, voice types, singing modality. The problem is that there is so much information that in the end, you don't even know where to start when you want to learn to sing, or how to continue when you feel stuck.  \nMy goal is to save you time and resources.  \nIn this course, you will have all the useful and practical tools you need if what you want is to project your voice effortlessly, enhance your vocal abilities, and take your singing to the next level.  \nHaving said that, I hope you enjoy this course immensely!",
+              "contentDescription": "Brief introduction to the purpose and contents of the course.",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0
+            }
+          ]
+        }
+      ],
+      "instructorId": "5f8e",
+      "instructorName": "taylor swift",
+      "publishedDate": "2025-10-30T21:48:19.923Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,

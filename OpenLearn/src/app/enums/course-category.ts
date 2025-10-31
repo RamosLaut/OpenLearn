@@ -18,5 +18,6 @@ export enum CourseCategory {
   CRAFTS = 'Crafts',
   COOKING = 'Cooking',
   PHOTOGRAPHY = 'Photography',
-  WRITING = 'Writing', 
+  WRITING = 'Writing',
+  LIFESTYLE = 'Lifestyle' 
 }
