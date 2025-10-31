@@ -61,11 +61,11 @@ export class CourseService {
 
   }
 
-  update(id: number, course: Course): Observable<Course> {
+  update(id: string, course: Course): Observable<Course> {
     return this.http.put<Course>(this.API_URL + "/" + id, course);
   }
 
-  delete(id: number): Observable<void> {
+  delete(id: string): Observable<void> {
     return this.http.delete<void>(this.API_URL + "/" + id)
   }
 

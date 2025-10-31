@@ -3,13 +3,39 @@ import { CourseCategory } from '../../enums/course-category';
 import { CourseService } from '../../services/course-service';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MemberService } from '../../services/member-service';
 import Member from '../../models/member';
 import { Auth } from '../../services/auth';
 import { FileUploadService } from '../../services/file-upload-service';
 import { HttpEventType } from '@angular/common/http';
+import { Course } from '../../models/Course';
 
+function contentRequiredValidator(control: AbstractControl): ValidationErrors | null {
+  const contentType = control.get('contentType');
+  const textContent = control.get('textContent');
+  const file = control.get('file');
+  const url = control.get('fileUrl');
+
+
+  if (!contentType || !textContent || !file || !url) {
+    return null;
+  }
+
+  if (contentType.value === 'Text') {
+    if (!textContent.value) {
+      return { textContentRequired: true };
+    }
+  }
+
+  else if (contentType.value === 'Video' || contentType.value === 'Pdf' || contentType.value === 'Word') {
+    if (!file.value && !url.value) {
+      return { fileOrUrlRequired: true };
+    }
+  }
+
+  return null;
+}
 @Component({
   selector: 'app-create-course',
   imports: [ReactiveFormsModule, CommonModule],
@@ -17,8 +43,10 @@ import { HttpEventType } from '@angular/common/http';
   styleUrl: './create-course.css'
 })
 export class CreateCourse implements OnInit {
-
   courseForm!: FormGroup;
+  isEditMode: boolean = false;
+  courseId: string | null = null;
+  private originalCourseData!: Course;
 
   courseCategories = Object.values(CourseCategory);
   difficultyLevels = ['Beginner', 'Intermediate', 'Advanced'];
@@ -30,23 +58,69 @@ export class CreateCourse implements OnInit {
     private courseService: CourseService,
     private memberService: MemberService,
     private auth: Auth,
-    private fileUpload: FileUploadService
+    private fileUpload: FileUploadService,
+    private route: ActivatedRoute
   ) {
 
   }
 
   ngOnInit(): void {
+    this.courseId = this.route.snapshot.paramMap.get('id');
+    this.initForm();
+    if (this.courseId) {
+      this.isEditMode = true;
+      this.loadCourseForEdit(this.courseId);
+    } else {
+      this.isEditMode = false;
+    }
+  }
+  initForm(): void {
     this.courseForm = this.fb.group({
-
       title: ['', Validators.required],
       description: ['', Validators.required],
       category: ['', Validators.required],
       difficultyLevel: ['', Validators.required],
-
       sections: this.fb.array([])
     });
   }
-  /////////////////////////////////////////////////////////////
+
+  loadCourseForEdit(id: string): void {
+    this.courseService.getById(id).subscribe(course => {
+      this.originalCourseData = course
+      this.courseForm.patchValue({
+        title: course.title,
+        description: course.description,
+        category: course.category,
+        difficultyLevel: course.difficultyLevel
+      });
+      this.sections.clear();
+
+      course.sections.forEach(sectionData => {
+        const contentGroups: FormGroup[] = [];
+
+        sectionData.content.forEach(contentData => {
+          const contentGroup = this.newContent();
+          contentGroup.patchValue({
+            title: contentData.title,
+            contentType: contentData.contentType,
+            textContent: contentData.textContent || '',
+            contentDescription: contentData.contentDescription || '',
+            fileUrl: contentData.fileUrl || ''
+          });
+
+          contentGroups.push(contentGroup);
+        });
+
+        const sectionGroup = this.fb.group({
+          title: [sectionData.title, Validators.required],
+          content: this.fb.array(contentGroups)
+        });
+
+        this.sections.push(sectionGroup);
+      });
+    });
+  }
+
   get sections(): FormArray {
     return this.courseForm.get('sections') as FormArray;
   }
@@ -66,8 +140,6 @@ export class CreateCourse implements OnInit {
     this.sections.removeAt(sectionIndex);
   }
 
-  ////////////////////////////////////////////////////////////
-
   getContent(sectionIndex: number): FormArray {
     return this.sections.at(sectionIndex).get('content') as FormArray;
   }
@@ -79,13 +151,12 @@ export class CreateCourse implements OnInit {
       file: [''],
       textContent: [''],
       contentDescription: ['', Validators.maxLength(500)],
-      fileUrl: ['', Validators.pattern('^(http|https)://[^ "]+$')],
+      fileUrl: ['', Validators.pattern('^(http|https)://[^ "]+$|^/[^ "]+$|^$')],
       fileName: [''],
       uploadProgress: [0]
     }, {
-      validators: this.contentRequiredValidator
-    }
-    );
+      validators: contentRequiredValidator
+    });
     const fileControl = contentGroup.get('file');
     const urlControl = contentGroup.get('fileUrl');
 
@@ -109,18 +180,34 @@ export class CreateCourse implements OnInit {
 
     return contentGroup;
   }
+
   onFileSelected(event: Event, sectionIndex: number, contentIndex: number): void {
     const element = event.currentTarget as HTMLInputElement;
     const fileList: FileList | null = element.files;
     const contentGroup = this.getContent(sectionIndex).at(contentIndex) as FormGroup;
     const fileControl = contentGroup.get('file');
     const urlControl = contentGroup.get('fileUrl');
-    // if (!urlControl) {
-    //   console.error(`ERROR: FormControl 'fileUrl' not found in contentGroup at index ${contentIndex}!`);
-    //   return; // Stop if the control doesn't exist
-    // }
     if (fileList && fileList.length > 0) {
       const file = fileList[0];
+      const selectedType = contentGroup.get('contentType')?.value;
+
+      let isValid = false;
+      if (selectedType === 'Video' && file.type.startsWith('video/')) {
+        isValid = true;
+      } else if (selectedType === 'Pdf' && file.type === 'application/pdf') {
+        isValid = true;
+      } else if (selectedType === 'Word' && (
+        file.type === 'application/msword' ||
+        file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
+        isValid = true;
+      }
+
+      if (!isValid) {
+        alert(`Error: You selected ${selectedType} but uploaded a ${file.type} file. Please select a valid file.`);
+        fileControl?.setValue('');
+        contentGroup.patchValue({ fileName: '', uploadProgress: 0 });
+        return;
+      }
 
       contentGroup.patchValue({ fileName: file.name, uploadProgress: 1, fileUrl: '' });
       urlControl?.disable({ emitEvent: false });
@@ -132,19 +219,12 @@ export class CreateCourse implements OnInit {
             contentGroup.patchValue({ uploadProgress: progress });
           } else if (event.type === HttpEventType.Response) {
             if (event.body && event.body.fileUrl) {
-              // console.log('Backend returned fileUrl:', event.body.fileUrl); // Log the URL from backend
-              // urlControl.patchValue(event.body.fileUrl, { emitEvent: false }); // Patch only the urlControl
-              // contentGroup.patchValue({ uploadProgress: 100 }); // Patch progress separately
-              // console.log('urlControl value AFTER patch:', urlControl.value);
-              // console.log('Full contentGroup value AFTER patch:', contentGroup.getRawValue());
               contentGroup.patchValue({
                 fileUrl: event.body.fileUrl,
                 uploadProgress: 100
               });
               fileControl?.setValue('', { emitEvent: false });
               fileControl?.disable({ emitEvent: false });
-              // console.log('File uploaded, URL stored:', event.body.fileUrl);
-              // console.log('Specific Content Group value AFTER patch:', contentGroup.getRawValue());
             } else {
               throw new Error('Backend did not return fileUrl');
             }
@@ -166,31 +246,18 @@ export class CreateCourse implements OnInit {
     }
   }
 
-  contentRequiredValidator(control: AbstractControl): ValidationErrors | null {
-    const contentType = control.get('contentType');
-    const textContent = control.get('textContent');
-    const file = control.get('file');
-    const url = control.get('fileUrl');
-
-    if (!contentType || !textContent || !file || !url) {
-      return null;
+  getAcceptString(contentType: string): string {
+    switch (contentType) {
+      case 'Video':
+        return 'video/*';
+      case 'Pdf':
+        return 'application/pdf';
+      case 'Word':
+        return '.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+      default:
+        return '*/*';
     }
-
-    if (contentType.value === 'Text') {
-      if (!textContent.value) {
-        return { textContentRequired: true };
-      }
-    }
-
-    else if (contentType.value === 'Video' || contentType.value === 'Pdf' || contentType.value === 'Word') {
-      if (!file.value && !url.value) {
-        return { fileOrUrlRequired: true };
-      }
-    }
-
-    return null;
   }
-
 
   addContent(sectionIndex: number) {
     this.getContent(sectionIndex).push(this.newContent());
@@ -200,8 +267,6 @@ export class CreateCourse implements OnInit {
     this.getContent(sectionIndex).removeAt(contentIndex);
   }
 
-  ///////////////////////////////////////////////////////////////
-
   onSubmit() {
     if (this.courseForm.invalid) {
       this.courseForm.markAllAsTouched();
@@ -210,42 +275,52 @@ export class CreateCourse implements OnInit {
     }
 
     const newCourseData = this.courseForm.getRawValue();
-    // console.log('Sending course:', newCourseData);
-    // console.log('Data being sent to json-server:', JSON.stringify(newCourseData, null, 2));
-    this.courseService.create(newCourseData).subscribe({
-      next: (createdCourse) => {
-        console.log('Course created:', createdCourse);
+    if (this.isEditMode && this.courseId) {
+      const updatedCourseData: Course = {
+        ...this.originalCourseData,
+        ...newCourseData              
+      };
+      this.courseService.update(this.courseId, updatedCourseData).subscribe(response => {
+        alert('Course edited succesfully')
+        this.router.navigate(['/mycourses']);
+      });
+    } else {
+      this.courseService.create(newCourseData).subscribe({
+        next: (createdCourse) => {
+          console.log('Course created:', createdCourse);
 
-        const currentUser = this.auth.CurrentUserValue;
+          const currentUser = this.auth.CurrentUserValue;
 
-        if (currentUser && createdCourse.id) {
-          const updatedMember: Member = {
-            ...currentUser,
-            createdCourses: [...(currentUser.createdCourses || []), createdCourse.id]
-          };
+          if (currentUser && createdCourse.id) {
+            const updatedMember: Member = {
+              ...currentUser,
+              createdCourses: [...(currentUser.createdCourses || []), createdCourse.id]
+            };
 
-          this.memberService.put(updatedMember.id, updatedMember).subscribe({
-            next: (savedMember) => {
-              console.log("Member updated on server", savedMember);
-              this.auth.updateCurrentUser(savedMember);
-              this.router.navigate(['/mycourses']);
-            },
-            error: (updateError) => {
-              console.error("Error updating member: ", updateError);
-              alert('Course created, but failed to update user course list.');
-              this.router.navigate(['/mycourses']);
-            }
-          });
-        } else {
-          console.warn('No current user found to update created courses list.');
-          this.router.navigate(['/mycourses']);
+            this.memberService.put(updatedMember.id, updatedMember).subscribe({
+              next: (savedMember) => {
+                console.log("Member updated on server", savedMember);
+                this.auth.updateCurrentUser(savedMember);
+                this.router.navigate(['/mycourses']);
+              },
+              error: (updateError) => {
+                console.error("Error updating member: ", updateError);
+                alert('Course created, but failed to update user course list.');
+                this.router.navigate(['/mycourses']);
+              }
+            });
+          } else {
+            console.warn('No current user found to update created courses list.');
+            this.router.navigate(['/mycourses']);
+          }
+        },
+        error: (err) => {
+          console.error('Error creating course:', err);
         }
-      },
-      error: (err) => {
-        console.error('Error creating course:', err);
-      }
-    });
+      });
+    }
   }
+
   resetFileState(sectionIndex: number, contentIndex: number): void {
     const contentGroup = this.getContent(sectionIndex).at(contentIndex) as FormGroup;
     const currentFileUrl = contentGroup.get('fileUrl')?.value;

@@ -24,8 +24,7 @@
         <h2>My Teaching</h2>
         <div class="sorting-options">
             <label for="sort-dictated">Sort By:</label>
-            <select id="sort-dictated"
-            [(ngModel)]="currentSortTeaching" (ngModelChange)="applySorting()">
+            <select id="sort-dictated" [(ngModel)]="currentSortTeaching" (ngModelChange)="applySorting()">
                 <option value="name-asc">Name (A-Z)</option>
                 <option value="name-desc">Name (Z-A)</option>
                 <option value="date-created">Date Created</option>
@@ -43,17 +42,39 @@
                     <p>Level: {{ course.difficultyLevel }}</p>
                 </a>
                 <a routerLink="/edit-course/{{ course.id }}">Edit Course</a>
+                <button type="button" class="btn-delete" (click)="openDeleteConfirm(course)">
+                    Delete Course
+                </button>
             </li>
+            @if (isDeleteModalVisible) {
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <h4>Are you sure?</h4>
+                    <p>
+                        You are about to permanently delete the course:
+                        <strong>{{ courseToDelete?.title }}</strong>
+                    </p>
+                    <div class="modal-actions">
+                        <button type="button" (click)="closeDeleteConfirm()" class="btn-cancel">
+                            Cancel
+                        </button>
+                        <button type="button" (click)="confirmDelete()" class="btn-confirm-delete">
+                            Delete Course
+                        </button>
+                    </div>
+                </div>
+            </div>
             }
             }
-             @if (memberTeachingCourses.length > currentCourseLimit) {
+            }
+            @if (memberTeachingCourses.length > currentCourseLimit) {
             <li class="action-card-wrapper load-more-button">
                 <button (click)="loadMoreCourses()" class="action-link">
-                     <span>Cargar más cursos ({{ memberTeachingCourses.length - currentCourseLimit }} restantes)</span>
+                    <span>Cargar más cursos ({{ memberTeachingCourses.length - currentCourseLimit }} restantes)</span>
                 </button>
             </li>
             }
-            
+
             <li class="action-card-wrapper">
                 <a routerLink="/courses/new" class="action-link">+ <span>Create course</span></a>
             </li>

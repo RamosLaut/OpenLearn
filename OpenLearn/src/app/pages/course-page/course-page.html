@@ -1,5 +1,4 @@
 <div class="course-view-container">
-
     <header class="course-header">
         <h1>{{ course.title }}</h1>
         <p class="instructor">Taught by: {{ course.instructorName }}</p>
@@ -10,42 +9,83 @@
             <span>Duration: {{ course.totalDurationInHours }} hours</span>
         </div>
         @if (course.coverImageUrl) {
-            <img [src]="course.coverImageUrl" alt="Course Cover Image" class="cover-image">
+        <img [src]="course.coverImageUrl" alt="Course Cover Image" class="cover-image">
         }
     </header>
 
-    <hr> <div id="sectionsContainer" class="course-content">
+    <hr>
+    <div id="sectionsContainer" class="course-content">
         <h2>Course Content</h2>
 
         @for (section of course.sections; track section.id; let sectionIndex = $index) {
-            <section class="course-section">
-                <header class="section-header">
-                    <h3>Section {{ sectionIndex + 1 }}: {{ section.title }}</h3>
-                    </header>
+        <section class="course-section">
+            <header class="section-header">
+                <h3>Section {{ sectionIndex + 1 }}: {{ section.title }}</h3>
+            </header>
 
-                <ul class="lesson-list">
-                    @for (content of section.content; track content.id) {
-                        <li class="lesson-item">
-                            <span class="material-icons lesson-icon">
-                                @switch (content.contentType) {
-                                    @case ('Video') { movie }
-                                    @case ('Pdf') { description }
-                                    @case ('Word') { quiz }
-                                }
-                            </span>
+            <ul class="content-list">
+                @for (content of section.content; track content.id) {
 
-                            <div class="content-info">
-                                <span class="content-title">{{ content.title }}</span>
-                            </div>
+                <li class="content-item">
 
-                        </li>
-                    } @empty {
-                        <p>No content in this section yet.</p>
-                    }
-                </ul>
-            </section>
+                    <div class="lesson-header">
+                        <span class="material-icons content-icon">
+                            @switch (content.contentType) {
+                            @case ('Video') { movie }
+                            @case ('Pdf') { picture_as_pdf }
+                            @case ('Word') { description }
+                            @case ('Text') { notes }
+                            @default { help_outline }
+                            }
+                        </span>
+
+                        <div class="content-info">
+                            <h4 class="content-title">{{ content.title }}</h4>
+                            @if(content.description) {
+                            <p class="content-description">{{ content.description }}</p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="content-body">
+                        @switch (content.contentType) {
+                        @case ('Video') {
+                        @if(content.fileUrl){
+                        <video [src]="backendBaseUrl + content.fileUrl" controls>
+                            Your browser does not support the video tag.
+                        </video>
+                        }
+                        }
+                        @case ('Pdf') {
+                        @if(content.fileUrl){
+                        <a [href]="backendBaseUrl + content.fileUrl" target="_blank" class="content-link">
+                            View PDF
+                        </a>
+                        }
+                        }
+                        @case ('Word') {
+                        @if(content.fileUrl){
+                        <a [href]="backendBaseUrl + content.fileUrl" download class="content-link">
+                            Download Word Document
+                        </a>
+                        }
+                        }
+                        @case ('Text') {
+                        <div class="text-content-display">
+                            <p>{{ content.description || 'No text content available.' }}</p>
+                        </div>
+                        }
+                        }
+                    </div>
+
+                </li>
+                } @empty {
+                <p class="empty-list-message">No content in this section yet.</p>
+                }
+            </ul>
+        </section>
         } @empty {
-            <p>This course has no sections yet.</p>
+        <p class="empty-list-message">This course has no sections yet.</p>
         }
     </div>
 </div>

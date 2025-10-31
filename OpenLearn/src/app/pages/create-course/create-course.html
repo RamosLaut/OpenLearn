@@ -1,7 +1,7 @@
 <div class="new-course-container">
     <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
 
-        <h2>Create new course</h2>
+        <h2>{{ isEditMode ? 'Edit Course' : 'Create new course' }}</h2>
 
         <fieldset class="form-card">
             <label for="title">Title of course: </label>
@@ -111,9 +111,11 @@
                             <div class="custom-file-input">
                                 <input type="file" id="content-file-{{ sectionIndex }}-{{ contentIndex }}"
                                     formControlName="file" (change)="onFileSelected($event, sectionIndex, contentIndex)"
-                                    class="visually-hidden"> <label
-                                    for="content-file-{{ sectionIndex }}-{{ contentIndex }}" class="file-input-label">
-                                    Elegir archivo </label>
+                                    class="visually-hidden"
+                                    [accept]="getAcceptString(content.get('contentType')?.value)">
+                                    <label for="content-file-{{ sectionIndex }}-{{ contentIndex }}"
+                                    class="file-input-label">
+                                    Select file </label>
 
                                 @if(content.get('fileName')?.value && content.get('uploadProgress')?.value !== -1){
                                 <span class="file-info">Selected: {{ content.get('fileName')?.value }}</span>
@@ -136,7 +138,8 @@
                         <input type="text" id="content-url-{{ sectionIndex }}-{{ contentIndex }}"
                             formControlName="fileUrl" placeholder="Enter the URL"
                             [readOnly]="content.get('uploadProgress')?.value === 100">
-                        @if(content.get('uploadProgress')?.value === 100){
+                        @if(content.get('uploadProgress')?.value === 100 || (content.get('fileUrl')?.value &&
+                        content.get('fileUrl')?.value !== '')){
                         <button type="button" class="btn-change-file"
                             (click)="resetFileState(sectionIndex, contentIndex)">Change
                             File</button>
@@ -196,7 +199,9 @@
 
         <hr>
 
-        <button type="submit" [disabled]="courseForm.invalid"> Save course</button>
+        <button type="submit" [disabled]="courseForm.invalid">
+            {{ isEditMode ? 'Save Changes' : 'Save course' }}
+        </button>
 
     </form>
 </div>
