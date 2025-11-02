@@ -129,18 +129,45 @@
       "links": {
         "webpage": "",
         "linkedin": "",
-        "github": "",
+        "github": "https://github.com/",
         "twitter": ""
       }
     },
     {
-      "id": "8daf",
-      "userName": "maluma",
-      "email": "malumababy@gmail.com",
-      "fullName": "maluma",
-      "password": "Maluma123",
-      "registrationDate": "2025-10-31T18:11:42.388Z",
-      "accountStatus": "deleted"
+      "id": "64cf",
+      "userName": "emily123",
+      "email": "emilyarmstrong@gmail.com",
+      "fullName": "emily armstrong ",
+      "password": "Emily123",
+      "registrationDate": "2025-11-02T01:36:08.103Z",
+      "accountStatus": "active",
+      "profilePhotoUrl": "",
+      "professionalTitle": "",
+      "biography": "hi there hello",
+      "links": {
+        "webpage": "",
+        "linkedin": "https://youtube.com/",
+        "github": "https://github.com/",
+        "twitter": ""
+      }
+    },
+    {
+      "id": "3944",
+      "userName": "usuario1",
+      "email": "usuario@gmail.com",
+      "fullName": "usuario",
+      "password": "Usuario123",
+      "registrationDate": "2025-11-02T05:20:44.798Z",
+      "accountStatus": "active",
+      "profilePhotoUrl": "",
+      "professionalTitle": "Junior Developer frontend",
+      "biography": "Hello there!",
+      "links": {
+        "webpage": "https://youtube.com/",
+        "linkedin": "https://linkedin.com/",
+        "github": "https://github.com/",
+        "twitter": "https://twitter.com/"
+      }
     }
   ],
   "courses": [
