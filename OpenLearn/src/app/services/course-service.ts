@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Course, Section } from '../models/Course';
 import { CourseCreationsData } from '../models/courseCreations';
 import { Auth } from './auth';
+import Subscription from '../models/subscription';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,25 @@ export class CourseService {
 
   delete(id: string): Observable<void> {
     return this.http.delete<void>(this.API_URL + "/" + id)
+  }
+
+  subscribeUserToCourse(courseId: string, userId: string): Observable<Subscription>{
+    const apiUrl = 'http://localhost:3000/subscriptions';
+
+    const body: { userId: string, courseId: string} = {
+      courseId: courseId,
+      userId: userId
+    };
+
+    return this.http.post<Subscription>(apiUrl, body);
+
+  }
+
+  getSubscribedCourses(userId: string): Observable<Subscription[]>{
+
+    const url = 'http://localhost:3000/subscriptions?userId=${userId}&_expand=course';
+
+    return this.http.get<Subscription[]>(url);
   }
 
 }

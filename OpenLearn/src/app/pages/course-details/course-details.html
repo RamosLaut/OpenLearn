@@ -1,1 +1,61 @@
-<p>course-details works!</p>
+<div class="details-container">
+
+   @if (isLoading) {
+        <div class="spinner">
+            <p>Loading course details...</p>
+        </div>
+    }
+
+    @if (!isLoading && course) {
+        <div class="course-header">
+            <h1>{{course.title}}</h1>
+            
+        </div>
+
+        <div class="course-content">
+
+            <div class="main-content">
+                <h2>About this course</h2>
+                <p>{{course.description || 'No further details are available.'}}</p>
+
+                <h3>Course content</h3>
+                <ul>
+                    @for (section of course.sections; track $index) {
+                        <li>{{section.title}}</li>
+                    } @empty {
+                        <li>Detailed content is not yet available</li>
+                    }
+                </ul>
+            </div>
+        
+
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <img src="{{course.coverImageUrl || 'assets/images/default-course.jpg'}}" alt="image of {{course.title}}" class="course-image">
+
+                <h3>Course details</h3>
+                <p><strong>Category: </strong> {{course.category}}</p>
+                <p><strong>Level: </strong>{{course.difficultyLevel}}</p>
+                <p><strong>Published date: </strong>{{course.publishedDate}}</p>
+
+                <h3>Instructor details</h3>
+                <p><strong>Name: </strong>{{course.instructorName}}</p>
+
+                <button (click)="subscribeToCourse()" class="subscribe-button">
+                    Subscribe to the course
+                </button>
+            </div>
+        </div>
+        </div>
+    }
+
+    @if (!isLoading && !course) {
+        <div class="error-container">
+            <h2>Course not found</h2>
+            <p>We couldn't find the details for this course. It may have been moved or removed.</p>
+            <a routerLink="/courses" class="back-button">Return to courses</a>
+        </div>
+    }
+    
+</div>
+        
