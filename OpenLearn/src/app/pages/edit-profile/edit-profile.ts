@@ -26,35 +26,34 @@ export class EditProfile implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.memberId = this.auth.getUser()?.id || '';
+  this.memberId = this.auth.getUser()?.id || '';
 
-    if (this.memberId) {
-      this.mService.getById(this.memberId)
-        .subscribe({
-          next: (memberData) => {
-            this.currentMember = memberData; 
-            this.editForm = this.fb.group({
-              fullName: [this.currentMember.fullName, Validators.required],
-              email: [this.currentMember.email, [Validators.required, Validators.email]],
-              profilePhotoUrl: [this.currentMember.profilePhotoUrl || '', Validators.pattern('(https?://.*\\.(?:png|jpg|jpeg|gif|svg))')],
-              professionalTitle: [this.currentMember.professionalTitle || ''],
-              biography: [this.currentMember.biography || ''],
-              links: this.fb.group({
-                webpage: [this.currentMember.links?.webpage || '', Validators.pattern('https?://.*')],
-                linkedin: [this.currentMember.links?.linkedin || '', Validators.pattern('https?://.*')],
-                github: [this.currentMember.links?.github || '', Validators.pattern('https?://.*')],
-                twitter: [this.currentMember.links?.twitter || '', Validators.pattern('https?://.*')]
-              })
-            });
-          },
-          error: (err) => {
-            console.error("Error loading profile:", err);
-          }
-        });
-    } else {
-      this.router.navigate(['/login']); 
-    }
+  this.editForm = this.fb.group({
+    fullName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    profilePhotoUrl: ['', Validators.pattern('(https?://.*\\.(?:png|jpg|jpeg|gif|svg))')],
+    professionalTitle: [''],
+    biography: [''],
+    links: this.fb.group({
+      webpage: ['', Validators.pattern('https?://.*')],
+      linkedin: ['', Validators.pattern('https?://.*')],
+      github: ['', Validators.pattern('https?://.*')],
+      twitter: ['', Validators.pattern('https?://.*')]
+    })
+  });
+
+  if (this.memberId) {
+    this.mService.getById(this.memberId).subscribe({
+      next: (memberData) => {
+        this.currentMember = memberData;
+        this.editForm.patchValue(memberData);
+      },
+      error: (err) => console.error("Error loading profile:", err)
+    });
+  } else {
+    this.router.navigate(['/login']);
   }
+}
 
   onSubmit() {
     if (this.editForm.valid && this.memberId) {

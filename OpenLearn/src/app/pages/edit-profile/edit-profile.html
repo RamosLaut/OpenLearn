@@ -29,20 +29,20 @@
                 placeholder="Write a brief bio about your expertise..."></textarea>
         </fieldset>
 
-        <fieldset class="social-group">
+        <fieldset class="social-group" formGroupName="links">
             <legend>Social Links</legend>
 
             <label for="webpage">Website</label>
-            <input type="url" id="webpage" formControlName="links.webpage">
+            <input type="url" id="webpage" formControlName="webpage">
 
             <label for="linkedin">LinkedIn</label>
-            <input type="url" id="linkedin" formControlName="links.linkedin">
+            <input type="url" id="linkedin" formControlName="linkedin">
 
             <label for="github">GitHub</label>
-            <input type="url" id="github" formControlName="links.github">
+            <input type="url" id="github" formControlName="github">
 
             <label for="twitter">Twitter</label>
-            <input type="url" id="twitter" formControlName="links.twitter">
+            <input type="url" id="twitter" formControlName="twitter">
         </fieldset>
 
         <button type="submit" [disabled]="editForm.invalid" class="save-icon">Save Changes<span class="material-symbols-outlined">save</span></button>

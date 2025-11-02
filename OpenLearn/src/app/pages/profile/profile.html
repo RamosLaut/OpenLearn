@@ -50,10 +50,10 @@
                 <section class="social-links">
                     <h3>Connect</h3>
                     <ul>
-                        @if (member?.links?.linkedin) { <li>LinkedIn</li> }
-                        @if (member?.links?.github) { <li>GitHub</li> }
-                        @if (member?.links?.webpage) { <li>Website</li> }
-                        @if (member?.links?.twitter) { <li>Twitter</li> }
+                        @if (member?.links?.linkedin) { <li>LinkedIn: <a [href]="member!.links?.linkedin" target="_blank">Enlace</a></li>}
+                        @if (member?.links?.github) { <li>GitHub: <a [href]="member!.links?.github" target="_blank">Enlace</a></li> }
+                        @if (member?.links?.webpage) { <li>Website: <a [href]="member!.links?.webpage" target="_blank">Enlace</a></li> }
+                        @if (member?.links?.twitter) { <li>Twitter: <a [href]="member!.links?.twitter" target="_blank">Enlace</a></li> }
                     </ul>
                 </section>
             }
