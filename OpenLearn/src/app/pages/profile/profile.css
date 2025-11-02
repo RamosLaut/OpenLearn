@@ -177,3 +177,76 @@
     background-color: #b72b39;
     transform: translateY(-2px);
 }
+
+
+@media (max-width: 1024px) {
+    .profile-layout-grid {
+        grid-template-columns: 1fr; 
+        gap: 25px;
+        padding: 0 1rem;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .profile-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .edit-button,
+    .btn-delete {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .btn-cancel,
+    .btn-danger {
+        padding: 8px 14px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-header h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+        border-width: 2px;
+    }
+
+    .identity-card {
+        padding: 15px;
+    }
+
+    .modal-content {
+        padding: 0.8rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-cancel,
+    .btn-danger {
+        width: 100%;
+    }
+}
