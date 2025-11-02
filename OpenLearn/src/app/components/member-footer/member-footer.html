@@ -1,11 +1,14 @@
 <footer>
     <div class="perfil">
         @if (currentUser | async; as user) {
-        <div class="perfil">
             <p>
                 Welcome back {{ user.userName }}!
             </p>
-        </div>
-    }
+            <p>© 2025 OpenLearn. All rights reserved.</p>
+            <p>Empowering learners through accessible education</p>
+            <p>
+                <a [routerLink]="['/profile']" class="profile-link">View Profile</a>
+            </p>
+        }
     </div>
 </footer>

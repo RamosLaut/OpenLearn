@@ -3,9 +3,10 @@ import { Auth } from '../../services/auth';
 import { Observable } from 'rxjs';
 import Member from '../../models/member';
 import { AsyncPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-member-footer',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, RouterLink],
   templateUrl: './member-footer.html',
   styleUrl: './member-footer.css'
 })
