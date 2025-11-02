@@ -28,15 +28,6 @@ export class Profile implements OnInit {
     }
   }
 
-  // deleteAccount(id : string){
-  //   return this.mService.deleteAccount(id).subscribe({
-  //     next: (data) => { alert('Your account was successfully deleted');
-  //       this.auth.logout();
-  //       this.router.navigate(['/']);
-  //      },
-  //      error: (e) => console.log(e)
-  //   });
-  // }
   openConfirmModal(id: string) {
     this.memberIdToDelete = id
     this.isConfirmModalOpen = true;
