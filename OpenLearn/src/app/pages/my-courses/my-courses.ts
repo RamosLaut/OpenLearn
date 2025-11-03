@@ -24,6 +24,7 @@ export class MyCourses implements OnInit {
   isUnsubscribing: string | null = null;
 
   currentSortTeaching: string = 'date-created';
+  currentSortEnrolled: string = 'date-new';
 
   initialCourseLimit: number = 2;
   courseIncrement: number = 2;
@@ -67,6 +68,7 @@ export class MyCourses implements OnInit {
         forkJoin(courseObservables).subscribe({
           next: (courses) => {
             this.memberSubscribedCourses = courses;
+            this.applyEnrolledSorting();
             this.isLoadingSubscribed = false;
           }, 
           error: (err) => {
@@ -99,7 +101,7 @@ export class MyCourses implements OnInit {
         forkJoin(courseObservables).subscribe({
           next: (courses) => {
             this.memberTeachingCourses = courses;
-            this.applySorting();
+            this.applyTeachingSorting();
 
             this.currentTeachingLimit = this.initialCourseLimit;
 
@@ -126,7 +128,30 @@ export class MyCourses implements OnInit {
 
     }
 
-  applySorting(): void {
+  applyEnrolledSorting(){
+
+    switch(this.currentSortEnrolled) {
+      case 'name-asc':
+        this.memberSubscribedCourses.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case 'name-desc':
+        this.memberSubscribedCourses.sort((a, b) => b.title.localeCompare(a.title));
+        break;
+      case 'date-new':
+        this.memberSubscribedCourses.sort((a, b) => {
+          const dateA = new Date(a.publishedDate).getTime();
+          const dateB = new Date(b.publishedDate).getTime();
+          return dateB - dateA;
+        });
+      break;
+      default:
+        break;
+    }
+    this.memberSubscribedCourses = [...this.memberSubscribedCourses];
+  }
+
+
+  applyTeachingSorting(): void {
     switch (this.currentSortTeaching) {
       case 'name-asc':
         this.memberTeachingCourses.sort((a, b) => a.title.localeCompare(b.title));

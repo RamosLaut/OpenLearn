@@ -7,7 +7,7 @@
         <h2>My Learning</h2>
         <div class="sorting-options">
             <label for="sort-enrolled">Sort By:</label>
-            <select id="sort-enrolled">
+            <select id="sort-enrolled" [(ngModel)]="currentSortEnrolled" (ngModelChange)="applyEnrolledSorting()">
                 <option value="name-asc">Name (A-Z)</option>
                 <option value="name-desc">Name (Z-A)</option>
                 <option value="date-new">Latest Activity</option>
@@ -55,7 +55,7 @@
         <h2>My Teaching</h2>
         <div class="sorting-options">
             <label for="sort-dictated">Sort By:</label>
-            <select id="sort-dictated" [(ngModel)]="currentSortTeaching" (ngModelChange)="applySorting()">
+            <select id="sort-dictated" [(ngModel)]="currentSortTeaching" (ngModelChange)="applyTeachingSorting()">
                 <option value="name-asc">Name (A-Z)</option>
                 <option value="name-desc">Name (Z-A)</option>
                 <option value="date-created">Date Created</option>

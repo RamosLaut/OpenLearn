@@ -167,6 +167,19 @@
         "github": "https://github.com/",
         "twitter": "https://twitter.com/"
       }
+    },
+    {
+      "id": "3efc",
+      "userName": "shakira",
+      "email": "wakawaka@gmail.com",
+      "fullName": "shakira",
+      "password": "Password123",
+      "registrationDate": "2025-11-03T21:50:25.095Z",
+      "accountStatus": "active",
+      "createdCourses": [
+        "eae5",
+        "ce42"
+      ]
     }
   ],
   "courses": [
@@ -348,6 +361,36 @@
       "totalDurationInHours": 0,
       "averageRating": 0,
       "numberOfReviews": 0
+    },
+    {
+      "id": "eae5",
+      "title": "Ritmo Salvaje",
+      "description": "Un curso donde la música se siente con todo el cuerpo. Mezcla de pop y rock latino, explosión de movimientos y una voz que ruge con identidad. Aquí aprenderás a transformar tus emociones en ritmo, tu fuerza en baile y tu historia en canción. Expresa tu lado más auténtico: tu lado salvaje.",
+      "category": "Music",
+      "difficultyLevel": "Intermediate",
+      "sections": [],
+      "instructorId": "3efc",
+      "instructorName": "shakira",
+      "publishedDate": "2025-11-03T21:56:21.067Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "ce42",
+      "title": "Caderas en Ritmo",
+      "description": "Un curso para liberar el movimiento y convertir cada paso en actitud. Inspirado en la fuerza femenina, las raíces latinas y la precisión del belly dance, aquí aprenderás a dominar tus caderas, a fluir con los ritmos del pop urbano y a contar historias con tu cuerpo. Baila con poder. Baila con identidad.",
+      "category": "Arts",
+      "difficultyLevel": "Beginner",
+      "sections": [],
+      "instructorId": "3efc",
+      "instructorName": "shakira",
+      "publishedDate": "2025-11-03T21:57:49.804Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
     }
   ],
   "subscriptions": [
@@ -385,6 +428,21 @@
       "id": "8cf6",
       "courseId": "bf99",
       "userId": "5f8e"
+    },
+    {
+      "id": "a431",
+      "courseId": "57c8",
+      "userId": "3efc"
+    },
+    {
+      "id": "7fd3",
+      "courseId": "7b19",
+      "userId": "3efc"
+    },
+    {
+      "id": "24e6",
+      "courseId": "3f2c",
+      "userId": "3efc"
     }
   ]
 }
