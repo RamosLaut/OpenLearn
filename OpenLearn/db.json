@@ -17,7 +17,6 @@
       },
       "accountStatus": "active",
       "createdCourses": [
-        101,
         102
       ],
       "enrolledCourses": [
@@ -349,6 +348,38 @@
       "totalDurationInHours": 0,
       "averageRating": 0,
       "numberOfReviews": 0
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": "195d",
+      "courseId": "bf99",
+      "userId": "1"
+    },
+    {
+      "id": "fbef",
+      "courseId": "7b19",
+      "userId": "1"
+    },
+    {
+      "id": "5426",
+      "courseId": "3f2c",
+      "userId": "1"
+    },
+    {
+      "id": "e640",
+      "courseId": "bf99",
+      "userId": "5f8e"
+    },
+    {
+      "id": "57aa",
+      "courseId": "bf99",
+      "userId": "5f8e"
+    },
+    {
+      "id": "df1c",
+      "courseId": "a268",
+      "userId": "5f8e"
     }
   ]
 }

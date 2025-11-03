@@ -4,14 +4,17 @@ import { Observable } from 'rxjs';
 import { Course, Section } from '../models/Course';
 import { CourseCreationsData } from '../models/courseCreations';
 import { Auth } from './auth';
-import Subscription from '../models/subscription';
+import Subscription  from '../models/subscription';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-  readonly API_URL = "http://localhost:3000/courses"
+  readonly API_URL = "http://localhost:3000/courses";
+  readonly SUB_API_URL = "http://localhost:3000/subscriptions";
 
   courses: Course[];
 
@@ -71,22 +74,36 @@ export class CourseService {
   }
 
   subscribeUserToCourse(courseId: string, userId: string): Observable<Subscription>{
-    const apiUrl = 'http://localhost:3000/subscriptions';
 
     const body: { userId: string, courseId: string} = {
       courseId: courseId,
       userId: userId
     };
 
-    return this.http.post<Subscription>(apiUrl, body);
+    return this.http.post<Subscription>(this.SUB_API_URL, body);
 
   }
 
   getSubscribedCourses(userId: string): Observable<Subscription[]>{
 
-    const url = 'http://localhost:3000/subscriptions?userId=${userId}&_expand=course';
+    const url = `http://localhost:3000/subscriptions?userId=${userId}&_expand=course`;
 
     return this.http.get<Subscription[]>(url);
+  }
+
+  getSubscription(userId: string, courseId:string): Observable<Subscription[]>{
+
+    const url = `${this.SUB_API_URL}?userId=${userId}&courseId=${courseId}`;
+
+    return this.http.get<Subscription[]>(url);
+
+  }
+  unSubscribeUserToCourse(subscriptionId: number): Observable<void>{
+
+    const url = `${this.SUB_API_URL}/${subscriptionId}`;
+
+    return this.http.delete<void>(url);
+
   }
 
 }

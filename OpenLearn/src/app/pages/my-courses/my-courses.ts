@@ -18,6 +18,10 @@ import { MemberService } from '../../services/member-service';
 export class MyCourses implements OnInit {
   memberTeachingCourses: Course[] = [];
   isLoadingTeaching: boolean = true;
+
+  memberSubscribedCourses: Course[] = [];
+  isLoadingSubscribed: boolean = false;
+
   currentSortTeaching: string = 'date-created';
 
   initialCourseLimit: number = 2;
@@ -38,34 +42,69 @@ export class MyCourses implements OnInit {
     this.currentCourseLimit += this.courseIncrement;
   }
 
+  loadSubscribedCourses(userId: string): void {
+    this.isLoadingSubscribed = true;
+    
+    this.cService.getSubscribedCourses(userId).subscribe({
+      next: (subscriptions) => {
+        console.log('Respuesta de la API (Suscripciones):', subscriptions); /* hajsahsa */
+        this.memberSubscribedCourses = subscriptions.map(sub => sub.course)
+        .filter((course): course is Course => course !== undefined);
+
+        console.log('Cursos finales (Mapeados):', this.memberSubscribedCourses); /* zczczxczxc */
+        
+        this.isLoadingSubscribed = false;
+      },
+      error: (err) => {
+        console.error("Error fetching subscribed courses:", err);
+        this.isLoadingSubscribed = false;
+      }
+    });
+  }
+
   ngOnInit(): void {
     const currentMember = this.auth.getUser();
-    if (currentMember && currentMember.createdCourses && currentMember.createdCourses.length > 0) {
-      this.isLoadingTeaching = true;
-      const courseObservables: Observable<Course>[] = currentMember.createdCourses.map(courseId =>
-        this.cService.getById(courseId)
-      );
-      forkJoin(courseObservables).subscribe({
-        next: (courses) => {
-          this.memberTeachingCourses = courses;
-          this.applySorting();
 
-          this.currentCourseLimit = this.initialCourseLimit;
+    if (currentMember && currentMember.id) {
 
-          this.isLoadingTeaching = false;
-          console.log('Teaching courses loaded:', this.memberTeachingCourses);
-        },
-        error: (err) => {
-          console.error('Error fetching teaching courses:', err);
-          this.isLoadingTeaching = false;
-        }
-      });
+      this.loadSubscribedCourses(currentMember.id);
+
+      if (currentMember && currentMember.createdCourses && currentMember.createdCourses.length > 0) {
+        this.isLoadingTeaching = true;
+        const courseObservables: Observable<Course>[] = currentMember.createdCourses.map(courseId =>
+          this.cService.getById(courseId)
+        );
+        forkJoin(courseObservables).subscribe({
+          next: (courses) => {
+            this.memberTeachingCourses = courses;
+            this.applySorting();
+
+            this.currentCourseLimit = this.initialCourseLimit;
+
+            this.isLoadingTeaching = false;
+            console.log('Teaching courses loaded:', this.memberTeachingCourses);
+          },
+          error: (err) => {
+            console.error('Error fetching teaching courses:', err);
+            this.isLoadingTeaching = false;
+          }
+        });
+
+      } else {
+        this.isLoadingTeaching = false;
+        this.memberTeachingCourses = [];
+      }
 
     } else {
-      this.isLoadingTeaching = false;
-      this.memberTeachingCourses = [];
+        this.isLoadingTeaching = false;
+        this.memberTeachingCourses = [];
+        this.isLoadingSubscribed = false; 
+        this.memberSubscribedCourses = []; 
+      }
+
     }
-  }
+
+  
 
 
   applySorting(): void {
