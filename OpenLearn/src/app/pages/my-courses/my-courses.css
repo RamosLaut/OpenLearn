@@ -173,7 +173,7 @@ section h2 {
 .course-card>a:first-of-type {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   padding: 15px;
@@ -202,23 +202,23 @@ section h2 {
   margin-bottom: 0.3rem;
 }
 
-.course-card>a:last-of-type {
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-  z-index: 2;
-  font-size: 0.85em;
-  font-weight: 600;
-  color: #007bff;
-  text-decoration: none;
-  padding: 4px 8px;
-  background-color: rgba(230, 240, 255, 0.9);
-  border: 1px solid #cce5ff;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+.course-card > a + a {
+   position: absolute;
+   bottom: 10px;
+   right: 15px;
+   z-index: 2;
+   font-size: 0.85em;
+   font-weight: 600;
+   color: #007bff;
+   text-decoration: none;
+   padding: 4px 8px;
+   background-color: rgba(230, 240, 255, 0.9);
+   border: 1px solid #cce5ff;
+   border-radius: 4px;
+   transition: background-color 0.2s;
 }
 
-.course-card>a:last-of-type:hover {
+.course-card > a + a:hover {
   background-color: rgba(200, 225, 255, 1);
   text-decoration: underline;
 }
@@ -243,6 +243,35 @@ section h2 {
 .btn-delete:hover {
   background-color: #dc3545;
   color: white;
+}
+
+.btn-unsubscribe {
+  
+  position: absolute;
+  bottom: 10px;
+  right: 110px;
+  z-index: 2;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #dc3545;
+  text-decoration: none;
+  padding: 4px 8px;
+  background-color: rgba(255, 230, 230, 0.9);
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-unsubscribe:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-unsubscribe:disabled {
+  background-color: #aaa;
+  border-color: #999;
+
 }
 
 .modal-overlay {

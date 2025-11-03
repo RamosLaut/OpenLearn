@@ -352,33 +352,38 @@
   ],
   "subscriptions": [
     {
-      "id": "195d",
+      "id": "1",
       "courseId": "bf99",
       "userId": "1"
     },
     {
-      "id": "fbef",
+      "id": "2",
       "courseId": "7b19",
       "userId": "1"
     },
     {
-      "id": "5426",
+      "id": "3",
       "courseId": "3f2c",
       "userId": "1"
     },
     {
-      "id": "e640",
-      "courseId": "bf99",
-      "userId": "5f8e"
-    },
-    {
-      "id": "57aa",
-      "courseId": "bf99",
-      "userId": "5f8e"
-    },
-    {
-      "id": "df1c",
+      "id": "6",
       "courseId": "a268",
+      "userId": "5f8e"
+    },
+    {
+      "id": "bd23",
+      "courseId": "05ac",
+      "userId": "5f8e"
+    },
+    {
+      "id": "b976",
+      "courseId": "0395",
+      "userId": "5f8e"
+    },
+    {
+      "id": "8cf6",
+      "courseId": "bf99",
       "userId": "5f8e"
     }
   ]

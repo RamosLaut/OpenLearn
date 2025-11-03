@@ -21,12 +21,14 @@ export class MyCourses implements OnInit {
 
   memberSubscribedCourses: Course[] = [];
   isLoadingSubscribed: boolean = false;
+  isUnsubscribing: string | null = null;
 
   currentSortTeaching: string = 'date-created';
 
   initialCourseLimit: number = 2;
   courseIncrement: number = 2;
-  currentCourseLimit: number = this.initialCourseLimit;
+  currentTeachingLimit: number = this.initialCourseLimit;
+  currentSubscribedLimit: number = this.initialCourseLimit;
 
   isDeleteModalVisible = false;
   courseToDelete: Course | null = null;
@@ -38,8 +40,12 @@ export class MyCourses implements OnInit {
   ) { }
 
 
-  loadMoreCourses() {
-    this.currentCourseLimit += this.courseIncrement;
+  loadMoreTeachingCourses() {
+    this.currentTeachingLimit += this.courseIncrement;
+  }
+
+  loadMoreSubscribedCourses() {
+    this.currentSubscribedLimit += this.courseIncrement;
   }
 
   loadSubscribedCourses(userId: string): void {
@@ -47,23 +53,39 @@ export class MyCourses implements OnInit {
     
     this.cService.getSubscribedCourses(userId).subscribe({
       next: (subscriptions) => {
-        console.log('Respuesta de la API (Suscripciones):', subscriptions); /* hajsahsa */
-        this.memberSubscribedCourses = subscriptions.map(sub => sub.course)
-        .filter((course): course is Course => course !== undefined);
 
-        console.log('Cursos finales (Mapeados):', this.memberSubscribedCourses); /* zczczxczxc */
-        
-        this.isLoadingSubscribed = false;
+        if (!subscriptions || subscriptions.length === 0) {
+          this.memberSubscribedCourses = [];
+          this.isLoadingSubscribed = false;
+          return;
+        }
+
+        const courseIds = subscriptions.map(sub => sub.courseId);
+
+        const courseObservables: Observable<Course>[] = courseIds.map(courseId => this.cService.getById(courseId));
+
+        forkJoin(courseObservables).subscribe({
+          next: (courses) => {
+            this.memberSubscribedCourses = courses;
+            this.isLoadingSubscribed = false;
+          }, 
+          error: (err) => {
+            console.error("Error fetching details for subscribed courses: ", err);
+            this.isLoadingSubscribed = false;
+          },
+        });
       },
       error: (err) => {
-        console.error("Error fetching subscribed courses:", err);
+        console.error("Error fetching subscriptions list:", err);
         this.isLoadingSubscribed = false;
       }
     });
   }
 
   ngOnInit(): void {
-    const currentMember = this.auth.getUser();
+    const currentMember = this.auth.CurrentUserValue;
+
+    console.log('MyCoursesComponent OnInit - Current Member:', currentMember);
 
     if (currentMember && currentMember.id) {
 
@@ -79,7 +101,7 @@ export class MyCourses implements OnInit {
             this.memberTeachingCourses = courses;
             this.applySorting();
 
-            this.currentCourseLimit = this.initialCourseLimit;
+            this.currentTeachingLimit = this.initialCourseLimit;
 
             this.isLoadingTeaching = false;
             console.log('Teaching courses loaded:', this.memberTeachingCourses);
@@ -103,9 +125,6 @@ export class MyCourses implements OnInit {
       }
 
     }
-
-  
-
 
   applySorting(): void {
     switch (this.currentSortTeaching) {
@@ -177,4 +196,52 @@ export class MyCourses implements OnInit {
     });
   }
 
+  unsubscribe(courseId : string): void {
+    if(this.isUnsubscribing) return;
+
+    const currentUser = this.auth.CurrentUserValue;
+    if (!currentUser || !currentUser.id) {
+
+      console.error("User not found, cannot unsubscribe.");
+      return; 
+    }
+
+    const userId = currentUser.id;
+    this.isUnsubscribing = courseId;
+
+    this.cService.getSubscription(userId, courseId).subscribe({
+      next: (subscriptions) => {
+        if (subscriptions.length === 0) {
+          console.error("Subscription not found, cannot unsubscribe.");
+          this.isUnsubscribing = null;
+          return;
+        }
+
+        const subscriptionId = subscriptions[0].id;
+
+        if (!subscriptionId) {
+          console.error("Subscription ID is missing or invalid, cannot unsubscribe.");
+          this.isUnsubscribing = null;
+          return;
+        }
+
+        this.cService.unSubscribeUserToCourse(subscriptionId).subscribe({
+          next: () => {
+            alert("Successfully unsubscribed!");
+
+            this.memberSubscribedCourses = this.memberSubscribedCourses.filter(
+              course => course.id !== courseId
+            );
+
+            this.isUnsubscribing = null;
+          }, 
+          error: (err)  => {
+            console.error("Error finding subscription: ", err);
+            alert("Failed to find subscription. Please try again.");
+            this.isUnsubscribing = null;
+          },
+        })
+      }
+    })
+  }
 }

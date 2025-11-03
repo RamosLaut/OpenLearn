@@ -17,20 +17,35 @@
             @if (isLoadingSubscribed) {
             <p>Loading your courses...</p>
             } @else {
-            @for (course of memberSubscribedCourses | slice:0:currentCourseLimit ; track course.id) {
+            @for (course of memberSubscribedCourses | slice:0:currentSubscribedLimit ; track course.id) {
             <li class="course-card">
                 <a routerLink="/course/{{course.id}}">
                     <h3>{{ course.title }}</h3>
                     <p>Category: {{ course.category }}</p>
                     <p>Level: {{ course.difficultyLevel }}</p>
                 </a>
-                <a routerLink="/details/{{ course.id }}">Course details</a>
+                <button type="button" class="btn-unsubscribe" [disabled]="isUnsubscribing === course.id" (click)="unsubscribe(course.id)">
+
+                    @if (isUnsubscribing === course.id) {
+                        <span>Processing...</span>
+                    }@else {
+                        <span>Unsubscribe</span>
+                    }
+                </button>
             </li>
             }
             @if (memberSubscribedCourses.length === 0 && !isLoadingSubscribed) {
                 <p>You are not enrolled in any courses yet.</p>
             }
             }
+
+            @if (memberSubscribedCourses.length > currentSubscribedLimit) {
+                <li class="action-card-wrapper load-more-button">
+                    <button (click)="loadMoreSubscribedCourses()" class="action-link">
+                        <span>load more courses ({{ memberSubscribedCourses.length - currentSubscribedLimit }} remaining)</span>
+                    </button>
+                </li>
+                }
             <li class="action-card-wrapper">
                 <a routerLink="/courses" class="action-link">+<span>Find Courses</span></a>
             </li>
@@ -50,7 +65,7 @@
             @if (isLoadingTeaching) {
             <p>Loading your courses...</p>
             } @else {
-            @for (course of memberTeachingCourses | slice:0:currentCourseLimit ; track course.id) {
+            @for (course of memberTeachingCourses | slice:0:currentTeachingLimit ; track course.id) {
             <li class="course-card">
                 <a routerLink="/course/{{course.id}}">
                     <h3>{{ course.title }}</h3>
@@ -83,10 +98,10 @@
             }
             }
             }
-            @if (memberTeachingCourses.length > currentCourseLimit) {
+            @if (memberTeachingCourses.length > currentTeachingLimit) {
             <li class="action-card-wrapper load-more-button">
-                <button (click)="loadMoreCourses()" class="action-link">
-                    <span>Cargar más cursos ({{ memberTeachingCourses.length - currentCourseLimit }} restantes)</span>
+                <button (click)="loadMoreTeachingCourses()" class="action-link">
+                    <span>load more courses ({{ memberTeachingCourses.length - currentTeachingLimit }} remaining)</span>
                 </button>
             </li>
             }
