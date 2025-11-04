@@ -341,3 +341,7 @@ section h2 {
 .btn-confirm-delete:hover {
   background-color: #c82333;
 }
+
+#global-search-results{
+  padding: 1rem;
+}
