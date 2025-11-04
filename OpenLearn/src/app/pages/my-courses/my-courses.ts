@@ -34,6 +34,8 @@ export class MyCourses implements OnInit {
   isDeleteModalVisible = false;
   courseToDelete: Course | null = null;
 
+  searchTerm: string = '';
+
   constructor(
     private cService: CourseService,
     private auth: Auth,
@@ -129,7 +131,6 @@ export class MyCourses implements OnInit {
     }
 
   applyEnrolledSorting(){
-
     switch(this.currentSortEnrolled) {
       case 'name-asc':
         this.memberSubscribedCourses.sort((a, b) => a.title.localeCompare(b.title));
@@ -185,6 +186,7 @@ export class MyCourses implements OnInit {
     this.isDeleteModalVisible = false;
     this.courseToDelete = null;
   }
+
   confirmDelete(): void {
     if (!this.courseToDelete) return;
 
@@ -268,5 +270,33 @@ export class MyCourses implements OnInit {
         })
       }
     })
+  }
+
+  isTeachingCourse(courseId: string): boolean {
+    return this.memberTeachingCourses.some(c => c.id === courseId);
+  }
+
+  get allCourses(): Course[] {
+    const term = this.searchTerm.toLowerCase();
+
+    if(!term) {
+      return [];
+    }
+
+    const teachingResults = this.memberTeachingCourses.filter(course => 
+      course.title.toLowerCase().includes(term) ||
+      course.category.toLowerCase().includes(term) ||
+      course.difficultyLevel.toLowerCase().includes(term)
+    );
+
+    const subscribedResults = this.memberSubscribedCourses.filter(course =>
+      course.title.toLowerCase().includes(term) ||
+      course.category.toLowerCase().includes(term) ||
+      course.difficultyLevel.toLowerCase().includes(term)
+    );
+
+    const combinedResults = [...teachingResults, ...subscribedResults];
+
+    return combinedResults;
   }
 }

@@ -1,7 +1,30 @@
 <h1>My Courses</h1>
 <div class="global-search-bar">
-    <input type="text" placeholder="Search courses by name or keyword...">
+    <input type="text" placeholder="Search courses by name or keyword..." [(ngModel)]="searchTerm">
 </div>
+
+@if (searchTerm) {
+    <section id="global-search-results" >
+        <h2>Search Results ({{allCourses.length}}) </h2>
+        <ul class="course-list">
+            @for (course of allCourses; track $index) {
+                <li class="course-card search-result-card">
+                    <a routerLink="/course/{{course.id}}">
+                        <h3>{{course.title}}</h3>
+                        <p>{{course.category}}</p>
+                        <p>{{course.difficultyLevel}}</p>
+                        @if (isTeachingCourse(course.id)) {
+                            <p class="source-tag">Source: My Teaching</p>
+                        } @else {
+                            <p class="source-tag">Source: My Learning</p>
+                        }
+                    </a>
+                </li>
+            }
+        </ul>
+    </section>
+}
+
 <div class="lists-wrapper">
     <section id="enrolled-courses">
         <h2>My Learning</h2>
