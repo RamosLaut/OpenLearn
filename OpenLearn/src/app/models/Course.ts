@@ -1,4 +1,5 @@
 import { CourseCategory } from "../enums/course-category";
+import { Announcement } from "./Announcement";
 
 export interface Content {
   id: string;
@@ -31,6 +32,7 @@ export interface Course {
 
   sections: Section[];
   totalDurationInHours: number;
+  announcements?: Announcement[];
   
   coverImageUrl?: string;
   averageRating?: number;
