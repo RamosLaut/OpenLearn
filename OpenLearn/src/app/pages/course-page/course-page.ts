@@ -134,7 +134,11 @@ export class CoursePage implements OnInit{
     }
 
     // TODO: Llamar al cService para persistir el objeto Course completo en el backend
-    // this.cService.updateCourse(this.course).subscribe(); 
+    this.cService.update(this.course.id, this.course).subscribe({
+      next: (data) => {console.log('Actualizado correctamente')},
+      error: (err) => {console.log('Error')}
+    });
+    
     this.announcementForm.reset();
 
   }

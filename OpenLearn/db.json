@@ -360,7 +360,15 @@
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,
-      "numberOfReviews": 0
+      "numberOfReviews": 0,
+      "announcements": [
+        {
+          "title": "Suspensión de Clases Presenciales: Martes 5 de Noviembre",
+          "content": "Pedimos disculpas por cualquier inconveniente que esto pueda causar. ¡Nos vemos el viernes con la voz lista para trabajar!",
+          "publishedDate": "2025-11-06T02:11:30.913Z",
+          "isExpanded": false
+        }
+      ]
     },
     {
       "id": "eae5",
@@ -443,6 +451,11 @@
       "id": "24e6",
       "courseId": "3f2c",
       "userId": "3efc"
+    },
+    {
+      "id": "2cce",
+      "courseId": "0395",
+      "userId": "d08b"
     }
   ]
 }
