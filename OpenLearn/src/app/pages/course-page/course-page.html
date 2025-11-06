@@ -15,8 +15,7 @@
 
     <section class="course-announcements">
         <div class="section-title-container">
-                <h2>Course Announcements</h2>
-        <!-- Botón de Creación visible solo para el instructor y si no está en modo edición/creación -->
+            <h2>Course Announcements</h2>
             @if( isCourseInstructor && !announcementEdition && !isCreationMode ){
                 <button (click)="startCreation()" class="btn-primary">Publish New Announcement</button>
             }
