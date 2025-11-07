@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../../models/Course';
+import { Content, Course, QuizContent } from '../../models/Course';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CourseService } from '../../services/course-service';
 import { Auth } from '../../services/auth';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Announcement } from '../../models/Announcement';
 import { CommonModule } from '@angular/common';
 
@@ -21,6 +21,10 @@ export class CoursePage implements OnInit{
   announcementForm!: FormGroup;
   announcementEdition: Announcement | null = null;
   isCreationMode: boolean = false;
+
+  quizForms = new Map<string, FormGroup>();
+
+  quizResults = new Map<string, { score: number, total: number }>();
 
   constructor(
     private route: ActivatedRoute,
@@ -50,6 +54,8 @@ export class CoursePage implements OnInit{
       }
 
       this.course.announcements.forEach(a => a.isExpanded = false);
+
+      this.setupQuizForms();
     });
   }
 
@@ -149,6 +155,63 @@ export class CoursePage implements OnInit{
     this.announcementEdition = null;
     this.isCreationMode = false;
     this.announcementForm.reset();
+  }
+
+  setupQuizForms(): void {
+    if (!this.course || !this.course.sections) return;
+
+    for (const section of this.course.sections) {
+      for (const content of section.content) {
+        if (content.contentType === 'Quiz') {
+          const quizContent = content as QuizContent; 
+          const quizForm = this.initQuizForm(quizContent);
+          this.quizForms.set(quizContent.id, quizForm);
+        }
+      }
+    }
+  }
+
+  initQuizForm(quiz: QuizContent): FormGroup {
+    const answersArray = quiz.questions.map(() => 
+      this.fb.control(null, Validators.required) 
+    );
+
+  return this.fb.group({
+      answers: this.fb.array(answersArray)
+    });
+  }
+
+  getQuizAnswers(contentId: string): FormArray {
+    const form = this.quizForms.get(contentId);
+    return form ? (form.get('answers') as FormArray) : this.fb.array([]);
+  }
+
+  submitQuiz(content: Content): void {
+    if (content.contentType !== 'Quiz') return;
+
+    const form = this.quizForms.get(content.id);
+    if (!form) return;
+
+    if (form.invalid) {
+      alert("Please answer all questions before submitting.");
+      form.markAllAsTouched();
+      return;
+    }
+
+    const userAnswers: (number | null)[] = form.value.answers;
+    const correctAnswers = (content as QuizContent).questions.map(q => q.correctAnswerIndex);
+
+    let score = 0;
+    for (let i = 0; i < correctAnswers.length; i++) {
+      if (userAnswers[i] === correctAnswers[i]) {
+        score++;
+      }
+    }
+    const total = correctAnswers.length;
+
+    this.quizResults.set(content.id, { score, total });
+    
+    alert(`You scored ${score} out of ${total}!`);
   }
 
 }

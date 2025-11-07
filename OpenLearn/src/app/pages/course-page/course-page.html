@@ -120,6 +120,7 @@
                             @case ('Pdf') { picture_as_pdf }
                             @case ('Word') { description }
                             @case ('Text') { notes }
+                            @case ('Quiz') { quiz }
                             @default { help_outline }
                             }
                         </span>
@@ -160,6 +161,52 @@
                             <p>{{ content.contentDescription }}</p>
                         </div>
                         }
+                        @case ('Quiz') {
+                      <div class="quiz-container">
+                        
+                        @if (quizResults.has(content.id)) {
+                          } @else {
+                          
+                          @if (quizForms.get(content.id); as quizForm) {
+                            
+                            <form [formGroup]="quizForm" (ngSubmit)="submitQuiz(content)">
+                              
+                              @for (answerControl of getQuizAnswers(content.id).controls; track answerControl; let qIndex = $index) {
+                                
+                                @if ($any(content).questions[qIndex]; as question) {
+
+                                  <fieldset class="quiz-question">
+                                    <legend>{{ qIndex + 1 }}. {{ question.questionText }}</legend>
+
+                                    @for (option of question.options; track $index; let oIndex = $index) {
+                                    <div class="quiz-option">
+                                      <input 
+                                        type="radio" 
+                                        [id]="content.id + '_q' + qIndex + '_o' + oIndex"
+                                        [value]="oIndex"
+                                        
+                                        [formControl]="$any(answerControl)"> 
+                                        
+                                      <label [for]="content.id + '_q' + qIndex + '_o' + oIndex">
+                                        {{ option }}
+                                      </label>
+                                    </div>
+                                    }
+                                  </fieldset>
+                                }
+                              }
+
+                              <button
+                                type="submit"
+                                class="btn-submit-quiz"
+                                [disabled]="quizForm.invalid">
+                                Submit Quiz
+                              </button>
+                            </form>
+                          }
+                        }
+                      </div>
+                    }
                         }
                     </div>
 

@@ -174,7 +174,7 @@
                             <div class="quiz-builder-container" formArrayName="questions">
                                 <h5>Quiz builder</h5>
 
-                                @for (question of getQuestions(sectionIndex, contentIndex).controls; track $index; let questionIndex = $index) {
+                                @for (question of getQuestions(sectionIndex, contentIndex).controls; track question; let questionIndex = $index) {
                                 <div [formGroupName]="questionIndex" class="questionBox">
                                         <div class="question-header">
                                             <strong>Question {{questionIndex + 1}}</strong>
@@ -189,7 +189,7 @@
 
                                     <div formArrayName="options" class="options-container">
                                         <label>Options:</label>
-                                        @for (option of getOptions(sectionIndex, contentIndex, questionIndex).controls; track $index; let optionIndex = $index) {
+                                        @for (option of getOptions(sectionIndex, contentIndex, questionIndex).controls; track option; let optionIndex = $index) {
                                             <div class="option-input">
                                                 <span>{{optionIndex}}: </span>
                                                 <input type="text" [formControlName]="optionIndex" placeholder="option text">
