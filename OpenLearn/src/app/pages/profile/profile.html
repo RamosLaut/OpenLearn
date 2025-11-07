@@ -1,36 +1,78 @@
 <div class="profile-container">
     <header class="profile-header">
         <h1>{{ member?.fullName }}'s Profile</h1>
-        <button routerLink="/profile/edit/{{member?.id}}" class="edit-button profile-icon">Edit Profile<span class="material-symbols-outlined">person_edit</span></button>
-        <button class="btn-delete" (click)="openConfirmModal(member!.id)" >Delete account<span class="material-symbols-outlined">account_circle_off</span></button> 
+        <button routerLink="/profile/edit/{{member?.id}}" class="edit-button profile-icon">Edit Profile<span
+                class="material-symbols-outlined">person_edit</span></button>
+        <button class="btn-delete" (click)="openConfirmModal(member!.id)">Delete account<span
+                class="material-symbols-outlined">account_circle_off</span></button>
+        <button type="button" class="btn-changePass" (click)="openChangePasswordModal()">
+            Change password
+            <span class="material-symbols-outlined">password</span>
+        </button>
+    </header>
+            @if (isConfirmModalOpen) {
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <h2>Confirm Account Deletion</h2>
+                <p>Are you absolutely sure you want to delete your account?</p>
 
-        @if (isConfirmModalOpen) {
-            <div class="modal-overlay">
-                <div class="modal-content">
-                    <h2>Confirm Account Deletion</h2>
-                        <p>Are you absolutely sure you want to delete your account?</p>
-                
-                    <div class="modal-actions">
-                        <button class="btn-cancel" (click)="closeConfirmModel()">Cancel</button>
-                        <button class="btn-danger" (click)="confirmDelete()">Delete account</button>
-                    </div>
+                <div class="modal-actions">
+                    <button class="btn-cancel" (click)="closeConfirmModel()">Cancel</button>
+                    <button class="btn-danger" (click)="confirmDelete()">Delete account</button>
                 </div>
             </div>
+        </div>
         }
-    </header>
+        @if (isChangePasswordModalOpen) {
+        <div class="modal-overlay" (click)="closeChangePasswordModal()">
+            <div class="modal-content" (click)="$event.stopPropagation()">
+                <h2>Change Password</h2>
+
+                <form [formGroup]="changePasswordForm" (ngSubmit)="onChangePasswordSubmit()">
+
+                    <fieldset>
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" formControlName="currentPassword">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" formControlName="newPassword">
+                        @if (changePasswordForm.get('newPassword')?.invalid &&
+                        changePasswordForm.get('newPassword')?.touched) {
+                        <p class="validation-error">Must be at least 8 characters</p>
+                        }
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+                        @if (changePasswordForm.hasError('passwordMismatch') &&
+                        changePasswordForm.get('confirmPassword')?.touched) {
+                        <p class="validation-error">Passwords do not match</p>
+                        }
+                    </fieldset>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn-cancel" (click)="closeChangePasswordModal()">Cancel</button>
+                        <button type="submit" class="btn-primary" [disabled]="changePasswordForm.invalid">Save
+                            Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        }
     <div class="profile-layout-grid">
         <aside class="identity-card">
-            <img [src]="member?.profilePhotoUrl || 'defaulst.png'" 
-                 alt="Profile Photo" 
-                 class="profile-photo">
-            
+            <img [src]="member?.profilePhotoUrl || 'defaulst.png'" alt="Profile Photo" class="profile-photo">
+
             <h2 class="username">@{{ member?.userName }}</h2>
             <p class="title">{{ member?.professionalTitle || 'Platform Member' }}</p>
-            
+
             @if (member?.accountStatus !== 'active') {
-                <span class="status-tag status-{{ member?.accountStatus }}">
-                    {{ member?.accountStatus | titlecase }}
-                </span>
+            <span class="status-tag status-{{ member?.accountStatus }}">
+                {{ member?.accountStatus | titlecase }}
+            </span>
             }
             <p class="member-since">Member since: {{ member?.registrationDate | date }}</p>
         </aside>
@@ -40,23 +82,27 @@
                 <p>{{ member?.biography || 'The user has not added a biography yet.' }}</p>
             </section>
             @if (member?.createdCourses?.length) {
-                <section class="teaching-stats">
-                    <h2>Instructor Overview</h2>
-                    <p>Courses Created: <span>{{ member?.createdCourses?.length }}</span></p>
-                    <a routerLink="/mycourses" class="courses-link">View My Courses</a>
-                </section>
+            <section class="teaching-stats">
+                <h2>Instructor Overview</h2>
+                <p>Courses Created: <span>{{ member?.createdCourses?.length }}</span></p>
+                <a routerLink="/mycourses" class="courses-link">View My Courses</a>
+            </section>
             }
             @if (member?.links) {
-                <section class="social-links">
-                    <h3>Connect</h3>
-                    <ul>
-                        @if (member?.links?.linkedin) { <li>LinkedIn: <a [href]="member!.links?.linkedin" target="_blank">Enlace</a></li>}
-                        @if (member?.links?.github) { <li>GitHub: <a [href]="member!.links?.github" target="_blank">Enlace</a></li> }
-                        @if (member?.links?.webpage) { <li>Website: <a [href]="member!.links?.webpage" target="_blank">Enlace</a></li> }
-                        @if (member?.links?.twitter) { <li>Twitter: <a [href]="member!.links?.twitter" target="_blank">Enlace</a></li> }
-                    </ul>
-                </section>
+            <section class="social-links">
+                <h3>Connect</h3>
+                <ul>
+                    @if (member?.links?.linkedin) { <li>LinkedIn: <a [href]="member!.links?.linkedin"
+                            target="_blank">Enlace</a></li>}
+                    @if (member?.links?.github) { <li>GitHub: <a [href]="member!.links?.github"
+                            target="_blank">Enlace</a></li> }
+                    @if (member?.links?.webpage) { <li>Website: <a [href]="member!.links?.webpage"
+                            target="_blank">Enlace</a></li> }
+                    @if (member?.links?.twitter) { <li>Twitter: <a [href]="member!.links?.twitter"
+                            target="_blank">Enlace</a></li> }
+                </ul>
+            </section>
             }
         </main>
-        </div>
+    </div>
 </div>

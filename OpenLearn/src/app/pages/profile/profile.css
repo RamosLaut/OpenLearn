@@ -250,3 +250,63 @@
         width: 100%;
     }
 }
+
+.btn-changePass {
+  background-color: #6c757d;
+  color: white;
+  border: 1px solid #5a6268;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-changePass:hover {
+  background-color: #5a6268;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-content fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: left;
+}
+
+.modal-content label {
+  font-weight: 600;
+  color: #333;
+}
+
+.modal-content input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-primary:disabled {
+  background-color: #a0c3e8;
+  cursor: not-allowed;
+}
+.modal-content label {
+  font-weight: 600;
+  color: #FFFFFF; 
+}

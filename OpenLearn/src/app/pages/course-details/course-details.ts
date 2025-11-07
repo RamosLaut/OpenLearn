@@ -8,7 +8,7 @@ import { Auth } from '../../services/auth';
 
 @Component({
   selector: 'app-course-details',
-  imports: [CommonModule, RouterLink, DatePipe],
+  imports: [CommonModule, RouterLink],
   templateUrl: './course-details.html',
   styleUrl: './course-details.css'
 })
