@@ -170,6 +170,44 @@
                             </fieldset>
                         </fieldset>
                         }
+                        @if (content.get('contentType')?.value === 'Quiz') {
+                            <div class="quiz-builder-container" formArrayName="questions">
+                                <h5>Quiz builder</h5>
+
+                                @for (question of getQuestions(sectionIndex, contentIndex).controls; track $index; let questionIndex = $index) {
+                                <div [formGroupName]="questionIndex" class="questionBox">
+                                        <div class="question-header">
+                                            <strong>Question {{questionIndex + 1}}</strong>
+                                            <button type="button" class="btn-remove-small" (click)="removeQuestion(sectionIndex, contentIndex, questionIndex)">Remove question</button>
+                                        </div>
+                                    
+                                    <fieldset>
+                                        <label>Question text</label>
+                                        <input type="text" formControlName="questionText" placeholder="e.g What is...?">
+                                    </fieldset>
+
+
+                                    <div formArrayName="options" class="options-container">
+                                        <label>Options:</label>
+                                        @for (option of getOptions(sectionIndex, contentIndex, questionIndex).controls; track $index; let optionIndex = $index) {
+                                            <div class="option-input">
+                                                <span>{{optionIndex}}: </span>
+                                                <input type="text" [formControlName]="optionIndex" placeholder="option text">
+                                                <button type="button" class="btn-remove-option" (click)="removeOption(sectionIndex, contentIndex, questionIndex, optionIndex)">X</button>
+                                            </div>
+                                        }
+                                        <button type="button" class="btn-add-option" (click)="addOption(sectionIndex, contentIndex, questionIndex)">+ Add Option</button>
+                                    </div>
+
+                                    <fieldset>
+                                        <label>Correct Answer Index: </label>
+                                        <input type="number" formControlName="correctAnswerIndex" class="correct-answer-index">
+                                    </fieldset>
+                            </div>
+                        }
+                        <button type="button" class="btn-add" (click)="addQuestion(sectionIndex, contentIndex)">+ Add Question</button>
+                        </div>
+                    }
                         <fieldset>
                             <label for="content-description-{{ sectionIndex }}-{{ contentIndex }}">Content
                                 description:</label>

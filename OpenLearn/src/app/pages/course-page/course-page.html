@@ -126,8 +126,8 @@
 
                         <div class="content-info">
                             <h4 class="content-title">{{ content.title }}</h4>
-                            @if(content.description) {
-                            <p class="content-description">{{ content.description }}</p>
+                            @if(content.contentDescription) {
+                            <p class="content-description">{{ content.contentDescription }}</p>
                             }
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                         }
                         @case ('Text') {
                         <div class="text-content-display">
-                            <p>{{ content.description || 'No text content available.' }}</p>
+                            <p>{{ content.contentDescription }}</p>
                         </div>
                         }
                         }

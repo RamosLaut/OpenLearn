@@ -16,26 +16,28 @@ function contentRequiredValidator(control: AbstractControl): ValidationErrors | 
   const textContent = control.get('textContent');
   const file = control.get('file');
   const url = control.get('fileUrl');
+  const questions = control.get('questions') as FormArray;
 
 
-  if (!contentType || !textContent || !file || !url) {
+  if (!contentType) {
     return null;
   }
 
   if (contentType.value === 'Text') {
-    if (!textContent.value) {
-      return { textContentRequired: true };
-    }
+      return textContent?.value ? null : {textContentRequired : true};
   }
 
   else if (contentType.value === 'Video' || contentType.value === 'Pdf' || contentType.value === 'Word') {
-    if (!file.value && !url.value) {
-      return { fileOrUrlRequired: true };
-    }
+      return (file?.value || url?.value) ? null : { fileOrUrlRequired: true};
+  }
+
+  else if(contentType.value === 'Quiz'){
+    return (questions && questions.length > 0) ? null : {questionsRequired: true};
   }
 
   return null;
 }
+
 @Component({
   selector: 'app-create-course',
   imports: [ReactiveFormsModule, CommonModule],
@@ -50,7 +52,7 @@ export class CreateCourse implements OnInit {
 
   courseCategories = Object.values(CourseCategory);
   difficultyLevels = ['Beginner', 'Intermediate', 'Advanced'];
-  contentTypes = ['Video', 'Pdf', 'Word', 'Text'];
+  contentTypes = ['Video', 'Pdf', 'Word', 'Text', 'Quiz'];
 
   constructor(
     private fb: FormBuilder,
@@ -100,13 +102,45 @@ export class CreateCourse implements OnInit {
 
         sectionData.content.forEach(contentData => {
           const contentGroup = this.newContent();
+
           contentGroup.patchValue({
             title: contentData.title,
             contentType: contentData.contentType,
-            textContent: contentData.textContent || '',
-            contentDescription: contentData.contentDescription || '',
-            fileUrl: contentData.fileUrl || ''
+            contentDescription: contentData.contentDescription || ''
           });
+
+          switch(contentData.contentType){
+            case 'Video':
+            case 'Pdf':
+            case 'Word':
+              contentGroup.patchValue({
+                fileUrl: (contentData as any).fileUrl || ''
+              });
+              break;
+
+            case 'Text':
+              contentGroup.patchValue({
+                textContent: (contentData as any).textContent || ''
+              });
+              break;
+
+            case 'Quiz':
+              if ((contentData as any).questions) {
+
+                const questionFormGroups = (contentData as any).questions.map((question: any) => {
+                  const optionControls = question.options.map((option: string) => {
+                    return this.fb.control(option, Validators.required);
+                  });
+                  return this.fb.group({
+                    questionText: [question.questionText, Validators.required],
+                    options: this.fb.array(optionControls),
+                    correctAnswerIndex: [question.correctAnswerIndex, Validators.required]
+                  });
+                });
+                contentGroup.setControl('questions', this.fb.array(questionFormGroups));
+              }
+              break;
+          }
 
           contentGroups.push(contentGroup);
         });
@@ -153,7 +187,9 @@ export class CreateCourse implements OnInit {
       contentDescription: ['', Validators.maxLength(500)],
       fileUrl: ['', Validators.pattern('^(http|https)://[^ "]+$|^/[^ "]+$|^$')],
       fileName: [''],
-      uploadProgress: [0]
+      uploadProgress: [0],
+
+      questions: this.fb.array([])
     }, {
       validators: contentRequiredValidator
     });
@@ -341,5 +377,40 @@ export class CreateCourse implements OnInit {
         error: (err) => console.error('Failed to delete previous file:', err)
       });
     }
+  }
+
+  initQuestion(): FormGroup{
+    return this.fb.group({
+      questionText: ['', Validators.required],
+      options: this.fb.array([
+        this.fb.control('', Validators.required),
+        this.fb.control('', Validators.required)
+      ]),
+      correctAnswerIndex: [0, [Validators.required, Validators.min(0)]]
+    });
+  }
+
+  getQuestions(sectionIndex: number, contentIndex: number): FormArray{
+    return this.getContent(sectionIndex).at(contentIndex).get('questions') as FormArray;
+  }
+
+  addQuestion(sectionIndex:number, contentIndex:number): void{
+    this.getQuestions(sectionIndex, contentIndex).push(this.initQuestion());
+  }
+
+  removeQuestion(sectionIndex: number, contentIndex:number, questionIndex:number): void{
+    this.getQuestions(sectionIndex, contentIndex).removeAt(questionIndex);
+  }
+
+  getOptions(sectionIndex:number, contentIndex:number, questionIndex:number): FormArray{
+    return this.getQuestions(sectionIndex, contentIndex).at(questionIndex).get('options') as FormArray;
+  }
+
+  addOption(sectionIndex:number, contentIndex:number, questionIndex:number): void{
+    this.getOptions(sectionIndex, contentIndex, questionIndex).push(this.fb.control('', Validators.required));
+  }
+
+  removeOption(sectionIndex:number, contentIndex:number, questionIndex:number, optionIndex:number):void{
+    this.getOptions(sectionIndex, contentIndex, questionIndex).removeAt(optionIndex);
   }
 }

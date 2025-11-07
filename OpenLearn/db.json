@@ -104,7 +104,8 @@
       "password": "taytay123TT",
       "createdCourses": [
         "a268",
-        "0395"
+        "0395",
+        "ff16"
       ]
     },
     {
@@ -395,6 +396,48 @@
       "instructorId": "3efc",
       "instructorName": "shakira",
       "publishedDate": "2025-11-03T21:57:49.804Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "ff16",
+      "title": "Crochet",
+      "description": "¡En este curso aprenderás a confeccionar prendas, accesorios, decoraciones, amigurumis y mucho más!",
+      "category": "Crafts",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Introducción",
+          "content": [
+            {
+              "title": "Diagnóstico",
+              "contentType": "Quiz",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": [
+                {
+                  "questionText": "¿Que es un punto cadena (cadena base)?",
+                  "options": [
+                    "Un punto usado solo para cerrar tejidos circulares",
+                    "Un punto que se utiliza únicamente al final del tejido",
+                    "Una secuencia de puntos que sirve como base para comenzar la labor"
+                  ],
+                  "correctAnswerIndex": 2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "instructorId": "5f8e",
+      "instructorName": "taylor swift",
+      "publishedDate": "2025-11-07T00:29:19.294Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,
