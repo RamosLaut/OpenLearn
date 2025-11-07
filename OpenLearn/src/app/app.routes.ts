@@ -9,6 +9,7 @@ import { EditProfile } from './pages/edit-profile/edit-profile';
 import { CreateCourse } from './pages/create-course/create-course';
 import { CourseDetails } from './pages/course-details/course-details';
 import { CoursePage } from './pages/course-page/course-page';
+import { ForgotPasswordComponent } from './components/forgot-password-component/forgot-password-component';
 
 export const routes: Routes = [
     {path: 'registration', component:RegisterFormPage},
@@ -21,5 +22,6 @@ export const routes: Routes = [
     {path: 'profile/edit/:id', component: EditProfile},
     {path: 'course/:id', component: CoursePage},
     {path: 'edit-course/:id', component: CreateCourse},
+    {path: 'forgot-password', component: ForgotPasswordComponent},
     {path: '', component: Home}
 ];
