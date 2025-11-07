@@ -77,11 +77,11 @@
         "ce42"
       ],
       "professionalTitle": "Junior developer",
-      "biography": "",
+      "biography": "I am developer student at UTN Mar del Plata. ",
       "links": {
         "webpage": "",
-        "linkedin": "",
-        "github": "",
+        "linkedin": "https://www.linkedin.com/in/lautaro-ramos-a39938368/",
+        "github": "https://github.com/RamosLaut",
         "twitter": ""
       }
     },
@@ -447,8 +447,8 @@
               "textContent": "",
               "contentDescription": "",
               "fileUrl": "/uploads/2cb4981a-a39f-4be8-a7d4-9d20073c5cc6.pdf",
-              "fileName": "Diagramas C4.pdf",
-              "uploadProgress": 100
+              "fileName": "",
+              "uploadProgress": 0
             },
             {
               "title": "Guards",
@@ -457,8 +457,8 @@
               "textContent": "",
               "contentDescription": "",
               "fileUrl": "/uploads/bdf7322d-809b-44ea-ac3c-8f4eaa3c98cd.pdf",
-              "fileName": "Clase 3 - Patrones GRASP.pdf",
-              "uploadProgress": 100
+              "fileName": "",
+              "uploadProgress": 0
             }
           ]
         },
@@ -472,8 +472,8 @@
               "textContent": "",
               "contentDescription": "",
               "fileUrl": "/uploads/e9de8143-3780-475d-b816-c4cd3b704cd6.mp4",
-              "fileName": "Grabación de pantalla 2025-05-29 174151.mp4",
-              "uploadProgress": 100
+              "fileName": "",
+              "uploadProgress": 0
             }
           ]
         }
@@ -587,11 +587,6 @@
     {
       "id": "1384",
       "courseId": "eae5",
-      "userId": "c541"
-    },
-    {
-      "id": "8836",
-      "courseId": "ce42",
       "userId": "c541"
     }
   ]

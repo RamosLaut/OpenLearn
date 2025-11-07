@@ -1,83 +1,67 @@
 .form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 4rem;
+  padding: 2rem;
+  max-width: 450px; 
+  width: 90%;
+  margin: 10vh auto;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
-h2 {
-    font-size: 2rem; 
-    margin: 2rem;
-    color: #333;
-    text-align: center;
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border: 1px solid transparent;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    box-sizing: border-box;
-    overflow: hidden;
-    padding: 20px;
-    width: 100%;
-    max-width: 400px; 
-    margin: 0 auto; 
-}    
-
-.msj-error {
-    display: block;
-    background: white;
-    color: rgb(80, 49, 87);
-    width: 100%; 
-    box-sizing: border-box;
-    padding: 0.4rem;
-    border-radius: 3px;
-    margin: 5px 0;
-    line-height: 1.2;
-    word-wrap: break-word;
+.form-container h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: #333;
 }
 
-fieldset {
-    box-sizing: border-box;
-    padding: 10px 30px;
-    border: none; 
+.form-container fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: 1rem;
+  width: 100%;
+  border: none;
+  gap: 0.5rem;
 }
 
-input {
-    height: 25px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 5px;
-    width: 100%; 
-    height: 2rem;
-    box-sizing: border-box;
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .btn-register {
-    background-color: #007bff;
-    color: white;
-    align-self: center;
-    width: 100%; 
-    max-width: 200px; 
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.5);
-    text-align: center;
-    box-sizing: border-box;
-    transition: background-color 0.4s;
-}
-
-.btn-register:hover {
-    background-color: #0056b3;
-    cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 15px;
 }
 
 .btn-register:disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: auto;
+  background-color: #a0c3e8; 
+  cursor: not-allowed;
+}
+
+.msj-error {
+  color: #dc3545; 
+  font-size: 0.9em;
+  margin-top: 5px;
 }
