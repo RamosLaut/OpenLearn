@@ -105,7 +105,8 @@
       "createdCourses": [
         "a268",
         "0395",
-        "ff16"
+        "ff16",
+        "2145"
       ]
     },
     {
@@ -442,6 +443,57 @@
       "totalDurationInHours": 0,
       "averageRating": 0,
       "numberOfReviews": 0
+    },
+    {
+      "id": "2145",
+      "title": "ausbajsf",
+      "description": "fhsidfhsidfs",
+      "category": "Mathematics",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "sfsfsfsd",
+          "content": [
+            {
+              "title": "jbjbjbj",
+              "contentType": "Quiz",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "Cuestionario evaluativo",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": [
+                {
+                  "questionText": "De qué color es el cielo?",
+                  "options": [
+                    "Verde",
+                    "Rojo",
+                    "Azul",
+                    "Amarillo"
+                  ],
+                  "correctAnswerIndex": 2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "instructorId": "5f8e",
+      "instructorName": "taylor swift",
+      "publishedDate": "2025-11-07T11:36:09.936Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0,
+      "announcements": [
+        {
+          "title": "zZz",
+          "content": "qsqsqsq",
+          "publishedDate": "2025-11-07T12:35:53.923Z",
+          "isExpanded": false
+        }
+      ]
     }
   ],
   "subscriptions": [

@@ -193,7 +193,7 @@
                                             <div class="option-input">
                                                 <span>{{optionIndex}}: </span>
                                                 <input type="text" [formControlName]="optionIndex" placeholder="option text">
-                                                <button type="button" class="btn-remove-option" (click)="removeOption(sectionIndex, contentIndex, questionIndex, optionIndex)">X</button>
+                                                <button type="button" class="btn-remove-option" (click)="removeOption(sectionIndex, contentIndex, questionIndex, optionIndex)"> X </button>
                                             </div>
                                         }
                                         <button type="button" class="btn-add-option" (click)="addOption(sectionIndex, contentIndex, questionIndex)">+ Add Option</button>
@@ -202,6 +202,11 @@
                                     <fieldset>
                                         <label>Correct Answer Index: </label>
                                         <input type="number" formControlName="correctAnswerIndex" class="correct-answer-index">
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <label>Score: </label>
+                                        <input type="number" formControlName="answerScore" class="answer-score">
                                     </fieldset>
                             </div>
                         }

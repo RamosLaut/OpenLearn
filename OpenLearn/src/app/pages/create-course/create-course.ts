@@ -134,7 +134,8 @@ export class CreateCourse implements OnInit {
                   return this.fb.group({
                     questionText: [question.questionText, Validators.required],
                     options: this.fb.array(optionControls),
-                    correctAnswerIndex: [question.correctAnswerIndex, Validators.required]
+                    correctAnswerIndex: [question.correctAnswerIndex, [Validators.required, Validators.min(0), Validators.max(question.options.length-1)]],
+                    answerScore: [question.score, [Validators.required, Validators.min(0)]]
                   });
                 });
                 contentGroup.setControl('questions', this.fb.array(questionFormGroups));
