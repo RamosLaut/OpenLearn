@@ -180,6 +180,18 @@
         "eae5",
         "ce42"
       ]
+    },
+    {
+      "id": "62be",
+      "userName": "luciano123",
+      "email": "luciano@gmail.com",
+      "fullName": "luciano perez",
+      "password": "Luciano123",
+      "registrationDate": "2025-11-07T14:37:28.852Z",
+      "accountStatus": "active",
+      "createdCourses": [
+        "96fd"
+      ]
     }
   ],
   "courses": [
@@ -395,6 +407,47 @@
       "instructorId": "3efc",
       "instructorName": "shakira",
       "publishedDate": "2025-11-03T21:57:49.804Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "96fd",
+      "title": "Química Esencial: La Ciencia de Todo lo que Nos Rodea",
+      "description": "Explorá los principios básicos de la química a través de experimentos simples y ejemplos de la vida diaria. Entenderás cómo y por qué ocurren las reacciones, la estructura de los átomos y los compuestos que conforman el mundo.",
+      "category": "Education",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Introducción a la Química y la Materia",
+          "content": [
+            {
+              "title": "¿Qué es la Química?",
+              "contentType": "Text",
+              "file": "",
+              "textContent": "La química es la ciencia que estudia la materia: todo lo que tiene masa y ocupa un lugar en el espacio. También analiza cómo está formada, cómo se transforma y cómo interactúa con otras sustancias. Gracias a la química podemos desarrollar medicamentos, procesar alimentos, crear nuevos materiales y explicar fenómenos cotidianos como por qué el hielo flota o cómo se oxida el hierro.\n\nEn esta unidad comprenderás que la química no es solo una materia escolar: es una herramienta para entender el mundo que nos rodea.\n\n",
+              "contentDescription": "La química es la ciencia que estudia la composición, estructura y propiedades de la materia, así como los cambios que esta puede experimentar. Todo lo que nos rodea está formado por sustancias químicas: el aire que respiramos, los alimentos que comemos y nuestro propio cuerpo. En esta lección exploraremos por qué la química es fundamental para entender el mundo.\n",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0
+            },
+            {
+              "title": "Propiedades físicas y químicas",
+              "contentType": "Text",
+              "file": "",
+              "textContent": "La materia puede encontrarse en distintos estados según cómo estén organizadas sus partículas:\n\n• Sólido: tiene forma y volumen definidos. Ej.: hielo, madera.\n• Líquido: tiene volumen definido, pero toma la forma del recipiente. Ej.: agua.\n• Gaseoso: no tiene forma ni volumen definido. Ej.: oxígeno, vapor de agua.\n• Plasma: estado de alta energía presente en el Sol y en los rayos.\n\nLos cambios de estado son procesos físicos (no cambian la sustancia) como fusión, solidificación, evaporación y condensación. Estos estados se modifican según la temperatura y la presión.\n",
+              "contentDescription": "Actividad para identificar diferencias entre propiedades físicas (como color, densidad o estado) y propiedades químicas (como inflamabilidad o reactividad). Los estudiantes deberán analizar ejemplos y clasificarlos correctamente.\n",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0
+            }
+          ]
+        }
+      ],
+      "instructorId": "62be",
+      "instructorName": "luciano perez",
+      "publishedDate": "2025-11-07T14:44:01.369Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,

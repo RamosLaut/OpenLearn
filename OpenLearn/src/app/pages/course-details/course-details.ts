@@ -17,6 +17,7 @@ export class CourseDetails implements OnInit {
   course: Course | undefined;
   isLoading: boolean = true;
   isSubscribing: boolean = false;
+  isCourseInstructor: boolean = false;
 
   isSubscribed: boolean = false;
   currentSubscriptionId: number | undefined;
@@ -42,7 +43,17 @@ export class CourseDetails implements OnInit {
       next: (data) => {
         this.course = data;
         this.isLoading = false;
-        this.checkSubscriptionStatus();
+
+        const currentUser = this.authService.CurrentUserValue;
+
+        if(currentUser && this.course && this.course.instructorId === currentUser.id) {
+          this.isCourseInstructor = true;
+          this.isSubscribed = false;
+        } else {
+          this.isCourseInstructor = false;
+          this.checkSubscriptionStatus();
+
+        }
       }, 
       error: (err) => {
         console.log("Error loading course details", err);
