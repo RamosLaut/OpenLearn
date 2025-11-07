@@ -69,7 +69,13 @@
       "profilePhotoUrl": "https://okdiario.com/img/2019/06/11/mono.jpg",
       "registrationDate": "2025-01-05T09:00:00Z",
       "password": "bocajuniors",
-      "createdCourses": [],
+      "createdCourses": [
+        "ef14"
+      ],
+      "enrolledCourses": [
+        "eae5",
+        "ce42"
+      ],
       "professionalTitle": "Junior developer",
       "biography": "",
       "links": {
@@ -382,8 +388,14 @@
       "publishedDate": "2025-11-03T21:56:21.067Z",
       "status": "draft",
       "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
+      "averageRating": 5,
+      "numberOfReviews": 1,
+      "ratings": [
+        {
+          "memberId": "c541",
+          "rating": 5
+        }
+      ]
     },
     {
       "id": "ce42",
@@ -395,6 +407,68 @@
       "instructorId": "3efc",
       "instructorName": "shakira",
       "publishedDate": "2025-11-03T21:57:49.804Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 5,
+      "numberOfReviews": 1,
+      "ratings": [
+        {
+          "memberId": "c541",
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "ef14",
+      "title": "Angular from beginner",
+      "description": "Angular framework",
+      "category": "Programming",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "content": [
+            {
+              "title": "Componentes",
+              "contentType": "Pdf",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "/uploads/2cb4981a-a39f-4be8-a7d4-9d20073c5cc6.pdf",
+              "fileName": "Diagramas C4.pdf",
+              "uploadProgress": 100
+            },
+            {
+              "title": "Guards",
+              "contentType": "Pdf",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "/uploads/bdf7322d-809b-44ea-ac3c-8f4eaa3c98cd.pdf",
+              "fileName": "Clase 3 - Patrones GRASP.pdf",
+              "uploadProgress": 100
+            }
+          ]
+        },
+        {
+          "title": "Desarrollo",
+          "content": [
+            {
+              "title": "Indices",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "/uploads/e9de8143-3780-475d-b816-c4cd3b704cd6.mp4",
+              "fileName": "Grabación de pantalla 2025-05-29 174151.mp4",
+              "uploadProgress": 100
+            }
+          ]
+        }
+      ],
+      "instructorId": "c541",
+      "instructorName": "Lautaro Ezequiel Ramos",
+      "publishedDate": "2025-11-07T12:14:55.251Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,
@@ -456,6 +530,16 @@
       "id": "2cce",
       "courseId": "0395",
       "userId": "d08b"
+    },
+    {
+      "id": "1384",
+      "courseId": "eae5",
+      "userId": "c541"
+    },
+    {
+      "id": "8836",
+      "courseId": "ce42",
+      "userId": "c541"
     }
   ]
 }

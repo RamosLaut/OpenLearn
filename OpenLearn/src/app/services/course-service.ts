@@ -5,6 +5,8 @@ import { Course, Section } from '../models/Course';
 import { CourseCreationsData } from '../models/courseCreations';
 import { Auth } from './auth';
 import Subscription  from '../models/subscription';
+import { MemberService } from './member-service';
+import Member from '../models/member';
 
 
 
@@ -18,7 +20,7 @@ export class CourseService {
 
   courses: Course[];
 
-  constructor(private http: HttpClient, private authService: Auth){
+  constructor(private http: HttpClient, private authService: Auth, private mService: MemberService){
     this.courses= [];
   }
 
@@ -58,7 +60,8 @@ export class CourseService {
       status: 'draft',
       totalDurationInHours: totalDuration,
       averageRating: 0,
-      numberOfReviews: 0
+      numberOfReviews: 0,
+      ratings: []
     };
 
     return this.http.post<Course>(this.API_URL, newCourse);
@@ -74,7 +77,18 @@ export class CourseService {
   }
 
   subscribeUserToCourse(courseId: string, userId: string): Observable<Subscription>{
-
+    let member: Member
+    this.mService.getById(userId).subscribe({
+      next: (m) => {member = m
+        member.enrolledCourses.push(courseId)
+        this.mService.put(member.id, member).subscribe({
+          next: (data) => {
+            console.log("Course ID added to member enrolled courses")
+            this.authService.updateCurrentUser(data as Member)
+          }
+        })
+      }
+    })
     const body: { userId: string, courseId: string} = {
       courseId: courseId,
       userId: userId
