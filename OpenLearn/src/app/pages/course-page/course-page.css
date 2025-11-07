@@ -168,6 +168,35 @@ hr {
     color: #777;
     font-style: italic;
 }
+/* ... tus otros estilos ... */
+
+.rating-input-area {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #f8f9fa; /* Un fondo sutil */
+  border-radius: 8px;
+}
+
+.star-rating {
+  display: flex;
+  gap: 4px;
+}
+
+.star-icon {
+  font-size: 28px; /* Tamaño de las estrellas */
+  color: #ccc; /* Color de estrella vacía */
+  cursor: pointer;
+  transition: color 0.2s, transform 0.1s;
+}
+
+.star-icon.filled {
+  color: #FFC107; /* Color de estrella rellena (dorado) */
+}
+
+/* Efecto visual al pasar el mouse */
+.star-icon:hover {
+  transform: scale(1.15); /* Agranda la estrella */
+}
 
 /*-----------------------------------anouncement-------------------------------*/
 .section-title-container h2 {

@@ -16,7 +16,10 @@ export interface Section {
   title: string;
   content: Content[];
 }
-
+export interface Rating {
+  memberId: string;
+  rating: number;
+}
 export interface Course {
   id: string;
   title: string;
@@ -37,4 +40,5 @@ export interface Course {
   coverImageUrl?: string;
   averageRating?: number;
   numberOfReviews?: number;
+  ratings: Rating[];
 }
