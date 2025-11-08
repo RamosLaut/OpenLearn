@@ -2,7 +2,7 @@
   "members": [
     {
       "id": "1",
-      "username": "janeDoe",
+      "userName": "janeDoe",
       "email": "jane@example.com",
       "fullName": "Jane Doe",
       "password": "JanePassword123",
@@ -25,7 +25,7 @@
     },
     {
       "id": "2",
-      "username": "alexSmith",
+      "userName": "alexSmith",
       "email": "alex@example.com",
       "fullName": "Alex Smith",
       "password": "AlexPassword123",
@@ -45,7 +45,7 @@
     },
     {
       "id": "3",
-      "username": "samWilson",
+      "userName": "samWilson",
       "email": "sam@example.com",
       "fullName": "Sam Wilson",
       "password": "SamPassword123",
@@ -56,14 +56,14 @@
     },
     {
       "id": "ba55",
-      "username": "Testing",
+      "userName": "Testing",
       "email": "testing@gmail.com",
       "fullName": "Testing Uno",
       "password": "Clave123"
     },
     {
       "id": "c541",
-      "username": "lautiDev",
+      "userName": "lautiDev",
       "email": "lautiramos6@gmail.com",
       "fullName": "Lautaro Ezequiel Ramos",
       "profilePhotoUrl": "https://okdiario.com/img/2019/06/11/mono.jpg",
@@ -112,7 +112,9 @@
       "password": "taytay123TT",
       "createdCourses": [
         "a268",
-        "0395"
+        "0395",
+        "ff16",
+        "2145"
       ]
     },
     {
@@ -190,6 +192,13 @@
       ]
     },
     {
+      "id": "a2b4",
+      "userName": "Katze",
+      "email": "katze.97@gmail.com",
+      "fullName": "katzehell",
+      "password": "Pato1234",
+      "registrationDate": "2025-11-08T22:11:04.329Z",
+      "accountStatus": "active"
       "id": "62be",
       "userName": "luciano123",
       "email": "luciano@gmail.com",
@@ -528,6 +537,125 @@
       "totalDurationInHours": 0,
       "averageRating": 0,
       "numberOfReviews": 0
+    },
+    {
+      "id": "ff16",
+      "title": "Crochet",
+      "description": "¡En este curso aprenderás a confeccionar prendas, accesorios, decoraciones, amigurumis y mucho más!",
+      "category": "Crafts",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Introducción",
+          "content": [
+            {
+              "title": "Diagnóstico",
+              "contentType": "Quiz",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": [
+                {
+                  "questionText": "¿Que es un punto cadena (cadena base)?",
+                  "options": [
+                    "Un punto usado solo para cerrar tejidos circulares",
+                    "Un punto que se utiliza únicamente al final del tejido",
+                    "Una secuencia de puntos que sirve como base para comenzar la labor"
+                  ],
+                  "correctAnswerIndex": 2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "instructorId": "5f8e",
+      "instructorName": "taylor swift",
+      "publishedDate": "2025-11-07T00:29:19.294Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "2145",
+      "title": "ausbajsf",
+      "description": "fhsidfhsidfs",
+      "category": "Mathematics",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "sfsfsfsd",
+          "content": [
+            {
+              "id": "388327d8-2a07-444f-963b-d7a54f9db3fb",
+              "title": "jbjbjbj",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "Cuestionario evaluativo",
+              "fileUrl": "https://www.youtube.com/watch?v=QzQbp3H1cfg&list=RDQzQbp3H1cfg&start_radio=1",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            },
+            {
+              "id": "97c31e52-a9de-4d0f-be22-169d48ebd433",
+              "title": "Exams",
+              "contentType": "Quiz",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": [
+                {
+                  "questionText": "¿De qué color es el cielo?",
+                  "options": [
+                    "Rojo",
+                    "Verde",
+                    "Azul",
+                    "Amarillo"
+                  ],
+                  "correctAnswerIndex": 3,
+                  "score": 5
+                },
+                {
+                  "questionText": "¿Cuál es el país más poblado del mundo?",
+                  "options": [
+                    "Estados Unidos",
+                    "Japon",
+                    "Rusia",
+                    "India",
+                    "China"
+                  ],
+                  "correctAnswerIndex": 4,
+                  "score": 6
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "instructorId": "5f8e",
+      "instructorName": "taylor swift",
+      "publishedDate": "2025-11-07T11:36:09.936Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0,
+      "announcements": [
+        {
+          "title": "zZz",
+          "content": "qsqsqsq",
+          "publishedDate": "2025-11-07T12:35:53.923Z",
+          "isExpanded": false
+        }
+      ]
     }
   ],
   "subscriptions": [
@@ -547,29 +675,14 @@
       "userId": "1"
     },
     {
-      "id": "6",
-      "courseId": "a268",
-      "userId": "5f8e"
-    },
-    {
       "id": "bd23",
       "courseId": "05ac",
-      "userId": "5f8e"
-    },
-    {
-      "id": "b976",
-      "courseId": "0395",
       "userId": "5f8e"
     },
     {
       "id": "8cf6",
       "courseId": "bf99",
       "userId": "5f8e"
-    },
-    {
-      "id": "a431",
-      "courseId": "57c8",
-      "userId": "3efc"
     },
     {
       "id": "7fd3",
@@ -587,9 +700,37 @@
       "userId": "d08b"
     },
     {
+      "id": "c17c",
+      "courseId": "ce42",
+      "userId": "5f8e"
+    },
+    {
+      "id": "1719",
+      "courseId": "a268",
+      "userId": "1"
+    },
+    {
+      "id": "fd68",
+      "courseId": "2145",
+      "userId": "1"
+    },
+    {
+      "id": "2045",
+      "courseId": "ff16",
+      "userId": "5f8e"
       "id": "1384",
       "courseId": "eae5",
       "userId": "c541"
+    },
+    {
+      "id": "1398",
+      "courseId": "96fd",
+      "userId": "3efc"
+    },
+    {
+      "id": "e78e",
+      "courseId": "0395",
+      "userId": "3efc"
     }
   ]
 }

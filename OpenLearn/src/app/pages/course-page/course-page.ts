@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../../models/Course';
+import { Content, Course, QuizContent } from '../../models/Course';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CourseService } from '../../services/course-service';
 import { Auth } from '../../services/auth';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Announcement } from '../../models/Announcement';
 import { CommonModule } from '@angular/common';
 
@@ -24,6 +24,8 @@ export class CoursePage implements OnInit {
   announcementForm!: FormGroup;
   announcementEdition: Announcement | null = null;
   isCreationMode: boolean = false;
+
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -56,6 +58,7 @@ export class CoursePage implements OnInit {
         this.isEnrolled = true;
       }
       this.course.announcements.forEach(a => a.isExpanded = false);
+
     });
   }
 

@@ -147,14 +147,15 @@
                             @case ('Pdf') { picture_as_pdf }
                             @case ('Word') { description }
                             @case ('Text') { notes }
+                            @case ('Quiz') { quiz }
                             @default { help_outline }
                             }
                         </span>
 
                         <div class="content-info">
                             <h4 class="content-title">{{ content.title }}</h4>
-                            @if(content.description) {
-                            <p class="content-description">{{ content.description }}</p>
+                            @if(content.contentDescription) {
+                            <p class="content-description">{{ content.contentDescription }}</p>
                             }
                         </div>
                     </div>
@@ -184,9 +185,19 @@
                         }
                         @case ('Text') {
                         <div class="text-content-display">
-                            <p>{{ content.description || 'No text content available.' }}</p>
+                            <p>{{ content.contentDescription }}</p>
                         </div>
                         }
+
+                        @case ('Quiz') {
+                         <div class="quiz-link-container">
+                            <a [routerLink]="['/course', course.id, 'quiz', content.id]" class="btn-primary-quiz">
+                                <span class="material-icons">quiz</span>
+                                 Take the Quiz
+                            </a>
+                         </div>
+                        }
+                        
                         }
                     </div>
 

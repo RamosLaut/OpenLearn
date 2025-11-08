@@ -58,6 +58,7 @@ export class RegisterFormPage {
 
   this.memberService.post(memberToSend).subscribe({
     next: () => { console.log('user successfully registered');
+      alert("You have successfully registered!");
     this.router.navigate(['/login']);
     },
     error: (e) => {console.log('registration failure: ', e)}
