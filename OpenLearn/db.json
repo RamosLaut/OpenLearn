@@ -2,7 +2,7 @@
   "members": [
     {
       "id": "1",
-      "username": "janeDoe",
+      "userName": "janeDoe",
       "email": "jane@example.com",
       "fullName": "Jane Doe",
       "password": "JanePassword123",
@@ -25,7 +25,7 @@
     },
     {
       "id": "2",
-      "username": "alexSmith",
+      "userName": "alexSmith",
       "email": "alex@example.com",
       "fullName": "Alex Smith",
       "password": "AlexPassword123",
@@ -45,7 +45,7 @@
     },
     {
       "id": "3",
-      "username": "samWilson",
+      "userName": "samWilson",
       "email": "sam@example.com",
       "fullName": "Sam Wilson",
       "password": "SamPassword123",
@@ -56,26 +56,32 @@
     },
     {
       "id": "ba55",
-      "username": "Testing",
+      "userName": "Testing",
       "email": "testing@gmail.com",
       "fullName": "Testing Uno",
       "password": "Clave123"
     },
     {
       "id": "c541",
-      "username": "lautiDev",
+      "userName": "lautiDev",
       "email": "lautiramos6@gmail.com",
       "fullName": "Lautaro Ezequiel Ramos",
       "profilePhotoUrl": "https://okdiario.com/img/2019/06/11/mono.jpg",
       "registrationDate": "2025-01-05T09:00:00Z",
-      "password": "123456789R",
-      "createdCourses": [],
+      "password": "bocajuniors",
+      "createdCourses": [
+        "ef14"
+      ],
+      "enrolledCourses": [
+        "eae5",
+        "ce42"
+      ],
       "professionalTitle": "Junior developer",
-      "biography": "",
+      "biography": "I am developer student at UTN Mar del Plata. ",
       "links": {
         "webpage": "",
-        "linkedin": "",
-        "github": "",
+        "linkedin": "https://www.linkedin.com/in/lautaro-ramos-a39938368/",
+        "github": "https://github.com/RamosLaut",
         "twitter": ""
       }
     },
@@ -191,6 +197,16 @@
       "password": "Pato1234",
       "registrationDate": "2025-11-08T22:11:04.329Z",
       "accountStatus": "active"
+      "id": "62be",
+      "userName": "luciano123",
+      "email": "luciano@gmail.com",
+      "fullName": "luciano perez",
+      "password": "Luciano123",
+      "registrationDate": "2025-11-07T14:37:28.852Z",
+      "accountStatus": "active",
+      "createdCourses": [
+        "96fd"
+      ]
     }
   ],
   "courses": [
@@ -393,8 +409,14 @@
       "publishedDate": "2025-11-03T21:56:21.067Z",
       "status": "draft",
       "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
+      "averageRating": 5,
+      "numberOfReviews": 1,
+      "ratings": [
+        {
+          "memberId": "c541",
+          "rating": 5
+        }
+      ]
     },
     {
       "id": "ce42",
@@ -406,6 +428,109 @@
       "instructorId": "3efc",
       "instructorName": "shakira",
       "publishedDate": "2025-11-03T21:57:49.804Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 5,
+      "numberOfReviews": 1,
+      "ratings": [
+        {
+          "memberId": "c541",
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "ef14",
+      "title": "Angular from beginner",
+      "description": "Angular framework",
+      "category": "Programming",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Fundamentos",
+          "content": [
+            {
+              "title": "Componentes",
+              "contentType": "Pdf",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "/uploads/2cb4981a-a39f-4be8-a7d4-9d20073c5cc6.pdf",
+              "fileName": "",
+              "uploadProgress": 0
+            },
+            {
+              "title": "Guards",
+              "contentType": "Pdf",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "/uploads/bdf7322d-809b-44ea-ac3c-8f4eaa3c98cd.pdf",
+              "fileName": "",
+              "uploadProgress": 0
+            }
+          ]
+        },
+        {
+          "title": "Desarrollo",
+          "content": [
+            {
+              "title": "Indices",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "/uploads/e9de8143-3780-475d-b816-c4cd3b704cd6.mp4",
+              "fileName": "",
+              "uploadProgress": 0
+            }
+          ]
+        }
+      ],
+      "instructorId": "c541",
+      "instructorName": "Lautaro Ezequiel Ramos",
+      "publishedDate": "2025-11-07T12:14:55.251Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "96fd",
+      "title": "Química Esencial: La Ciencia de Todo lo que Nos Rodea",
+      "description": "Explorá los principios básicos de la química a través de experimentos simples y ejemplos de la vida diaria. Entenderás cómo y por qué ocurren las reacciones, la estructura de los átomos y los compuestos que conforman el mundo.",
+      "category": "Education",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Introducción a la Química y la Materia",
+          "content": [
+            {
+              "title": "¿Qué es la Química?",
+              "contentType": "Text",
+              "file": "",
+              "textContent": "La química es la ciencia que estudia la materia: todo lo que tiene masa y ocupa un lugar en el espacio. También analiza cómo está formada, cómo se transforma y cómo interactúa con otras sustancias. Gracias a la química podemos desarrollar medicamentos, procesar alimentos, crear nuevos materiales y explicar fenómenos cotidianos como por qué el hielo flota o cómo se oxida el hierro.\n\nEn esta unidad comprenderás que la química no es solo una materia escolar: es una herramienta para entender el mundo que nos rodea.\n\n",
+              "contentDescription": "La química es la ciencia que estudia la composición, estructura y propiedades de la materia, así como los cambios que esta puede experimentar. Todo lo que nos rodea está formado por sustancias químicas: el aire que respiramos, los alimentos que comemos y nuestro propio cuerpo. En esta lección exploraremos por qué la química es fundamental para entender el mundo.\n",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0
+            },
+            {
+              "title": "Propiedades físicas y químicas",
+              "contentType": "Text",
+              "file": "",
+              "textContent": "La materia puede encontrarse en distintos estados según cómo estén organizadas sus partículas:\n\n• Sólido: tiene forma y volumen definidos. Ej.: hielo, madera.\n• Líquido: tiene volumen definido, pero toma la forma del recipiente. Ej.: agua.\n• Gaseoso: no tiene forma ni volumen definido. Ej.: oxígeno, vapor de agua.\n• Plasma: estado de alta energía presente en el Sol y en los rayos.\n\nLos cambios de estado son procesos físicos (no cambian la sustancia) como fusión, solidificación, evaporación y condensación. Estos estados se modifican según la temperatura y la presión.\n",
+              "contentDescription": "Actividad para identificar diferencias entre propiedades físicas (como color, densidad o estado) y propiedades químicas (como inflamabilidad o reactividad). Los estudiantes deberán analizar ejemplos y clasificarlos correctamente.\n",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0
+            }
+          ]
+        }
+      ],
+      "instructorId": "62be",
+      "instructorName": "luciano perez",
+      "publishedDate": "2025-11-07T14:44:01.369Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,
@@ -558,11 +683,6 @@
       "userId": "5f8e"
     },
     {
-      "id": "a431",
-      "courseId": "57c8",
-      "userId": "3efc"
-    },
-    {
       "id": "7fd3",
       "courseId": "7b19",
       "userId": "3efc"
@@ -596,6 +716,19 @@
       "id": "2045",
       "courseId": "ff16",
       "userId": "5f8e"
+      "id": "1384",
+      "courseId": "eae5",
+      "userId": "c541"
+    },
+    {
+      "id": "1398",
+      "courseId": "96fd",
+      "userId": "3efc"
+    },
+    {
+      "id": "e78e",
+      "courseId": "0395",
+      "userId": "3efc"
     }
   ]
 }

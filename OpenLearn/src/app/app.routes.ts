@@ -10,18 +10,24 @@ import { CreateCourse } from './pages/create-course/create-course';
 import { CourseDetails } from './pages/course-details/course-details';
 import { CoursePage } from './pages/course-page/course-page';
 import { Quiz } from './pages/quiz/quiz';
+import { ForgotPasswordComponent } from './components/forgot-password-component/forgot-password-component';
+import { authGuard } from './guards/auth-guard-guard';
+import { guestGuard } from './guards/guest-guard-guard';
+import { courseOwnerGuardGuard } from './guards/course-owner-guard-guard';
+import { canAccessCourseGuard } from './guards/can-access-course-guard-guard';
 
 export const routes: Routes = [
-    {path: 'registration', component:RegisterFormPage},
-    {path: 'login', component: Login},
-    {path: 'mycourses', component: MyCourses},
-    {path: 'courses', component: Courses},
-    {path: 'courses/new', component: CreateCourse},
-    {path: 'course/details/:id', component: CourseDetails},
-    {path: 'course/:id', component: CoursePage},
+    {path: 'registration', component:RegisterFormPage, canActivate: [guestGuard]},//para todo publico
+    {path: 'login', component: Login, canActivate: [guestGuard]},//para todo publico
+    {path: 'mycourses', component: MyCourses, canActivate: [authGuard]},
+    {path: 'courses', component: Courses}, //para todo publico y logeado
+    {path: 'courses/new', component: CreateCourse, canActivate: [authGuard]},
+    {path: 'course/details/:id', component: CourseDetails},//para todo publico y logeado
+    {path: 'course/:id', component: CoursePage, canActivate: [authGuard]}, //canAccessCourseGuard
     {path: 'course/:courseId/quiz/:contentId', component: Quiz },
-    {path: 'edit-course/:id', component: CreateCourse},
-    {path: 'profile', component: Profile},
-    {path: 'profile/edit/:id', component: EditProfile},
-    {path: '', component: Home}
+    {path: 'edit-course/:id', component: CreateCourse, canActivate: [authGuard, courseOwnerGuardGuard]},
+    {path: 'profile', component: Profile, canActivate: [authGuard]},
+    {path: 'profile/edit/:id', component: EditProfile, canActivate: [authGuard]},
+    {path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [guestGuard]},
+    {path: '', component: Home} //para todo publico y logeado    
 ];

@@ -41,6 +41,7 @@
                 <h3>Instructor details</h3>
                 <p><strong>Name: </strong>{{course.instructorName}}</p>
 
+            @if(!isCourseInstructor) {
                 @if (isSubscribed) {
                     <button (click)="unSubscribeFromCourse()" [disabled]="isSubscribing" class="subscribe-button unsubscribe">
                         @if (isSubscribing) {
@@ -58,8 +59,9 @@
                         }
                     </button> 
                 }
-
-                
+            } @else {
+                <p class="info-message">You are the instructor of this course.</p>
+            }
 
             </div>
         </div>
