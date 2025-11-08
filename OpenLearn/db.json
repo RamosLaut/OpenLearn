@@ -182,6 +182,15 @@
         "eae5",
         "ce42"
       ]
+    },
+    {
+      "id": "a2b4",
+      "userName": "Katze",
+      "email": "katze.97@gmail.com",
+      "fullName": "katzehell",
+      "password": "Pato1234",
+      "registrationDate": "2025-11-08T22:11:04.329Z",
+      "accountStatus": "active"
     }
   ],
   "courses": [
@@ -582,6 +591,11 @@
       "id": "fd68",
       "courseId": "2145",
       "userId": "1"
+    },
+    {
+      "id": "2045",
+      "courseId": "ff16",
+      "userId": "5f8e"
     }
   ]
 }
