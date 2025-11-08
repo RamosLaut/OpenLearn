@@ -110,7 +110,9 @@
       "password": "taytay123TT",
       "createdCourses": [
         "a268",
-        "0395"
+        "0395",
+        "ff16",
+        "2145"
       ]
     },
     {
@@ -188,6 +190,13 @@
       ]
     },
     {
+      "id": "a2b4",
+      "userName": "Katze",
+      "email": "katze.97@gmail.com",
+      "fullName": "katzehell",
+      "password": "Pato1234",
+      "registrationDate": "2025-11-08T22:11:04.329Z",
+      "accountStatus": "active"
       "id": "62be",
       "userName": "luciano123",
       "email": "luciano@gmail.com",
@@ -526,6 +535,125 @@
       "totalDurationInHours": 0,
       "averageRating": 0,
       "numberOfReviews": 0
+    },
+    {
+      "id": "ff16",
+      "title": "Crochet",
+      "description": "¡En este curso aprenderás a confeccionar prendas, accesorios, decoraciones, amigurumis y mucho más!",
+      "category": "Crafts",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "Introducción",
+          "content": [
+            {
+              "title": "Diagnóstico",
+              "contentType": "Quiz",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": [
+                {
+                  "questionText": "¿Que es un punto cadena (cadena base)?",
+                  "options": [
+                    "Un punto usado solo para cerrar tejidos circulares",
+                    "Un punto que se utiliza únicamente al final del tejido",
+                    "Una secuencia de puntos que sirve como base para comenzar la labor"
+                  ],
+                  "correctAnswerIndex": 2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "instructorId": "5f8e",
+      "instructorName": "taylor swift",
+      "publishedDate": "2025-11-07T00:29:19.294Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0
+    },
+    {
+      "id": "2145",
+      "title": "ausbajsf",
+      "description": "fhsidfhsidfs",
+      "category": "Mathematics",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "sfsfsfsd",
+          "content": [
+            {
+              "id": "388327d8-2a07-444f-963b-d7a54f9db3fb",
+              "title": "jbjbjbj",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "Cuestionario evaluativo",
+              "fileUrl": "https://www.youtube.com/watch?v=QzQbp3H1cfg&list=RDQzQbp3H1cfg&start_radio=1",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            },
+            {
+              "id": "97c31e52-a9de-4d0f-be22-169d48ebd433",
+              "title": "Exams",
+              "contentType": "Quiz",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": [
+                {
+                  "questionText": "¿De qué color es el cielo?",
+                  "options": [
+                    "Rojo",
+                    "Verde",
+                    "Azul",
+                    "Amarillo"
+                  ],
+                  "correctAnswerIndex": 3,
+                  "score": 5
+                },
+                {
+                  "questionText": "¿Cuál es el país más poblado del mundo?",
+                  "options": [
+                    "Estados Unidos",
+                    "Japon",
+                    "Rusia",
+                    "India",
+                    "China"
+                  ],
+                  "correctAnswerIndex": 4,
+                  "score": 6
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "instructorId": "5f8e",
+      "instructorName": "taylor swift",
+      "publishedDate": "2025-11-07T11:36:09.936Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0,
+      "announcements": [
+        {
+          "title": "zZz",
+          "content": "qsqsqsq",
+          "publishedDate": "2025-11-07T12:35:53.923Z",
+          "isExpanded": false
+        }
+      ]
     }
   ],
   "subscriptions": [
@@ -545,18 +673,8 @@
       "userId": "1"
     },
     {
-      "id": "6",
-      "courseId": "a268",
-      "userId": "5f8e"
-    },
-    {
       "id": "bd23",
       "courseId": "05ac",
-      "userId": "5f8e"
-    },
-    {
-      "id": "b976",
-      "courseId": "0395",
       "userId": "5f8e"
     },
     {
@@ -580,6 +698,24 @@
       "userId": "d08b"
     },
     {
+      "id": "c17c",
+      "courseId": "ce42",
+      "userId": "5f8e"
+    },
+    {
+      "id": "1719",
+      "courseId": "a268",
+      "userId": "1"
+    },
+    {
+      "id": "fd68",
+      "courseId": "2145",
+      "userId": "1"
+    },
+    {
+      "id": "2045",
+      "courseId": "ff16",
+      "userId": "5f8e"
       "id": "1384",
       "courseId": "eae5",
       "userId": "c541"
