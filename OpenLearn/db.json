@@ -2,7 +2,7 @@
   "members": [
     {
       "id": "1",
-      "username": "janeDoe",
+      "userName": "janeDoe",
       "email": "jane@example.com",
       "fullName": "Jane Doe",
       "password": "JanePassword123",
@@ -25,7 +25,7 @@
     },
     {
       "id": "2",
-      "username": "alexSmith",
+      "userName": "alexSmith",
       "email": "alex@example.com",
       "fullName": "Alex Smith",
       "password": "AlexPassword123",
@@ -45,7 +45,7 @@
     },
     {
       "id": "3",
-      "username": "samWilson",
+      "userName": "samWilson",
       "email": "sam@example.com",
       "fullName": "Sam Wilson",
       "password": "SamPassword123",
@@ -56,14 +56,14 @@
     },
     {
       "id": "ba55",
-      "username": "Testing",
+      "userName": "Testing",
       "email": "testing@gmail.com",
       "fullName": "Testing Uno",
       "password": "Clave123"
     },
     {
       "id": "c541",
-      "username": "lautiDev",
+      "userName": "lautiDev",
       "email": "lautiramos6@gmail.com",
       "fullName": "Lautaro Ezequiel Ramos",
       "profilePhotoUrl": "https://okdiario.com/img/2019/06/11/mono.jpg",
