@@ -2,7 +2,7 @@
 
     @if (quizContent) {
     <header class="quiz-header">
-        <a [routerLink]="['/course/details', courseId]" class="back-link">
+        <a [routerLink]="['/course', courseId]" class="back-link">
             &larr; Back to Course
         </a>
         <h1>{{quizContent.title}}</h1>
@@ -13,10 +13,16 @@
     <div class="quiz-result">
         <h2>Quiz Complete!</h2>
         <p class="score"> Your Score:</p>
+        
         <p class="score-display">
-            <strong>{{result.score}} / {{result.total}}</strong>
+            <strong>{{ result.percentage | number:'1.0-0' }}%</strong>
         </p>
-        <a [routerLink]="['/course/details', courseId]" class="btn-primary"> Return to Course</a>
+        
+        <p class="score-raw">
+          ({{ result.score }} de {{ result.total }} puntos)
+        </p>
+
+        <a [routerLink]="['/course', courseId]" class="btn-primary"> Return to Course</a>
     </div>
     }
 
@@ -25,17 +31,18 @@
         <div formArrayName="answers">
             @for (answerControl of getQuizAnswers().controls; track answerControl; let qIndex = $index){
             @if (quizContent.questions[qIndex]; as question) {
-            <fieldset class="quiz-questions">
-                <legend>{{ qIndex + 1 }}. {{ question.questionText }}</legend>
+            <div class="quiz-questions-card">
+                <h4 class="quiz-question-title">{{ qIndex + 1 }}. {{ question.questionText }}</h4>
 
                 @for (option of question.options; track $index; let oIndex = $index) {
                 <div class="quiz-option">
                     <input type="radio" [id]="'q' + qIndex + '_o' + oIndex" [value]="oIndex"
-                        [formControl]="$any(answerControl)">
+                        [formControl]="$any(answerControl)"
+                        [name]="'question-' + qIndex">
                     <label [for]="'q' + qIndex + '_o' + oIndex"> {{option}} </label>
                 </div>
                 }
-            </fieldset>
+            </div>
             }
             }
 

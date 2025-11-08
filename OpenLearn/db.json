@@ -455,24 +455,50 @@
           "title": "sfsfsfsd",
           "content": [
             {
+              "id": "388327d8-2a07-444f-963b-d7a54f9db3fb",
               "title": "jbjbjbj",
-              "contentType": "Quiz",
+              "contentType": "Video",
               "file": "",
               "textContent": "",
               "contentDescription": "Cuestionario evaluativo",
+              "fileUrl": "https://www.youtube.com/watch?v=QzQbp3H1cfg&list=RDQzQbp3H1cfg&start_radio=1",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            },
+            {
+              "id": "97c31e52-a9de-4d0f-be22-169d48ebd433",
+              "title": "Exams",
+              "contentType": "Quiz",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
               "fileUrl": "",
               "fileName": "",
               "uploadProgress": 0,
               "questions": [
                 {
-                  "questionText": "De qué color es el cielo?",
+                  "questionText": "¿De qué color es el cielo?",
                   "options": [
-                    "Verde",
                     "Rojo",
+                    "Verde",
                     "Azul",
                     "Amarillo"
                   ],
-                  "correctAnswerIndex": 2
+                  "correctAnswerIndex": 3,
+                  "score": 5
+                },
+                {
+                  "questionText": "¿Cuál es el país más poblado del mundo?",
+                  "options": [
+                    "Estados Unidos",
+                    "Japon",
+                    "Rusia",
+                    "India",
+                    "China"
+                  ],
+                  "correctAnswerIndex": 4,
+                  "score": 6
                 }
               ]
             }

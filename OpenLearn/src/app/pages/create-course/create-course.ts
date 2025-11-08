@@ -11,6 +11,33 @@ import { FileUploadService } from '../../services/file-upload-service';
 import { HttpEventType } from '@angular/common/http';
 import { Course } from '../../models/Course';
 
+function correctIndexValidator(group: AbstractControl): ValidationErrors | null {
+  const indexControl = group.get('correctAnswerIndex');
+  const optionsArray = group.get('options') as FormArray;
+
+  if (!indexControl || !optionsArray) {
+    return null;
+  }
+
+  const index = indexControl.value;
+  const maxIndex = optionsArray.length - 1; 
+
+  
+  if (index < 0 || index > maxIndex) {
+    indexControl.setErrors({ ...indexControl.errors, indexOutOfBounds: true });
+    return { indexOutOfBounds: true };
+  }
+  
+  if (indexControl.hasError('indexOutOfBounds')) {
+    delete indexControl.errors!['indexOutOfBounds'];
+    if (Object.keys(indexControl.errors || {}).length === 0) {
+      indexControl.setErrors(null);
+    }
+  }
+
+  return null;
+}
+
 function contentRequiredValidator(control: AbstractControl): ValidationErrors | null {
   const contentType = control.get('contentType');
   const textContent = control.get('textContent');
@@ -135,7 +162,7 @@ export class CreateCourse implements OnInit {
                     questionText: [question.questionText, Validators.required],
                     options: this.fb.array(optionControls),
                     correctAnswerIndex: [question.correctAnswerIndex, [Validators.required, Validators.min(0), Validators.max(question.options.length-1)]],
-                    answerScore: [question.score, [Validators.required, Validators.min(0)]]
+                    score: [question.score, [Validators.required, Validators.min(0)]]
                   });
                 });
                 contentGroup.setControl('questions', this.fb.array(questionFormGroups));
@@ -181,6 +208,7 @@ export class CreateCourse implements OnInit {
 
   newContent(): FormGroup {
     const contentGroup = this.fb.group({
+      id: [crypto.randomUUID()],
       title: ['', [Validators.required, Validators.minLength(3)]],
       contentType: ['', Validators.required],
       file: [''],
@@ -387,8 +415,10 @@ export class CreateCourse implements OnInit {
         this.fb.control('', Validators.required),
         this.fb.control('', Validators.required)
       ]),
-      correctAnswerIndex: [0, [Validators.required, Validators.min(0)]]
-    });
+      correctAnswerIndex: [0, [Validators.required, Validators.min(0)]],
+
+      score: [10, [Validators.required, Validators.min(1)]]
+    }, {validators: correctIndexValidator});
   }
 
   getQuestions(sectionIndex: number, contentIndex: number): FormArray{

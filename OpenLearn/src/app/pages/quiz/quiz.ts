@@ -11,15 +11,15 @@ import { CourseService } from '../../services/course-service';
   templateUrl: './quiz.html',
   styleUrl: './quiz.css'
 })
-export class Quiz implements OnInit{
+export class Quiz implements OnInit {
 
   quizForm!: FormGroup;
   quizContent: QuizContent | undefined;
   courseId: string | null = null;
 
-  result: {score: number, total: number} | null = null;
+  result: { score: number, total: number, percentage: number } | null = null;
 
-  constructor(private route: ActivatedRoute, private courseService: CourseService, private fb: FormBuilder){
+  constructor(private route: ActivatedRoute, private courseService: CourseService, private fb: FormBuilder) {
 
   }
   ngOnInit(): void {
@@ -37,53 +37,32 @@ export class Quiz implements OnInit{
     this.courseService.getById(this.courseId).subscribe(course => {
 
       console.log('Curso completo cargado:', course);////////
-      for (const section of course.sections){
-        const foundContent = section.content.find( c => c.id === contentId);
-        if (foundContent && foundContent.contentType === 'Quiz'){
+      for (const section of course.sections) {
+        const foundContent = section.content.find(c => c.id === contentId);
+        if (foundContent && foundContent.contentType === 'Quiz') {
           this.quizContent = foundContent;
           break;
         }
       }
 
-        if (this.quizContent) {
-          console.log('¡Quiz encontrado!', this.quizContent); ////////
-          this.quizForm = this.initQuizForm(this.quizContent);
-        } else {
-          console.error("Quiz content not found in course");
-        }
+      if (this.quizContent) {
+        console.log('¡Quiz encontrado!', this.quizContent); ////////
+        this.quizForm = this.initQuizForm(this.quizContent);
+      } else {
+        console.error("Quiz content not found in course");
+      }
 
-        
+
     });
-    
+
   }
 
-/*quizForms = new Map<string, FormGroup>();
-  quizResults = new Map<string, { score: number, total: number }>();  
-
-
-  this.setupQuizForms();
-
-
-  setupQuizForms(): void {
-    if (!this.course || !this.course.sections) return;
-
-    for (const section of this.course.sections) {
-      for (const content of section.content) {
-        if (content.contentType === 'Quiz') {
-          const quizContent = content as QuizContent; 
-          const quizForm = this.initQuizForm(quizContent);
-          this.quizForms.set(quizContent.id, quizForm);
-        }
-      }
-    }
-  } 
-  */
   initQuizForm(quiz: QuizContent): FormGroup {
-    const answersArray = quiz.questions.map(() => 
-      this.fb.control(null, Validators.required) 
+    const answersArray = quiz.questions.map(() =>
+      this.fb.control(null, Validators.required)
     );
 
-  return this.fb.group({
+    return this.fb.group({
       answers: this.fb.array(answersArray)
     });
   }
@@ -93,7 +72,7 @@ export class Quiz implements OnInit{
   }
 
   submitQuiz(): void {
-    if (this.quizForm.invalid){
+    if (this.quizForm.invalid) {
       alert("Please answer all questions before submitting.");
       this.quizForm.markAllAsTouched();
       return;
@@ -102,17 +81,32 @@ export class Quiz implements OnInit{
     if (!this.quizContent) return;
 
     const userAnswers: (number | null)[] = this.quizForm.value.answers;
-    const correctAnswers = this.quizContent.questions.map( q => q.correctAnswerIndex);
+    
+    const questions = this.quizContent.questions;
 
-    let score = 0;
-    for (let i = 0; i < correctAnswers.length; i++) {
-      if (userAnswers[i] === correctAnswers[i]) {
-        score ++;
+    
+    let studentScore = 0;        
+    let totalPossiblePoints = 0; 
+
+    for (let i = 0; i < questions.length; i++) {
+      const question = questions[i];
+
+      const points = question.score || 0;
+      totalPossiblePoints += points;
+
+      
+      if (userAnswers[i] === question.correctAnswerIndex) {
+        studentScore += points;
       }
     }
-    const total = correctAnswers.length;
 
-    this.result = {score, total};
+    
+    let percentage = 0;
+    if (totalPossiblePoints > 0) { 
+      percentage = (studentScore / totalPossiblePoints) * 100;
+    }
+
+    this.result = { score: studentScore, total: totalPossiblePoints, percentage: percentage };
   }
 
 }
