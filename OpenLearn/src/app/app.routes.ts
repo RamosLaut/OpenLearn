@@ -14,6 +14,7 @@ import { authGuard } from './guards/auth-guard-guard';
 import { guestGuard } from './guards/guest-guard-guard';
 import { courseOwnerGuardGuard } from './guards/course-owner-guard-guard';
 import { canAccessCourseGuard } from './guards/can-access-course-guard-guard';
+import { ResetPassword } from './components/reset-password/reset-password';
 
 export const routes: Routes = [
     {path: 'registration', component:RegisterFormPage, canActivate: [guestGuard]},
@@ -27,5 +28,6 @@ export const routes: Routes = [
     {path: 'course/:id', component: CoursePage, canActivate: [canAccessCourseGuard]},
     {path: 'edit-course/:id', component: CreateCourse, canActivate: [authGuard, courseOwnerGuardGuard]},
     {path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [guestGuard]},
+    {path: 'reset-password', component: ResetPassword},
     {path: '', component: Home}
 ];
