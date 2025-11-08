@@ -8,6 +8,7 @@ import { map, Observable, BehaviorSubject } from 'rxjs';
 })
 export class Auth {
   readonly apiUrl = 'http://localhost:3000/members';
+  readonly SPRING_API_URL = 'http://localhost:8080/api/auth';
 
   private currentUserSubject: BehaviorSubject<Member | null>;
   public currentUser$: Observable<Member | null>;
@@ -64,4 +65,18 @@ export class Auth {
   public get CurrentUserValue(): Member | null {
     return this.currentUserSubject.value;
   }
+  requestPasswordReset(email: string): Observable<any> {
+    const body = { email: email }; 
+    return this.http.post(`${this.SPRING_API_URL}/forgot-password`, body, { responseType: 'text' });
+  }
+  
+  resetPassword(email: string, code: string, newPassword: string): Observable<any> {
+  const body = {
+    email: email,
+    code: code,
+    newPassword: newPassword
+  };
+
+  return this.http.post(`${this.SPRING_API_URL}/reset-password`, body, { responseType: 'text' });
+}
 }

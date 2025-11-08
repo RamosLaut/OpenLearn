@@ -68,7 +68,7 @@
       "fullName": "Lautaro Ezequiel Ramos",
       "profilePhotoUrl": "https://okdiario.com/img/2019/06/11/mono.jpg",
       "registrationDate": "2025-01-05T09:00:00Z",
-      "password": "bocajuniors",
+      "password": "bocajuniors12",
       "createdCourses": [
         "ef14"
       ],
@@ -83,7 +83,9 @@
         "linkedin": "https://www.linkedin.com/in/lautaro-ramos-a39938368/",
         "github": "https://github.com/RamosLaut",
         "twitter": ""
-      }
+      },
+      "resetCode": "048605",
+      "resetCodeExpiry": "2025-11-09T00:40:43.149075900Z"
     },
     {
       "id": "e7f7",

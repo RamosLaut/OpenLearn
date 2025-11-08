@@ -15,6 +15,7 @@ import { authGuard } from './guards/auth-guard-guard';
 import { guestGuard } from './guards/guest-guard-guard';
 import { courseOwnerGuardGuard } from './guards/course-owner-guard-guard';
 import { canAccessCourseGuard } from './guards/can-access-course-guard-guard';
+import { ResetPassword } from './components/reset-password/reset-password';
 
 export const routes: Routes = [
     {path: 'registration', component:RegisterFormPage, canActivate: [guestGuard]},//para todo publico
@@ -29,5 +30,6 @@ export const routes: Routes = [
     {path: 'profile', component: Profile, canActivate: [authGuard]},
     {path: 'profile/edit/:id', component: EditProfile, canActivate: [authGuard]},
     {path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [guestGuard]},
-    {path: '', component: Home} //para todo publico y logeado    
+    {path: 'reset-password', component: ResetPassword},
+    {path: '', component: Home}
 ];
