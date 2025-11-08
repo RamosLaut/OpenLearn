@@ -1,0 +1,53 @@
+<div class="quiz-container">
+
+    @if (quizContent) {
+    <header class="quiz-header">
+        <a [routerLink]="['/course/details', courseId]" class="back-link">
+            &larr; Back to Course
+        </a>
+        <h1>{{quizContent.title}}</h1>
+        <p>{{quizContent.contentDescription}}</p>
+    </header>
+
+    @if (result) {
+    <div class="quiz-result">
+        <h2>Quiz Complete!</h2>
+        <p class="score"> Your Score:</p>
+        <p class="score-display">
+            <strong>{{result.score}} / {{result.total}}</strong>
+        </p>
+        <a [routerLink]="['/course/details', courseId]" class="btn-primary"> Return to Course</a>
+    </div>
+    }
+
+    @else {
+    <form [formGroup]="quizForm" (ngSubmit)="submitQuiz()">
+        <div formArrayName="answers">
+            @for (answerControl of getQuizAnswers().controls; track answerControl; let qIndex = $index){
+            @if (quizContent.questions[qIndex]; as question) {
+            <fieldset class="quiz-questions">
+                <legend>{{ qIndex + 1 }}. {{ question.questionText }}</legend>
+
+                @for (option of question.options; track $index; let oIndex = $index) {
+                <div class="quiz-option">
+                    <input type="radio" [id]="'q' + qIndex + '_o' + oIndex" [value]="oIndex"
+                        [formControl]="$any(answerControl)">
+                    <label [for]="'q' + qIndex + '_o' + oIndex"> {{option}} </label>
+                </div>
+                }
+            </fieldset>
+            }
+            }
+
+        </div>
+
+        <button type="submit" class="btn-submit-quiz" [disabled]="quizForm.invalid">
+            Submit Quiz
+        </button>
+    </form>
+    }
+    } @else {
+        <p>Loading quiz...</p>
+    }
+
+</div>

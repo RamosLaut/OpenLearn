@@ -1,0 +1,155 @@
+/* --- Contenedor Principal --- */
+.quiz-player-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+}
+
+/* --- Encabezado del Cuestionario --- */
+.quiz-header {
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-header h1 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-header p {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Formulario del Cuestionario --- */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Cada Pregunta (Fieldset) --- */
+.quiz-questions { /* Cambié a .quiz-questions para que coincida con tu HTML */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #fcfcfc;
+}
+
+.quiz-questions legend {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0 0.5rem;
+  margin-left: -0.5rem; /* Alinea la leyenda */
+  color: #333;
+}
+
+/* --- Opciones de Respuesta --- */
+.quiz-option {
+  display: block;
+  padding: 0.75rem 0;
+  margin: 0.5rem 0;
+}
+
+.quiz-option label {
+  font-size: 1rem;
+  color: #444;
+  margin-left: 0.75rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.quiz-option input[type="radio"] {
+  /* Mejora la apariencia del botón de radio */
+  transform: scale(1.2);
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/* --- Botón de Enviar --- */
+.btn-submit-quiz {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #6F42C1; /* Color púrpura de tu proyecto */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  align-self: center; /* Centra el botón */
+  margin-top: 1rem;
+}
+
+.btn-submit-quiz:hover {
+  background-color: #5a369b;
+}
+
+.btn-submit-quiz:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* --- Pantalla de Resultados --- */
+.quiz-result {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f4f8ff;
+  border: 1px solid #d4e3ff;
+  border-radius: 8px;
+}
+
+.quiz-result h2 {
+  font-size: 1.8rem;
+  color: #003B6F; /* Azul oscuro */
+  margin-top: 0;
+}
+
+.quiz-result .score {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.quiz-result .score-display {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #003B6F;
+  margin: 1rem 0;
+}
+
+.quiz-result .btn-primary {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #6F42C1;
+  color: #fff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.quiz-result .btn-primary:hover {
+  background-color: #5a369b;
+}

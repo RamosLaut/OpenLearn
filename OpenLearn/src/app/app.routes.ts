@@ -9,6 +9,7 @@ import { EditProfile } from './pages/edit-profile/edit-profile';
 import { CreateCourse } from './pages/create-course/create-course';
 import { CourseDetails } from './pages/course-details/course-details';
 import { CoursePage } from './pages/course-page/course-page';
+import { Quiz } from './pages/quiz/quiz';
 
 export const routes: Routes = [
     {path: 'registration', component:RegisterFormPage},
@@ -17,9 +18,10 @@ export const routes: Routes = [
     {path: 'courses', component: Courses},
     {path: 'courses/new', component: CreateCourse},
     {path: 'course/details/:id', component: CourseDetails},
+    {path: 'course/:id', component: CoursePage},
+    {path: 'course/:courseId/quiz/:contentId', component: Quiz },
+    {path: 'edit-course/:id', component: CreateCourse},
     {path: 'profile', component: Profile},
     {path: 'profile/edit/:id', component: EditProfile},
-    {path: 'course/:id', component: CoursePage},
-    {path: 'edit-course/:id', component: CreateCourse},
     {path: '', component: Home}
 ];
