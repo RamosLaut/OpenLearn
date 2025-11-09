@@ -40,7 +40,10 @@
       "enrolledCourses": [
         101,
         301,
-        302
+        302,
+        "96fd",
+        "ef14",
+        "a268"
       ]
     },
     {
@@ -52,7 +55,10 @@
       "registrationDate": "2023-05-10T18:45:00Z",
       "accountStatus": "suspended",
       "createdCourses": [],
-      "enrolledCourses": []
+      "enrolledCourses": [
+        "96fd",
+        "eae5"
+      ]
     },
     {
       "id": "ba55",
@@ -76,7 +82,8 @@
         "eae5",
         "ce42",
         "96fd",
-        "eae5"
+        "eae5",
+        "2145"
       ],
       "professionalTitle": "Junior developer",
       "biography": "I am developer student at UTN Mar del Plata. ",
@@ -142,7 +149,10 @@
         "linkedin": "",
         "github": "https://github.com/",
         "twitter": ""
-      }
+      },
+      "enrolledCourses": [
+        "ef14"
+      ]
     },
     {
       "id": "64cf",
@@ -192,6 +202,15 @@
         "eae5",
         "ce42"
       ]
+    },
+    {
+      "id": "f505",
+      "userName": "tefistorari",
+      "email": "tester@gmail.com",
+      "fullName": "tester testeador",
+      "password": "Tester123",
+      "registrationDate": "2025-11-09T01:18:05.181Z",
+      "accountStatus": "active"
     }
   ],
   "courses": [
@@ -717,6 +736,91 @@
       "id": "5489",
       "courseId": "96fd",
       "userId": "c541"
+    },
+    {
+      "id": "47c5",
+      "courseId": "96fd",
+      "userId": "f505"
+    },
+    {
+      "id": "b150",
+      "courseId": "2145",
+      "userId": "c541"
+    },
+    {
+      "id": "b888",
+      "courseId": "ef14",
+      "userId": "f505"
+    },
+    {
+      "id": "ff74",
+      "courseId": "ef14",
+      "userId": "3944"
+    },
+    {
+      "id": "49ee",
+      "courseId": "96fd",
+      "userId": "64cf"
+    },
+    {
+      "id": "8490",
+      "courseId": "96fd",
+      "userId": "d08b"
+    },
+    {
+      "id": "68f5",
+      "courseId": "96fd",
+      "userId": "3"
+    },
+    {
+      "id": "e1c8",
+      "courseId": "96fd",
+      "userId": "2"
+    },
+    {
+      "id": "f8fe",
+      "courseId": "96fd",
+      "userId": "ba55"
+    },
+    {
+      "id": "1014",
+      "courseId": "ff16",
+      "userId": "c541"
+    },
+    {
+      "id": "dc6e",
+      "courseId": "ef14",
+      "userId": "2"
+    },
+    {
+      "id": "54e9",
+      "courseId": "a268",
+      "userId": "2"
+    },
+    {
+      "id": "bfc2",
+      "courseId": "eae5",
+      "userId": "3"
+    },
+    {
+      "id": "ddfd",
+      "courseId": "7b19",
+      "userId": "ba55"
+    },
+    {
+      "id": "8ed6",
+      "courseId": "3f2c",
+      "userId": "ba55"
+    },
+    {
+      "id": "efd8",
+      "courseId": "ff16",
+      "userId": "ba55"
+    },
+    {
+      "id": "7115",
+      "userId": "d08b",
+      "courseId": "ef14"
     }
   ]
 }

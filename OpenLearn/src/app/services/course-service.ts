@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { Course, Section } from '../models/Course';
 import { CourseCreationsData } from '../models/courseCreations';
 import { Auth } from './auth';
@@ -76,27 +76,28 @@ export class CourseService {
     return this.http.delete<void>(this.API_URL + "/" + id)
   }
 
-  subscribeUserToCourse(courseId: string, userId: string): Observable<Subscription>{
-    let member: Member
-    this.mService.getById(userId).subscribe({
-      next: (m) => {member = m
-        member.enrolledCourses.push(courseId)
-        this.mService.put(member.id, member).subscribe({
-          next: (data) => {
-            console.log("Course ID added to member enrolled courses")
-            this.authService.updateCurrentUser(data as Member)
-          }
+  subscribeUserToCourse(courseId: string, userId: string): Observable<Subscription> {
+  return this.mService.getById(userId).pipe(
+    switchMap((member) => {
+      const updatedMember: Member = {
+        ...member,
+        enrolledCourses: [...(member.enrolledCourses || []), courseId]
+      };
+
+      return this.mService.put(userId, updatedMember).pipe(
+        tap(() => {
+          console.log("Member updated with enrolled course");
+          this.authService.updateCurrentUser(updatedMember);
+        }),
+        switchMap(() => {
+          const body = { userId, courseId };
+          return this.http.post<Subscription>(this.SUB_API_URL, body);
         })
-      }
+      );
     })
-    const body: { userId: string, courseId: string} = {
-      courseId: courseId,
-      userId: userId
-    };
+  );
+}
 
-    return this.http.post<Subscription>(this.SUB_API_URL, body);
-
-  }
 
   getSubscribedCourses(userId: string): Observable<Subscription[]>{
 
