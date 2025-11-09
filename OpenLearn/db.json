@@ -190,25 +190,6 @@
         "eae5",
         "ce42"
       ]
-    },
-    {
-      "id": "a2b4",
-      "userName": "Katze",
-      "email": "katze.97@gmail.com",
-      "fullName": "katzehell",
-      "password": "Pato1234",
-      "registrationDate": "2025-11-08T22:11:04.329Z",
-      "accountStatus": "active"
-      "id": "62be",
-      "userName": "luciano123",
-      "email": "luciano@gmail.com",
-      "fullName": "luciano perez",
-      "password": "Luciano123",
-      "registrationDate": "2025-11-07T14:37:28.852Z",
-      "accountStatus": "active",
-      "createdCourses": [
-        "96fd"
-      ]
     }
   ],
   "courses": [
@@ -713,14 +694,6 @@
       "id": "fd68",
       "courseId": "2145",
       "userId": "1"
-    },
-    {
-      "id": "2045",
-      "courseId": "ff16",
-      "userId": "5f8e"
-      "id": "1384",
-      "courseId": "eae5",
-      "userId": "c541"
     },
     {
       "id": "1398",
