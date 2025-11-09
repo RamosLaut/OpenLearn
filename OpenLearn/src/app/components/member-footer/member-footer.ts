@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Auth } from '../../services/auth';
 import { Observable } from 'rxjs';
 import Member from '../../models/member';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-member-footer',
