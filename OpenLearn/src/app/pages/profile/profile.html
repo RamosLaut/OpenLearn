@@ -66,7 +66,7 @@
         <aside class="identity-card">
             <img [src]="member?.profilePhotoUrl || 'defaulst.png'" alt="Profile Photo" class="profile-photo">
 
-            <h2 class="username">@{{ member?.username }}</h2>
+            <h2 class="username">@{{ member?.userName }}</h2>
             <p class="title">{{ member?.professionalTitle || 'Platform Member' }}</p>
 
             @if (member?.accountStatus !== 'active') {
