@@ -74,7 +74,9 @@
       ],
       "enrolledCourses": [
         "eae5",
-        "ce42"
+        "ce42",
+        "96fd",
+        "eae5"
       ],
       "professionalTitle": "Junior developer",
       "biography": "I am developer student at UTN Mar del Plata. ",
@@ -516,8 +518,14 @@
       "publishedDate": "2025-11-07T14:44:01.369Z",
       "status": "draft",
       "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
+      "averageRating": 5,
+      "numberOfReviews": 1,
+      "ratings": [
+        {
+          "memberId": "c541",
+          "rating": 5
+        }
+      ]
     },
     {
       "id": "ff16",
@@ -704,6 +712,11 @@
       "id": "e78e",
       "courseId": "0395",
       "userId": "3efc"
+    },
+    {
+      "id": "5489",
+      "courseId": "96fd",
+      "userId": "c541"
     }
   ]
 }

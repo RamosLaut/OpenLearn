@@ -18,18 +18,18 @@ import { canAccessCourseGuard } from './guards/can-access-course-guard-guard';
 import { ResetPassword } from './components/reset-password/reset-password';
 
 export const routes: Routes = [
-    {path: 'registration', component:RegisterFormPage, canActivate: [guestGuard]},//para todo publico
-    {path: 'login', component: Login, canActivate: [guestGuard]},//para todo publico
+    {path: 'registration', component:RegisterFormPage, canActivate: [guestGuard]},
+    {path: 'login', component: Login, canActivate: [guestGuard]},
     {path: 'mycourses', component: MyCourses, canActivate: [authGuard]},
-    {path: 'courses', component: Courses}, //para todo publico y logeado
+    {path: 'courses', component: Courses},
     {path: 'courses/new', component: CreateCourse, canActivate: [authGuard]},
-    {path: 'course/details/:id', component: CourseDetails},//para todo publico y logeado
-    {path: 'course/:id', component: CoursePage, canActivate: [authGuard]}, //canAccessCourseGuard
+    {path: 'course/details/:id', component: CourseDetails},
+    {path: 'course/:id', component: CoursePage, canActivate: [canAccessCourseGuard]},
     {path: 'course/:courseId/quiz/:contentId', component: Quiz },
     {path: 'edit-course/:id', component: CreateCourse, canActivate: [authGuard, courseOwnerGuardGuard]},
     {path: 'profile', component: Profile, canActivate: [authGuard]},
     {path: 'profile/edit/:id', component: EditProfile, canActivate: [authGuard]},
     {path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [guestGuard]},
-    {path: 'reset-password', component: ResetPassword},
+    {path: 'reset-password', component: ResetPassword, canActivate: [guestGuard]},
     {path: '', component: Home}
 ];
