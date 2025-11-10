@@ -6,6 +6,7 @@ import { Auth } from '../../services/auth';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Announcement } from '../../models/Announcement';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-course-page',
@@ -31,7 +32,8 @@ export class CoursePage implements OnInit {
     private route: ActivatedRoute,
     private cService: CourseService,
     private auth: Auth,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sanitizer: DomSanitizer
   ) {
     this.announcementForm = this.fb.group({
       title: ['', Validators.required],
@@ -66,10 +68,6 @@ export class CoursePage implements OnInit {
     announcement.isExpanded = !announcement.isExpanded;
   }
 
-  /**
-  * Pone el componente en modo de Creación y limpia el formulario.
-  * Se llama desde el botón "+ Publicar Nuevo Anuncio".
-  */
   startCreation(): void {
     this.announcementEdition = null;
     this.isCreationMode = true;
@@ -85,24 +83,15 @@ export class CoursePage implements OnInit {
       content: announcement.content
     });
 
-    // Colapsa todos los otros avisos al entrar en modo edición
     this.course.announcements?.forEach(a => a.isExpanded = false);
   }
 
-  /**
-   * Confirma la eliminación y actualiza la lista localmente.
-   * NOTA: Aquí iría la llamada al servicio para eliminarlo en el servidor.
-   * @param announcementId El ID del anuncio a eliminar.
-   */
   onDelete(announcementId: string): void {
     if (confirm('¿Estás seguro de que quieres eliminar este anuncio?')) {
-
-      // Actualización local: filtrar el anuncio eliminado
       const updatedAnnouncements = this.course.announcements?.filter(a => a.id !== announcementId);
       this.course.announcements = updatedAnnouncements;
       this.announcementEdition = null;
 
-      // TODO: Llamar al cService para persistir el cambio en el backend/JSON
       this.cService.update(this.course.id, this.course).subscribe({
         next: (data) => { console.log('Actualizado correctamente.') },
         error: (err) => { console.log('There is an error') }
@@ -123,7 +112,6 @@ export class CoursePage implements OnInit {
         content: formValue.content
       };
 
-      // Encontrar y reemplazar en el array local
       const index = this.course.announcements?.findIndex(a => a.id === updatedAnnouncement.id);
       if (index !== undefined && index !== -1) {
         this.course.announcements![index] = updatedAnnouncement;
@@ -131,18 +119,15 @@ export class CoursePage implements OnInit {
       this.announcementEdition = null;
 
     } else {
-      // MODO CREACIÓN
       const newAnnouncement: Announcement = {
         ...formValue,
         publishedDate: new Date(),
         isExpanded: false
       };
 
-      this.course.announcements?.unshift(newAnnouncement); // Añadir al principio de la lista
+      this.course.announcements?.unshift(newAnnouncement);
       this.isCreationMode = false;
     }
-
-    // TODO: Llamar al cService para persistir el objeto Course completo en el backend
     this.cService.update(this.course.id, this.course).subscribe({
       next: (data) => { console.log('Actualizado correctamente') },
       error: (err) => { console.log('Error') }
@@ -151,9 +136,7 @@ export class CoursePage implements OnInit {
     this.announcementForm.reset();
 
   }
-  /**
-   * Cancela la creación o edición del anuncio.
-   */
+
   onCancel(): void {
     this.announcementEdition = null;
     this.isCreationMode = false;
@@ -212,5 +195,20 @@ export class CoursePage implements OnInit {
       },
       error: (err) => console.error('Error fetching course data:', err)
     });
+  }
+  resolveContentUrl(fileUrl: string | undefined): SafeResourceUrl {
+    if (!fileUrl) {
+      return this.sanitizer.bypassSecurityTrustResourceUrl('');
+    }
+
+    let finalUrl: string;
+
+    if (fileUrl.startsWith('http://') || fileUrl.startsWith('https://')) {
+      finalUrl = fileUrl;
+    } else {
+      finalUrl = this.backendBaseUrl + fileUrl;
+    }
+
+    return this.sanitizer.bypassSecurityTrustResourceUrl(finalUrl);
   }
 }

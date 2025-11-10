@@ -211,6 +211,21 @@
       "password": "Tester123",
       "registrationDate": "2025-11-09T01:18:05.181Z",
       "accountStatus": "active"
+    },
+    {
+      "id": "ee39",
+      "userName": "LautaroRamos",
+      "email": "lautiram0s@hotmail.com",
+      "fullName": "Lautaro Ezequiel Ramos",
+      "password": "123456789R",
+      "registrationDate": "2025-11-10T00:08:36.086Z",
+      "accountStatus": "active",
+      "enrolledCourses": [
+        "96fd"
+      ],
+      "createdCourses": [
+        "7812"
+      ]
     }
   ],
   "courses": [
@@ -538,10 +553,14 @@
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 5,
-      "numberOfReviews": 1,
+      "numberOfReviews": 2,
       "ratings": [
         {
           "memberId": "c541",
+          "rating": 5
+        },
+        {
+          "memberId": "ee39",
           "rating": 5
         }
       ]
@@ -664,6 +683,88 @@
           "isExpanded": false
         }
       ]
+    },
+    {
+      "id": "7812",
+      "title": "Python",
+      "description": "Learn basics of Python Programming Language.",
+      "category": "Data Science",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "title": "aaaaa",
+          "content": [
+            {
+              "id": "c4a65666-2e32-428e-8bc7-c674d40d3111",
+              "title": "Arrays",
+              "contentType": "Pdf",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "Arrays manipulation.",
+              "fileUrl": "/uploads/8d906f14-1dfa-44b4-92f4-7d36e5e8da26.pdf",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            },
+            {
+              "id": "ec206671-0496-4777-9ec5-8600a57b3a53",
+              "title": "Guards",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "/uploads/67d0fb96-a44c-40fd-9db6-181098fb3081.mp4",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            },
+            {
+              "id": "c8cdadc7-dcf6-4cf7-936f-38e09f301b42",
+              "title": "Auth",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "https://www.youtube.com/embed/41qC3w3UUkU",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            },
+            {
+              "id": "86456e3f-5bb2-4509-9839-3611f4eecbb6",
+              "title": "aaaa",
+              "contentType": "Word",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "https://docs.google.com/document/d/1oYpVOAUBEEr7E7qOMDtfKRu-DHk5eIK4FGCds230qqo/edit?tab=t.jqqc0x5zr4pm",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            },
+            {
+              "id": "20284e96-ce09-46a7-abae-d9facdd2040c",
+              "title": "nnnn",
+              "contentType": "Pdf",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "",
+              "fileUrl": "https://campus.mdp.utn.edu.ar/pluginfile.php/176761/mod_resource/content/1/Clase%201%20-%20ADMINISTRACION%20Y%20GESTION%20DE%20PROYECTOS.pdf",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            }
+          ]
+        }
+      ],
+      "instructorId": "ee39",
+      "instructorName": "Lautaro Ezequiel Ramos",
+      "publishedDate": "2025-11-10T00:14:28.610Z",
+      "status": "draft",
+      "totalDurationInHours": 0,
+      "averageRating": 0,
+      "numberOfReviews": 0,
+      "ratings": []
     }
   ],
   "subscriptions": [
@@ -821,6 +922,11 @@
       "id": "7115",
       "userId": "d08b",
       "courseId": "ef14"
+    },
+    {
+      "id": "adc0",
+      "userId": "ee39",
+      "courseId": "96fd"
     }
   ]
 }

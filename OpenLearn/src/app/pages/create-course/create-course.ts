@@ -20,14 +20,14 @@ function correctIndexValidator(group: AbstractControl): ValidationErrors | null 
   }
 
   const index = indexControl.value;
-  const maxIndex = optionsArray.length - 1; 
+  const maxIndex = optionsArray.length - 1;
 
-  
+
   if (index < 0 || index > maxIndex) {
     indexControl.setErrors({ ...indexControl.errors, indexOutOfBounds: true });
     return { indexOutOfBounds: true };
   }
-  
+
   if (indexControl.hasError('indexOutOfBounds')) {
     delete indexControl.errors!['indexOutOfBounds'];
     if (Object.keys(indexControl.errors || {}).length === 0) {
@@ -51,15 +51,15 @@ function contentRequiredValidator(control: AbstractControl): ValidationErrors | 
   }
 
   if (contentType.value === 'Text') {
-      return textContent?.value ? null : {textContentRequired : true};
+    return textContent?.value ? null : { textContentRequired: true };
   }
 
   else if (contentType.value === 'Video' || contentType.value === 'Pdf' || contentType.value === 'Word') {
-      return (file?.value || url?.value) ? null : { fileOrUrlRequired: true};
+    return (file?.value || url?.value) ? null : { fileOrUrlRequired: true };
   }
 
-  else if(contentType.value === 'Quiz'){
-    return (questions && questions.length > 0) ? null : {questionsRequired: true};
+  else if (contentType.value === 'Quiz') {
+    return (questions && questions.length > 0) ? null : { questionsRequired: true };
   }
 
   return null;
@@ -136,7 +136,7 @@ export class CreateCourse implements OnInit {
             contentDescription: contentData.contentDescription || ''
           });
 
-          switch(contentData.contentType){
+          switch (contentData.contentType) {
             case 'Video':
             case 'Pdf':
             case 'Word':
@@ -161,7 +161,7 @@ export class CreateCourse implements OnInit {
                   return this.fb.group({
                     questionText: [question.questionText, Validators.required],
                     options: this.fb.array(optionControls),
-                    correctAnswerIndex: [question.correctAnswerIndex, [Validators.required, Validators.min(0), Validators.max(question.options.length-1)]],
+                    correctAnswerIndex: [question.correctAnswerIndex, [Validators.required, Validators.min(0), Validators.max(question.options.length - 1)]],
                     score: [question.score, [Validators.required, Validators.min(0)]]
                   });
                 });
@@ -237,12 +237,18 @@ export class CreateCourse implements OnInit {
       urlControl.valueChanges.subscribe(urlValue => {
         if (urlValue) {
           fileControl.disable({ emitEvent: false });
+          if (urlValue.includes('youtube.com/watch?v=')) {
+            const videoId = urlValue.split('v=')[1].split('&')[0];
+            const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            if (urlControl.value !== embedUrl) {
+              urlControl.setValue(embedUrl, { emitEvent: false });
+            }
+          }
         } else {
           fileControl.enable({ emitEvent: false });
         }
       });
     }
-
     return contentGroup;
   }
 
@@ -343,7 +349,7 @@ export class CreateCourse implements OnInit {
     if (this.isEditMode && this.courseId) {
       const updatedCourseData: Course = {
         ...this.originalCourseData,
-        ...newCourseData              
+        ...newCourseData
       };
       this.courseService.update(this.courseId, updatedCourseData).subscribe(response => {
         alert('Course edited succesfully')
@@ -408,7 +414,7 @@ export class CreateCourse implements OnInit {
     }
   }
 
-  initQuestion(): FormGroup{
+  initQuestion(): FormGroup {
     return this.fb.group({
       questionText: ['', Validators.required],
       options: this.fb.array([
@@ -418,30 +424,30 @@ export class CreateCourse implements OnInit {
       correctAnswerIndex: [0, [Validators.required, Validators.min(0)]],
 
       score: [10, [Validators.required, Validators.min(1)]]
-    }, {validators: correctIndexValidator});
+    }, { validators: correctIndexValidator });
   }
 
-  getQuestions(sectionIndex: number, contentIndex: number): FormArray{
+  getQuestions(sectionIndex: number, contentIndex: number): FormArray {
     return this.getContent(sectionIndex).at(contentIndex).get('questions') as FormArray;
   }
 
-  addQuestion(sectionIndex:number, contentIndex:number): void{
+  addQuestion(sectionIndex: number, contentIndex: number): void {
     this.getQuestions(sectionIndex, contentIndex).push(this.initQuestion());
   }
 
-  removeQuestion(sectionIndex: number, contentIndex:number, questionIndex:number): void{
+  removeQuestion(sectionIndex: number, contentIndex: number, questionIndex: number): void {
     this.getQuestions(sectionIndex, contentIndex).removeAt(questionIndex);
   }
 
-  getOptions(sectionIndex:number, contentIndex:number, questionIndex:number): FormArray{
+  getOptions(sectionIndex: number, contentIndex: number, questionIndex: number): FormArray {
     return this.getQuestions(sectionIndex, contentIndex).at(questionIndex).get('options') as FormArray;
   }
 
-  addOption(sectionIndex:number, contentIndex:number, questionIndex:number): void{
+  addOption(sectionIndex: number, contentIndex: number, questionIndex: number): void {
     this.getOptions(sectionIndex, contentIndex, questionIndex).push(this.fb.control('', Validators.required));
   }
 
-  removeOption(sectionIndex:number, contentIndex:number, questionIndex:number, optionIndex:number):void{
+  removeOption(sectionIndex: number, contentIndex: number, questionIndex: number, optionIndex: number): void {
     this.getOptions(sectionIndex, contentIndex, questionIndex).removeAt(optionIndex);
   }
 }

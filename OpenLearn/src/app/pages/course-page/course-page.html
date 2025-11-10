@@ -14,7 +14,7 @@
             <span>{{ course.averageRating || 0 }} ({{ course.numberOfReviews || 0 }} reviews)</span>
         </div>
 
-        @if (isEnrolled) {  
+        @if (isEnrolled) {
         <div class="rating-input-area">
             <h4>{{ userRating ? 'Your Rating:' : 'Rate this course:' }}</h4>
 
@@ -163,26 +163,32 @@
                     <div class="content-body">
                         @switch (content.contentType) {
                         @case ('Video') {
-                        @if(content.fileUrl){
-                        <video [src]="backendBaseUrl + content.fileUrl" controls>
-                            Your browser does not support the video tag.
-                        </video>
+                        @if(content.fileUrl.includes('youtube.com/embed')) {
+                        <iframe width="560" height="315" [src]="resolveContentUrl(content.fileUrl)" frameborder="0"
+                            allowfullscreen></iframe>
+                        } @else if (content.fileUrl) {
+                        <video [src]="resolveContentUrl(content.fileUrl)" controls></video>
                         }
                         }
+
                         @case ('Pdf') {
                         @if(content.fileUrl){
-                        <a [href]="backendBaseUrl + content.fileUrl" target="_blank" class="content-link">
+                        <a [href]="resolveContentUrl(content.fileUrl)" target="_blank" class="content-link">
                             View PDF
                         </a>
                         }
                         }
+
+
                         @case ('Word') {
                         @if(content.fileUrl){
-                        <a [href]="backendBaseUrl + content.fileUrl" download class="content-link">
+                        <a [href]="resolveContentUrl(content.fileUrl)" download class="content-link">
                             Download Word Document
                         </a>
                         }
                         }
+
+
                         @case ('Text') {
                         <div class="text-content-display">
                             <p>{{ content.contentDescription }}</p>
@@ -190,14 +196,13 @@
                         }
 
                         @case ('Quiz') {
-                         <div class="quiz-link-container">
+                        <div class="quiz-link-container">
                             <a [routerLink]="['/course', course.id, 'quiz', content.id]" class="btn-primary-quiz">
                                 <span class="material-icons">quiz</span>
-                                 Take the Quiz
+                                Take the Quiz
                             </a>
-                         </div>
+                        </div>
                         }
-                        
                         }
                     </div>
 
@@ -212,5 +217,5 @@
         }
     </div>
 </div> } @else {
-    <p>Loading course...</p>
+<p>Loading course...</p>
 }
