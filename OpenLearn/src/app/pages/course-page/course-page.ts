@@ -26,7 +26,7 @@ export class CoursePage implements OnInit {
   announcementEdition: Announcement | null = null;
   isCreationMode: boolean = false;
 
-  
+
 
   constructor(
     private route: ActivatedRoute,
@@ -201,14 +201,24 @@ export class CoursePage implements OnInit {
       return this.sanitizer.bypassSecurityTrustResourceUrl('');
     }
 
-    let finalUrl: string;
+    let finalUrl = fileUrl; // Empezamos con la URL de la BD
 
-    if (fileUrl.startsWith('http://') || fileUrl.startsWith('https://')) {
-      finalUrl = fileUrl;
-    } else {
+    // --- INICIO DE LA CORRECCIÓN ---
+
+    // 1. CONVERTIR: Si es un enlace 'watch' de YouTube, conviértelo a 'embed'
+    if (finalUrl.includes('youtube.com/watch?v=')) {
+      const videoId = finalUrl.split('v=')[1].split('&')[0];
+      finalUrl = `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    // 2. RESOLVER: Si es una URL relativa (subida), añade la base del backend
+    else if (finalUrl.startsWith('/')) {
       finalUrl = this.backendBaseUrl + fileUrl;
     }
 
+    // --- FIN DE LA CORRECCIÓN ---
+
+    // 3. SANITIZAR: (Si es 'embed' o 'http' externo, o local '/uploads')
     return this.sanitizer.bypassSecurityTrustResourceUrl(finalUrl);
   }
 }

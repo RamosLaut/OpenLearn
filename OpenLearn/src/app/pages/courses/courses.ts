@@ -58,11 +58,6 @@ export class Courses implements OnInit{
     const category = this.selectedCategory;
     const search = this.searched ? this.searched.toLowerCase() : '';
 
-   /*  if(!category && !search){
-      this.displayedCourses = this.allCourses.slice(0,10);
-      return;
-    } */
-
     if(category && category !== 'all'){
       tempCourses = tempCourses.filter(course => course.category === category);
     }

@@ -1,755 +1,319 @@
 {
   "members": [
     {
-      "id": "1",
-      "userName": "janeDoe",
-      "email": "jane@example.com",
-      "fullName": "Jane Doe",
-      "password": "JanePassword123",
-      "registrationDate": "2024-11-15T14:20:10Z",
-      "profilePhotoUrl": "https://i.pravatar.cc/150?img=1",
-      "biography": "Senior frontend developer with 8 years of experience in Angular and React. Passionate about creating accessible web applications.",
-      "professionalTitle": "Senior Frontend Developer",
+      "id": "6c28",
+      "userName": "LautaroRamos",
+      "email": "lautiram0s@hotmail.com",
+      "fullName": "Lautaro Ezequiel Ramos",
+      "password": "123456789R",
+      "registrationDate": "2025-11-10T01:11:36.208Z",
+      "accountStatus": "active",
+      "profilePhotoUrl": "https://i1.wp.com/www.sopitas.com/wp-content/uploads/2017/09/mono-selfie.jpg",
+      "professionalTitle": "",
+      "biography": "",
       "links": {
-        "webpage": "https://jane-doe.com",
-        "linkedin": "https://linkedin.com/in/janedoe",
-        "github": "https://github.com/janedoe"
+        "webpage": "",
+        "linkedin": "",
+        "github": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": "user001_instructor",
+      "userName": "ProfesorAna",
+      "email": "ana.gomez@profesor.com",
+      "fullName": "Prof. Ana Gómez",
+      "password": "PasswordProfesor1",
+      "registrationDate": "2025-01-10T14:30:00.000Z",
+      "profilePhotoUrl": "https://i.pravatar.cc/150?img=47",
+      "biography": "Experta en Data Science con 10 años de experiencia. Apasionada por enseñar y compartir conocimiento.",
+      "professionalTitle": "Data Scientist Sr.",
+      "links": {
+        "webpage": "https://anagomez.ai",
+        "linkedin": "https://linkedin.com/in/anagomez"
       },
       "accountStatus": "active",
       "createdCourses": [
-        102
+        "curso_id_01",
+        "curso_id_02"
       ],
       "enrolledCourses": [
-        205
+        "curso_id_03",
+        "curso_id_02"
       ]
     },
     {
-      "id": "2",
-      "userName": "alexSmith",
-      "email": "alex@example.com",
-      "fullName": "Alex Smith",
-      "password": "AlexPassword123",
-      "registrationDate": "2025-01-05T09:00:00Z",
-      "professionalTitle": "Student",
+      "id": "user002_estudiante",
+      "userName": "CarlosRuiz",
+      "email": "carlos.ruiz@estudiante.com",
+      "fullName": "Carlos Ruiz",
+      "password": "PasswordEstudiante2",
+      "registrationDate": "2025-11-05T20:15:00.000Z",
+      "profilePhotoUrl": "https://i.pravatar.cc/150?img=68",
+      "biography": "Estudiante de programación buscando aprender Angular y Spring Boot.",
+      "professionalTitle": "Estudiante",
       "links": {
-        "github": "https://github.com/alexsmith",
-        "twitter": "https://twitter.com/alexsmith"
+        "github": "https://github.com/carlosruiz"
       },
-      "accountStatus": "pendingVerification",
+      "accountStatus": "active",
       "createdCourses": [],
       "enrolledCourses": [
-        101,
-        301,
-        302,
-        "96fd",
-        "ef14",
-        "a268"
+        "curso_id_01",
+        "curso_id_04"
       ]
     },
     {
-      "id": "3",
-      "userName": "samWilson",
-      "email": "sam@example.com",
-      "fullName": "Sam Wilson",
-      "password": "SamPassword123",
-      "registrationDate": "2023-05-10T18:45:00Z",
-      "accountStatus": "suspended",
-      "createdCourses": [],
-      "enrolledCourses": [
-        "96fd",
-        "eae5"
-      ]
-    },
-    {
-      "id": "ba55",
-      "userName": "Testing",
-      "email": "testing@gmail.com",
-      "fullName": "Testing Uno",
-      "password": "Clave123"
-    },
-    {
-      "id": "c541",
-      "userName": "lautiDev",
-      "email": "lautiramos6@gmail.com",
-      "fullName": "Lautaro Ezequiel Ramos",
-      "profilePhotoUrl": "https://okdiario.com/img/2019/06/11/mono.jpg",
-      "registrationDate": "2025-01-05T09:00:00Z",
-      "password": "bocajuniors12",
+      "id": "user003_ambos_roles",
+      "userName": "SofiaChen",
+      "email": "sofia.chen@openlearn.com",
+      "fullName": "Sofia Chen",
+      "password": "PasswordMixto3",
+      "registrationDate": "2025-06-15T12:00:00.000Z",
+      "profilePhotoUrl": "https://i.pravatar.cc/150?img=32",
+      "biography": "Desarrolladora Full Stack. Enseño lo que sé y aprendo lo que no.",
+      "professionalTitle": "Full Stack Developer",
+      "links": {
+        "linkedin": "https://linkedin.com/in/sofiachen",
+        "github": "https://github.com/sofiachen"
+      },
+      "accountStatus": "active",
       "createdCourses": [
-        "ef14"
+        "curso_id_03"
       ],
       "enrolledCourses": [
-        "eae5",
-        "ce42",
-        "96fd",
-        "eae5",
-        "2145"
-      ],
-      "professionalTitle": "Junior developer",
-      "biography": "I am developer student at UTN Mar del Plata. ",
-      "links": {
-        "webpage": "",
-        "linkedin": "https://www.linkedin.com/in/lautaro-ramos-a39938368/",
-        "github": "https://github.com/RamosLaut",
-        "twitter": ""
-      },
-      "resetCode": "048605",
-      "resetCodeExpiry": "2025-11-09T00:40:43.149075900Z"
+        "curso_id_01",
+        "curso_id_02"
+      ]
     },
     {
-      "id": "e7f7",
-      "userName": "wednesdayASD1",
-      "email": "wednesdayASD1@zxc",
-      "fullName": "wednesdayASD1",
-      "password": "wednesdayASD1",
-      "profilePhotoUrl": "",
-      "professionalTitle": "Junior Developer frontend",
-      "biography": "I have nothing to say about this",
+      "id": "user004_mentor",
+      "userName": "DavidLee",
+      "email": "david.lee@mentor.com",
+      "fullName": "David Lee",
+      "password": "DavidPass555",
+      "registrationDate": "2024-03-20T10:00:00.000Z",
+      "profilePhotoUrl": "https://i.pravatar.cc/150?img=11",
+      "biography": "Especialista en Backend (Java/Spring Boot) con interés en el desarrollo full-stack.",
+      "professionalTitle": "Backend Developer",
+      "links": {
+        "github": "https://github.com/davidlee"
+      },
+      "accountStatus": "active",
+      "createdCourses": [
+        "curso_id_04"
+      ],
+      "enrolledCourses": [
+        "curso_id_01"
+      ]
+    },
+    {
+      "id": "user005_newbie",
+      "userName": "MariaPerez",
+      "email": "maria.perez@new.com",
+      "fullName": "Maria Perez",
+      "password": "MariaPass123",
+      "registrationDate": "2025-11-09T18:00:00.000Z",
+      "profilePhotoUrl": "https://i.pravatar.cc/150?img=25",
+      "biography": "Acabo de registrarme, ¡emocionada por aprender!",
+      "professionalTitle": "Trainee",
       "links": {
         "webpage": "",
         "linkedin": "",
         "github": "",
         "twitter": ""
       },
-      "accountStatus": "deleted"
+      "accountStatus": "pendingVerification",
+      "createdCourses": [],
+      "enrolledCourses": []
     },
     {
-      "id": "5f8e",
-      "userName": "taytay123",
-      "email": "tay@gmail.com",
-      "fullName": "taylor swift",
-      "password": "taytay123TT",
-      "createdCourses": [
-        "a268",
-        "0395",
-        "ff16",
-        "2145"
-      ]
-    },
-    {
-      "id": "d08b",
-      "userName": "saladix",
-      "email": "salado@asd",
-      "fullName": "saladito",
-      "password": "saladito123ASD",
-      "registrationDate": "2025-10-27T17:03:06.788Z",
-      "accountStatus": "active",
-      "createdCourses": [
-        "05ac",
-        "3f2c",
-        "bf99",
-        "7b19",
-        "57c8"
-      ],
-      "profilePhotoUrl": "",
-      "professionalTitle": "Junior Developer frontend",
-      "biography": "Hi I'm a junior developer frontend, 24 years old.",
+      "id": "user006_suspended",
+      "userName": "TomBrown",
+      "email": "tom.brown@suspended.com",
+      "fullName": "Tom Brown",
+      "password": "SuspendedPass9",
+      "registrationDate": "2023-01-05T12:00:00.000Z",
+      "profilePhotoUrl": "https://i.pravatar.cc/150?img=14",
+      "biography": "Ex Gerente de TI.",
+      "professionalTitle": "IT Manager (Former)",
       "links": {
-        "webpage": "",
-        "linkedin": "",
-        "github": "https://github.com/",
-        "twitter": ""
+        "linkedin": "https://linkedin.com/in/tombrown"
       },
-      "enrolledCourses": [
-        "ef14"
-      ]
-    },
-    {
-      "id": "64cf",
-      "userName": "emily123",
-      "email": "emilyarmstrong@gmail.com",
-      "fullName": "emily armstrong ",
-      "password": "Emily123",
-      "registrationDate": "2025-11-02T01:36:08.103Z",
-      "accountStatus": "active",
-      "profilePhotoUrl": "",
-      "professionalTitle": "",
-      "biography": "hi there hello",
-      "links": {
-        "webpage": "",
-        "linkedin": "https://youtube.com/",
-        "github": "https://github.com/",
-        "twitter": ""
-      }
-    },
-    {
-      "id": "3944",
-      "userName": "usuario1",
-      "email": "usuario@gmail.com",
-      "fullName": "usuario",
-      "password": "Usuario123",
-      "registrationDate": "2025-11-02T05:20:44.798Z",
-      "accountStatus": "active",
-      "profilePhotoUrl": "",
-      "professionalTitle": "Junior Developer frontend",
-      "biography": "Hello there!",
-      "links": {
-        "webpage": "https://youtube.com/",
-        "linkedin": "https://linkedin.com/",
-        "github": "https://github.com/",
-        "twitter": "https://twitter.com/"
-      }
-    },
-    {
-      "id": "3efc",
-      "userName": "shakira",
-      "email": "wakawaka@gmail.com",
-      "fullName": "shakira",
-      "password": "Password123",
-      "registrationDate": "2025-11-03T21:50:25.095Z",
-      "accountStatus": "active",
+      "accountStatus": "suspended",
       "createdCourses": [
-        "eae5",
-        "ce42"
-      ]
-    },
-    {
-      "id": "f505",
-      "userName": "tefistorari",
-      "email": "tester@gmail.com",
-      "fullName": "tester testeador",
-      "password": "Tester123",
-      "registrationDate": "2025-11-09T01:18:05.181Z",
-      "accountStatus": "active"
-    },
-    {
-      "id": "ee39",
-      "userName": "LautaroRamos",
-      "email": "lautiram0s@hotmail.com",
-      "fullName": "Lautaro Ezequiel Ramos",
-      "password": "123456789R",
-      "registrationDate": "2025-11-10T00:08:36.086Z",
-      "accountStatus": "active",
-      "enrolledCourses": [
-        "96fd"
+        "curso_id_05"
       ],
-      "createdCourses": [
-        "7812"
-      ]
+      "enrolledCourses": []
     }
   ],
   "courses": [
     {
-      "id": "6707",
-      "title": "Learn the basics of writing",
-      "description": "Learn the basics of writing and how to start ur own book all by ur self",
-      "category": "Writing",
-      "difficultyLevel": "Beginner",
-      "sections": [
-        {
-          "title": "Section 1: reading",
-          "content": []
-        }
-      ],
-      "instructorId": "e7f7",
-      "instructorName": "wednesdayASD1",
-      "publishedDate": "2025-10-25T16:09:51.267Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "05ac",
-      "title": "Java basics",
-      "description": "here you will learn the basics of Java, there's no need of previous knowledge so be ready for quite an experience!",
-      "category": "Programming",
-      "difficultyLevel": "Beginner",
-      "sections": [
-        {
-          "title": "Classes and Objetcs",
-          "content": []
-        },
-        {
-          "title": "Methods",
-          "content": []
-        },
-        {
-          "title": "Collections",
-          "content": []
-        }
-      ],
-      "instructorId": "d08b",
-      "instructorName": "saladito",
-      "publishedDate": "2025-10-30T00:58:52.923Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "3f2c",
-      "title": "Pop music at 2010",
-      "description": "How pop music transcends all barriers around the world and who its main leaders were.",
-      "category": "Music",
-      "difficultyLevel": "Beginner",
-      "sections": [
-        {
-          "title": "history part 1",
-          "content": []
-        },
-        {
-          "title": "history part 2 ",
-          "content": []
-        }
-      ],
-      "instructorId": "d08b",
-      "instructorName": "saladito",
-      "publishedDate": "2025-10-30T01:02:44.702Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "bf99",
-      "title": "Learn Chinese",
-      "description": "Ni hao everybody",
-      "category": "Language Learning",
-      "difficultyLevel": "Beginner",
-      "sections": [],
-      "instructorId": "d08b",
-      "instructorName": "saladito",
-      "publishedDate": "2025-10-30T01:04:04.413Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "7b19",
-      "title": "Fine arts",
-      "description": "A theoretical knowledge and practical skills in visuals and performing arts",
-      "category": "Arts",
-      "difficultyLevel": "Intermediate",
-      "sections": [],
-      "instructorId": "d08b",
-      "instructorName": "saladito",
-      "publishedDate": "2025-10-30T01:06:19.954Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "57c8",
-      "title": "Análisis Musical",
-      "description": "marc anthony, michael jackson, taylor swift y mas",
-      "category": "Music",
-      "difficultyLevel": "Beginner",
-      "sections": [],
-      "instructorId": "d08b",
-      "instructorName": "saladito",
-      "publishedDate": "2025-10-30T02:03:09.922Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "a268",
-      "title": "Herbalism",
-      "description": "Discover herbal medicine careers & why now is a great time to work in a herbalism or holistic medicine profession.",
-      "category": "Health",
-      "difficultyLevel": "Beginner",
-      "sections": [
-        {
-          "title": "Introduction",
-          "content": [
-            {
-              "title": "Different ways you can be an Herbalist",
-              "contentType": "Video",
-              "file": "",
-              "textContent": "",
-              "contentDescription": "First lesson",
-              "fileUrl": "https://www.youtube.com/watch?v=sFHZaDOGJJo",
-              "fileName": "",
-              "uploadProgress": 0
-            }
-          ]
-        }
-      ],
-      "instructorId": "5f8e",
-      "instructorName": "taylor swift",
-      "publishedDate": "2025-10-30T21:34:08.274Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "0395",
-      "title": "Singing and vocal technique",
-      "description": "Learn all the singing secrets and unlock the potential of your voice from the first week, in any style!",
-      "category": "Music",
+      "id": "curso_id_01",
+      "title": "Data Science con Python: Pandas y NumPy",
+      "description": "Un curso intensivo para aprender a manipular y analizar datos utilizando las bibliotecas más populares de Python. Ideal para quienes buscan iniciarse en el análisis de datos.",
+      "category": "DATA_SCIENCE",
       "difficultyLevel": "Intermediate",
       "sections": [
         {
-          "title": "Presentation",
+          "id": "sec_01a",
+          "title": "Sección 1: Fundamentos de NumPy",
           "content": [
             {
-              "title": "Introduction",
+              "id": "uuid-cont-01a",
+              "title": "Introducción a los Arrays N-dimensionales",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "Aprende qué es un ndarray y por qué es fundamental para el cómputo científico.",
+              "fileUrl": "https://www.youtube.com/watch?v=cYm3DBG6KfI",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            },
+            {
+              "id": "uuid-cont-01b",
+              "title": "Operaciones y Broadcasting",
               "contentType": "Text",
               "file": "",
-              "textContent": "I welcome you to this vocal technique training, a course that will help you achieve the greatest milestone for any singer, which is to have control over your own voice, no matter what you sing. You will know what you want to do when you sing and how to do it. And we are going to achieve this effectively.  \nYou are probably familiar with concepts such as chest voice, head voice, falsetto, resonators, voice types, singing modality. The problem is that there is so much information that in the end, you don't even know where to start when you want to learn to sing, or how to continue when you feel stuck.  \nMy goal is to save you time and resources.  \nIn this course, you will have all the useful and practical tools you need if what you want is to project your voice effortlessly, enhance your vocal abilities, and take your singing to the next level.  \nHaving said that, I hope you enjoy this course immensely!",
-              "contentDescription": "Brief introduction to the purpose and contents of the course.",
+              "textContent": "El Broadcasting es una característica poderosa de NumPy que permite realizar operaciones aritméticas entre arrays de diferentes dimensiones. Esto evita la necesidad de bucles explícitos, haciendo el código más rápido y legible. Por ejemplo, sumar un vector a cada fila de una matriz.",
+              "contentDescription": "Explicación teórica del concepto de Broadcasting.",
               "fileUrl": "",
               "fileName": "",
-              "uploadProgress": 0
+              "uploadProgress": 0,
+              "questions": []
+            }
+          ]
+        },
+        {
+          "id": "sec_01b",
+          "title": "Sección 2: Manipulación de Datos con Pandas",
+          "content": [
+            {
+              "id": "uuid-cont-01c",
+              "title": "DataFrames y Series",
+              "contentType": "Pdf",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "Guía de referencia rápida (Cheat Sheet) de los comandos más usados en Pandas.",
+              "fileUrl": "https://pandas.pydata.org/pandas-docs/version/0.25.3/pandas.pdf",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
             }
           ]
         }
       ],
-      "instructorId": "5f8e",
-      "instructorName": "taylor swift",
-      "publishedDate": "2025-10-30T21:48:19.923Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0,
-      "announcements": [
-        {
-          "title": "Suspensión de Clases Presenciales: Martes 5 de Noviembre",
-          "content": "Pedimos disculpas por cualquier inconveniente que esto pueda causar. ¡Nos vemos el viernes con la voz lista para trabajar!",
-          "publishedDate": "2025-11-06T02:11:30.913Z",
-          "isExpanded": false
-        }
-      ]
+      "instructorId": "user001_instructor",
+      "instructorName": "Prof. Ana Gómez",
+      "publishedDate": "2025-10-15T10:00:00Z",
+      "status": "published",
+      "totalDurationInHours": 6.5,
+      "averageRating": 4.8,
+      "numberOfReviews": 102,
+      "ratings": []
     },
     {
-      "id": "eae5",
-      "title": "Ritmo Salvaje",
-      "description": "Un curso donde la música se siente con todo el cuerpo. Mezcla de pop y rock latino, explosión de movimientos y una voz que ruge con identidad. Aquí aprenderás a transformar tus emociones en ritmo, tu fuerza en baile y tu historia en canción. Expresa tu lado más auténtico: tu lado salvaje.",
-      "category": "Music",
+      "id": "curso_id_02",
+      "title": "Fotografía Nocturna para Principiantes",
+      "description": "Aprende a capturar la magia de la noche. Este curso cubre la configuración esencial de la cámara (ISO, apertura, velocidad de obturación) y técnicas de larga exposición.",
+      "category": "PHOTOGRAPHY",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "id": "sec_02a",
+          "title": "Sección 1: El Triángulo de Exposición",
+          "content": [
+            {
+              "id": "uuid-cont-02a",
+              "title": "Controlando la Luz",
+              "contentType": "Text",
+              "file": "",
+              "textContent": "El triángulo de exposición se refiere a los tres pilares de la fotografía: ISO, Apertura y Velocidad de Obturación. Dominar cómo interactúan es el primer paso para dejar el modo automático.",
+              "contentDescription": "Conceptos básicos de la exposición manual.",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            }
+          ]
+        },
+        {
+          "id": "sec_02b",
+          "title": "Sección 2: Técnicas de Larga Exposición",
+          "content": [
+            {
+              "id": "uuid-cont-02b",
+              "title": "Capturando Estelas de Luz (Video)",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "Cómo configurar tu cámara en modo 'Bulb' o larga exposición para capturar el movimiento de luces de autos o estrellas.",
+              "fileUrl": "https://www.youtube.com/watch?v=DHoR0CCZSV4",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            }
+          ]
+        }
+      ],
+      "instructorId": "user003_ambos_roles",
+      "instructorName": "Sofia Chen",
+      "publishedDate": "2025-11-01T12:00:00Z",
+      "status": "published",
+      "totalDurationInHours": 3,
+      "averageRating": 4.5,
+      "numberOfReviews": 45,
+      "ratings": []
+    },
+    {
+      "id": "curso_id_03",
+      "title": "Gestión de Proyectos con Metodologías Ágiles",
+      "description": "Una introducción completa a Scrum y Kanban, enfocada en la gestión de equipos de software y la entrega de valor continua.",
+      "category": "BUSINESS",
       "difficultyLevel": "Intermediate",
-      "sections": [],
-      "instructorId": "3efc",
-      "instructorName": "shakira",
-      "publishedDate": "2025-11-03T21:56:21.067Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 5,
-      "numberOfReviews": 1,
-      "ratings": [
-        {
-          "memberId": "c541",
-          "rating": 5
-        }
-      ]
-    },
-    {
-      "id": "ce42",
-      "title": "Caderas en Ritmo",
-      "description": "Un curso para liberar el movimiento y convertir cada paso en actitud. Inspirado en la fuerza femenina, las raíces latinas y la precisión del belly dance, aquí aprenderás a dominar tus caderas, a fluir con los ritmos del pop urbano y a contar historias con tu cuerpo. Baila con poder. Baila con identidad.",
-      "category": "Arts",
-      "difficultyLevel": "Beginner",
-      "sections": [],
-      "instructorId": "3efc",
-      "instructorName": "shakira",
-      "publishedDate": "2025-11-03T21:57:49.804Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 5,
-      "numberOfReviews": 1,
-      "ratings": [
-        {
-          "memberId": "c541",
-          "rating": 5
-        }
-      ]
-    },
-    {
-      "id": "ef14",
-      "title": "Angular from beginner",
-      "description": "Angular framework",
-      "category": "Programming",
-      "difficultyLevel": "Beginner",
       "sections": [
         {
-          "title": "Fundamentos",
+          "id": "sec_03a",
+          "title": "Sección 1: Fundamentos de Agile",
           "content": [
             {
-              "title": "Componentes",
+              "id": "uuid-cont-03a",
+              "title": "Manifiesto Ágil (PDF)",
               "contentType": "Pdf",
               "file": "",
               "textContent": "",
-              "contentDescription": "",
-              "fileUrl": "/uploads/2cb4981a-a39f-4be8-a7d4-9d20073c5cc6.pdf",
+              "contentDescription": "Lectura y análisis de los 4 valores y 12 principios del Manifiesto Ágil.",
+              "fileUrl": "/uploads/agile_manifesto.pdf",
               "fileName": "",
-              "uploadProgress": 0
-            },
-            {
-              "title": "Guards",
-              "contentType": "Pdf",
-              "file": "",
-              "textContent": "",
-              "contentDescription": "",
-              "fileUrl": "/uploads/bdf7322d-809b-44ea-ac3c-8f4eaa3c98cd.pdf",
-              "fileName": "",
-              "uploadProgress": 0
+              "uploadProgress": 0,
+              "questions": []
             }
           ]
         },
         {
-          "title": "Desarrollo",
+          "id": "sec_03b",
+          "title": "Sección 2: Framework Scrum",
           "content": [
             {
-              "title": "Indices",
-              "contentType": "Video",
-              "file": "",
-              "textContent": "",
-              "contentDescription": "",
-              "fileUrl": "/uploads/e9de8143-3780-475d-b816-c4cd3b704cd6.mp4",
-              "fileName": "",
-              "uploadProgress": 0
-            }
-          ]
-        }
-      ],
-      "instructorId": "c541",
-      "instructorName": "Lautaro Ezequiel Ramos",
-      "publishedDate": "2025-11-07T12:14:55.251Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "96fd",
-      "title": "Química Esencial: La Ciencia de Todo lo que Nos Rodea",
-      "description": "Explorá los principios básicos de la química a través de experimentos simples y ejemplos de la vida diaria. Entenderás cómo y por qué ocurren las reacciones, la estructura de los átomos y los compuestos que conforman el mundo.",
-      "category": "Education",
-      "difficultyLevel": "Beginner",
-      "sections": [
-        {
-          "title": "Introducción a la Química y la Materia",
-          "content": [
-            {
-              "title": "¿Qué es la Química?",
-              "contentType": "Text",
-              "file": "",
-              "textContent": "La química es la ciencia que estudia la materia: todo lo que tiene masa y ocupa un lugar en el espacio. También analiza cómo está formada, cómo se transforma y cómo interactúa con otras sustancias. Gracias a la química podemos desarrollar medicamentos, procesar alimentos, crear nuevos materiales y explicar fenómenos cotidianos como por qué el hielo flota o cómo se oxida el hierro.\n\nEn esta unidad comprenderás que la química no es solo una materia escolar: es una herramienta para entender el mundo que nos rodea.\n\n",
-              "contentDescription": "La química es la ciencia que estudia la composición, estructura y propiedades de la materia, así como los cambios que esta puede experimentar. Todo lo que nos rodea está formado por sustancias químicas: el aire que respiramos, los alimentos que comemos y nuestro propio cuerpo. En esta lección exploraremos por qué la química es fundamental para entender el mundo.\n",
-              "fileUrl": "",
-              "fileName": "",
-              "uploadProgress": 0
-            },
-            {
-              "title": "Propiedades físicas y químicas",
-              "contentType": "Text",
-              "file": "",
-              "textContent": "La materia puede encontrarse en distintos estados según cómo estén organizadas sus partículas:\n\n• Sólido: tiene forma y volumen definidos. Ej.: hielo, madera.\n• Líquido: tiene volumen definido, pero toma la forma del recipiente. Ej.: agua.\n• Gaseoso: no tiene forma ni volumen definido. Ej.: oxígeno, vapor de agua.\n• Plasma: estado de alta energía presente en el Sol y en los rayos.\n\nLos cambios de estado son procesos físicos (no cambian la sustancia) como fusión, solidificación, evaporación y condensación. Estos estados se modifican según la temperatura y la presión.\n",
-              "contentDescription": "Actividad para identificar diferencias entre propiedades físicas (como color, densidad o estado) y propiedades químicas (como inflamabilidad o reactividad). Los estudiantes deberán analizar ejemplos y clasificarlos correctamente.\n",
-              "fileUrl": "",
-              "fileName": "",
-              "uploadProgress": 0
-            }
-          ]
-        }
-      ],
-      "instructorId": "62be",
-      "instructorName": "luciano perez",
-      "publishedDate": "2025-11-07T14:44:01.369Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 5,
-      "numberOfReviews": 2,
-      "ratings": [
-        {
-          "memberId": "c541",
-          "rating": 5
-        },
-        {
-          "memberId": "ee39",
-          "rating": 5
-        }
-      ]
-    },
-    {
-      "id": "ff16",
-      "title": "Crochet",
-      "description": "¡En este curso aprenderás a confeccionar prendas, accesorios, decoraciones, amigurumis y mucho más!",
-      "category": "Crafts",
-      "difficultyLevel": "Beginner",
-      "sections": [
-        {
-          "title": "Introducción",
-          "content": [
-            {
-              "title": "Diagnóstico",
-              "contentType": "Quiz",
-              "file": "",
-              "textContent": "",
-              "contentDescription": "",
-              "fileUrl": "",
-              "fileName": "",
-              "uploadProgress": 0,
-              "questions": [
-                {
-                  "questionText": "¿Que es un punto cadena (cadena base)?",
-                  "options": [
-                    "Un punto usado solo para cerrar tejidos circulares",
-                    "Un punto que se utiliza únicamente al final del tejido",
-                    "Una secuencia de puntos que sirve como base para comenzar la labor"
-                  ],
-                  "correctAnswerIndex": 2
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "instructorId": "5f8e",
-      "instructorName": "taylor swift",
-      "publishedDate": "2025-11-07T00:29:19.294Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0
-    },
-    {
-      "id": "2145",
-      "title": "ausbajsf",
-      "description": "fhsidfhsidfs",
-      "category": "Mathematics",
-      "difficultyLevel": "Beginner",
-      "sections": [
-        {
-          "title": "sfsfsfsd",
-          "content": [
-            {
-              "id": "388327d8-2a07-444f-963b-d7a54f9db3fb",
-              "title": "jbjbjbj",
-              "contentType": "Video",
-              "file": "",
-              "textContent": "",
-              "contentDescription": "Cuestionario evaluativo",
-              "fileUrl": "https://www.youtube.com/watch?v=QzQbp3H1cfg&list=RDQzQbp3H1cfg&start_radio=1",
-              "fileName": "",
-              "uploadProgress": 0,
-              "questions": []
-            },
-            {
-              "id": "97c31e52-a9de-4d0f-be22-169d48ebd433",
-              "title": "Exams",
-              "contentType": "Quiz",
-              "file": "",
-              "textContent": "",
-              "contentDescription": "",
-              "fileUrl": "",
-              "fileName": "",
-              "uploadProgress": 0,
-              "questions": [
-                {
-                  "questionText": "¿De qué color es el cielo?",
-                  "options": [
-                    "Rojo",
-                    "Verde",
-                    "Azul",
-                    "Amarillo"
-                  ],
-                  "correctAnswerIndex": 3,
-                  "score": 5
-                },
-                {
-                  "questionText": "¿Cuál es el país más poblado del mundo?",
-                  "options": [
-                    "Estados Unidos",
-                    "Japon",
-                    "Rusia",
-                    "India",
-                    "China"
-                  ],
-                  "correctAnswerIndex": 4,
-                  "score": 6
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "instructorId": "5f8e",
-      "instructorName": "taylor swift",
-      "publishedDate": "2025-11-07T11:36:09.936Z",
-      "status": "draft",
-      "totalDurationInHours": 0,
-      "averageRating": 0,
-      "numberOfReviews": 0,
-      "announcements": [
-        {
-          "title": "zZz",
-          "content": "qsqsqsq",
-          "publishedDate": "2025-11-07T12:35:53.923Z",
-          "isExpanded": false
-        }
-      ]
-    },
-    {
-      "id": "7812",
-      "title": "Python",
-      "description": "Learn basics of Python Programming Language.",
-      "category": "Data Science",
-      "difficultyLevel": "Beginner",
-      "sections": [
-        {
-          "title": "aaaaa",
-          "content": [
-            {
-              "id": "c4a65666-2e32-428e-8bc7-c674d40d3111",
-              "title": "Arrays",
-              "contentType": "Pdf",
-              "file": "",
-              "textContent": "",
-              "contentDescription": "Arrays manipulation.",
-              "fileUrl": "/uploads/8d906f14-1dfa-44b4-92f4-7d36e5e8da26.pdf",
-              "fileName": "",
-              "uploadProgress": 0,
-              "questions": []
-            },
-            {
-              "id": "ec206671-0496-4777-9ec5-8600a57b3a53",
-              "title": "Guards",
-              "contentType": "Video",
-              "file": "",
-              "textContent": "",
-              "contentDescription": "",
-              "fileUrl": "/uploads/67d0fb96-a44c-40fd-9db6-181098fb3081.mp4",
-              "fileName": "",
-              "uploadProgress": 0,
-              "questions": []
-            },
-            {
-              "id": "c8cdadc7-dcf6-4cf7-936f-38e09f301b42",
-              "title": "Auth",
-              "contentType": "Video",
-              "file": "",
-              "textContent": "",
-              "contentDescription": "",
-              "fileUrl": "https://www.youtube.com/embed/41qC3w3UUkU",
-              "fileName": "",
-              "uploadProgress": 0,
-              "questions": []
-            },
-            {
-              "id": "86456e3f-5bb2-4509-9839-3611f4eecbb6",
-              "title": "aaaa",
+              "id": "uuid-cont-03b",
+              "title": "Roles de Scrum (Documento)",
               "contentType": "Word",
               "file": "",
               "textContent": "",
-              "contentDescription": "",
-              "fileUrl": "https://docs.google.com/document/d/1oYpVOAUBEEr7E7qOMDtfKRu-DHk5eIK4FGCds230qqo/edit?tab=t.jqqc0x5zr4pm",
+              "contentDescription": "Descripción detallada de las responsabilidades del Product Owner, Scrum Master y el Equipo de Desarrollo.",
+              "fileUrl": "/uploads/scrum_roles.docx",
               "fileName": "",
               "uploadProgress": 0,
               "questions": []
             },
             {
-              "id": "20284e96-ce09-46a7-abae-d9facdd2040c",
-              "title": "nnnn",
-              "contentType": "Pdf",
+              "id": "uuid-cont-03c",
+              "title": "Las Ceremonias de Scrum (Video)",
+              "contentType": "Video",
               "file": "",
               "textContent": "",
-              "contentDescription": "",
-              "fileUrl": "https://campus.mdp.utn.edu.ar/pluginfile.php/176761/mod_resource/content/1/Clase%201%20-%20ADMINISTRACION%20Y%20GESTION%20DE%20PROYECTOS.pdf",
+              "contentDescription": "Explicación del Sprint Planning, Daily Stand-up, Sprint Review y Retrospectiva.",
+              "fileUrl": "https://www.youtube.com/watch?v=NPc7YyBUrMk",
               "fileName": "",
               "uploadProgress": 0,
               "questions": []
@@ -757,176 +321,121 @@
           ]
         }
       ],
-      "instructorId": "ee39",
-      "instructorName": "Lautaro Ezequiel Ramos",
-      "publishedDate": "2025-11-10T00:14:28.610Z",
+      "instructorId": "user004_mentor",
+      "instructorName": "David Lee",
+      "publishedDate": "2025-09-01T08:00:00Z",
       "status": "draft",
       "totalDurationInHours": 0,
       "averageRating": 0,
       "numberOfReviews": 0,
       "ratings": []
+    },
+    {
+      "id": "curso_id_04",
+      "title": "Cocina Italiana: Pastas Caseras",
+      "description": "Aprende a hacer pasta fresca desde cero, incluyendo tagliatelle, ravioli y las salsas clásicas para acompañarlas.",
+      "category": "COOKING",
+      "difficultyLevel": "Beginner",
+      "sections": [
+        {
+          "id": "sec_04a",
+          "title": "Sección 1: La Masa",
+          "content": [
+            {
+              "id": "uuid-cont-04a",
+              "title": "Ingredientes y Amasado (Video)",
+              "contentType": "Video",
+              "file": "",
+              "textContent": "",
+              "contentDescription": "La proporción correcta de harina y huevo, y la técnica de amasado.",
+              "fileUrl": "/uploads/amasado_pasta.mp4",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            }
+          ]
+        },
+        {
+          "id": "sec_04b",
+          "title": "Sección 2: Salsas Clásicas",
+          "content": [
+            {
+              "id": "uuid-cont-04b",
+              "title": "Salsa Carbonara Auténtica",
+              "contentType": "Text",
+              "file": "",
+              "textContent": "La verdadera Carbonara NO LLEVA CREMA. Solo yema de huevo, guanciale (o panceta), queso Pecorino Romano y pimienta negra. El secreto está en mezclar la pasta caliente con la mezcla de huevo y queso fuera del fuego para crear una salsa cremosa.",
+              "contentDescription": "Receta y técnica para la Carbonara perfecta.",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            },
+            {
+              "id": "uuid-cont-04c",
+              "title": "Salsa Pesto Genovese",
+              "contentType": "Text",
+              "file": "",
+              "textContent": "Ingredientes: Albahaca fresca, piñones, ajo, queso Parmesano-Reggiano y aceite de oliva virgen extra. Usar un mortero es la clave para liberar los aceites esenciales de la albahaca.",
+              "contentDescription": "La receta tradicional del pesto.",
+              "fileUrl": "",
+              "fileName": "",
+              "uploadProgress": 0,
+              "questions": []
+            }
+          ]
+        }
+      ],
+      "instructorId": "user001_instructor",
+      "instructorName": "Prof. Ana Gómez",
+      "publishedDate": "2025-11-05T15:00:00Z",
+      "status": "published",
+      "totalDurationInHours": 2,
+      "averageRating": 5,
+      "numberOfReviews": 1,
+      "ratings": [
+        {
+          "memberId": "user002_estudiante",
+          "rating": 5
+        }
+      ]
     }
   ],
   "subscriptions": [
     {
-      "id": "1",
-      "courseId": "bf99",
-      "userId": "1"
+      "id": "sub_001",
+      "courseId": "curso_id_03",
+      "userId": "user001_instructor"
     },
     {
-      "id": "2",
-      "courseId": "7b19",
-      "userId": "1"
+      "id": "sub_002",
+      "courseId": "curso_id_01",
+      "userId": "user002_estudiante"
     },
     {
-      "id": "3",
-      "courseId": "3f2c",
-      "userId": "1"
+      "id": "sub_003",
+      "courseId": "curso_id_04",
+      "userId": "user002_estudiante"
     },
     {
-      "id": "bd23",
-      "courseId": "05ac",
-      "userId": "5f8e"
+      "id": "sub_004",
+      "courseId": "curso_id_01",
+      "userId": "user003_ambos_roles"
     },
     {
-      "id": "8cf6",
-      "courseId": "bf99",
-      "userId": "5f8e"
+      "id": "sub_005",
+      "courseId": "curso_id_02",
+      "userId": "user003_ambos_roles"
     },
     {
-      "id": "7fd3",
-      "courseId": "7b19",
-      "userId": "3efc"
+      "id": "sub_006",
+      "courseId": "curso_id_01",
+      "userId": "user004_mentor"
     },
     {
-      "id": "24e6",
-      "courseId": "3f2c",
-      "userId": "3efc"
-    },
-    {
-      "id": "2cce",
-      "courseId": "0395",
-      "userId": "d08b"
-    },
-    {
-      "id": "c17c",
-      "courseId": "ce42",
-      "userId": "5f8e"
-    },
-    {
-      "id": "1719",
-      "courseId": "a268",
-      "userId": "1"
-    },
-    {
-      "id": "fd68",
-      "courseId": "2145",
-      "userId": "1"
-    },
-    {
-      "id": "1398",
-      "courseId": "96fd",
-      "userId": "3efc"
-    },
-    {
-      "id": "e78e",
-      "courseId": "0395",
-      "userId": "3efc"
-    },
-    {
-      "id": "5489",
-      "courseId": "96fd",
-      "userId": "c541"
-    },
-    {
-      "id": "47c5",
-      "courseId": "96fd",
-      "userId": "f505"
-    },
-    {
-      "id": "b150",
-      "courseId": "2145",
-      "userId": "c541"
-    },
-    {
-      "id": "b888",
-      "courseId": "ef14",
-      "userId": "f505"
-    },
-    {
-      "id": "ff74",
-      "courseId": "ef14",
-      "userId": "3944"
-    },
-    {
-      "id": "49ee",
-      "courseId": "96fd",
-      "userId": "64cf"
-    },
-    {
-      "id": "8490",
-      "courseId": "96fd",
-      "userId": "d08b"
-    },
-    {
-      "id": "68f5",
-      "courseId": "96fd",
-      "userId": "3"
-    },
-    {
-      "id": "e1c8",
-      "courseId": "96fd",
-      "userId": "2"
-    },
-    {
-      "id": "f8fe",
-      "courseId": "96fd",
-      "userId": "ba55"
-    },
-    {
-      "id": "1014",
-      "courseId": "ff16",
-      "userId": "c541"
-    },
-    {
-      "id": "dc6e",
-      "courseId": "ef14",
-      "userId": "2"
-    },
-    {
-      "id": "54e9",
-      "courseId": "a268",
-      "userId": "2"
-    },
-    {
-      "id": "bfc2",
-      "courseId": "eae5",
-      "userId": "3"
-    },
-    {
-      "id": "ddfd",
-      "courseId": "7b19",
-      "userId": "ba55"
-    },
-    {
-      "id": "8ed6",
-      "courseId": "3f2c",
-      "userId": "ba55"
-    },
-    {
-      "id": "efd8",
-      "courseId": "ff16",
-      "userId": "ba55"
-    },
-    {
-      "id": "7115",
-      "userId": "d08b",
-      "courseId": "ef14"
-    },
-    {
-      "id": "adc0",
-      "userId": "ee39",
-      "courseId": "96fd"
+      "id": "9717",
+      "userId": "user001_instructor",
+      "courseId": "curso_id_02"
     }
   ]
 }
